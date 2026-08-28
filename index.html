@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Cidade Grande — Sitemap</title>
-
+    <title>Horizonte Roleplay — Construa uma Vida!</title>
     <style>
         * {
             margin: 0;
@@ -15,100 +13,228 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
+            background: #040812;
             color: #fff;
+            overflow-x: hidden;
         }
 
         header {
-            padding: 45px 20px;
-            text-align: center;
-            background: #0e0e0e;
-            border-bottom: 1px solid #242424;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(4, 8, 18, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 36px;
+        .logo {
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #00bfff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #0a1930 0%, #040812 70%);
+        }
+
+        .hero h1 {
+            font-size: 42px;
             font-weight: 900;
             letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        header p {
-            margin-top: 10px;
-            color: #888;
+        .hero h1 span {
+            color: #00bfff;
+        }
+
+        .hero p {
+            color: #8fa3bf;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #00bfff;
+            color: #040812;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #009acd;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
         }
 
         .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 45px auto;
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
         }
 
-        .title {
-            margin-bottom: 25px;
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .title h2 {
-            font-size: 28px;
-        }
-
-        .title p {
-            margin-top: 8px;
-            color: #888;
-        }
-
-        .sitemap {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .box {
-            background: #111;
-            border: 1px solid #242424;
+        .card {
+            background: rgba(10, 20, 40, 0.6);
+            border: 1px solid rgba(0, 191, 255, 0.15);
             border-radius: 16px;
             padding: 25px;
-            transition: .2s;
+            transition: 0.3s;
         }
 
-        .box:hover {
-            transform: translateY(-4px);
-            border-color: #555;
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00bfff;
+            box-shadow: 0 5px 20px rgba(0, 191, 255, 0.2);
         }
 
-        .box h3 {
-            font-size: 19px;
-            margin-bottom: 18px;
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #00bfff;
         }
 
-        .box ul {
+        .card ul {
             list-style: none;
         }
 
-        .box li {
-            margin: 12px 0;
+        .card li {
+            margin: 10px 0;
         }
 
-        .box a {
-            color: #999;
+        .card a {
+            color: #c0d2e6;
             text-decoration: none;
-            transition: .2s;
+            font-size: 14px;
+            transition: 0.2s;
         }
 
-        .box a:hover {
-            color: #fff;
+        .card a:hover {
+            color: #00bfff;
+            padding-left: 5px;
         }
 
         footer {
-            margin-top: 60px;
-            padding: 30px 20px;
             text-align: center;
-            background: #0e0e0e;
-            border-top: 1px solid #242424;
-            color: #666;
+            padding: 40px 20px;
+            background: #020408;
+            color: #5a7393;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
         }
+    </style>
+</head>
+<body>
 
-        @media (max-width: 900px) {
-            .sitemap {
+    <header>
+        <div class="logo">HORIZONTE RP</div>
+    </header>
+
+    <section class="hero">
+        <h1>Construa uma <span>Vida!</span></h1>
+        <p>Em nossos servidores você pode construir uma nova vida atuando como um personagem único. Junte-se à nossa comunidade!</p>
+        <div class="btn-group">
+            <a href="#começar" class="btn btn-primary">Baixar Jogo</a>
+            <a href="loja.html" class="btn btn-secondary">Acessar Loja</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Navegação do Servidor</h2>
+
+        <div class="cards-grid">
+            <div class="card">
+                <h3>🎮 Servidor & Jogo</h3>
+                <ul>
+                    <li><a href="servidor.html">Como Jogar</a></li>
+                    <li><a href="empregos.html">Empregos Disponíveis</a></li>
+                    <li><a href="veiculos.html">Catálogo de Veículos</a></li>
+                    <li><a href="casas.html">Sistema de Casas</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📥 Downloads</h3>
+                <ul>
+                    <li><a href="launcher.html">Baixar Launcher PC</a></li>
+                    <li><a href="apk.html">Baixar APK Android</a></li>
+                    <li><a href="atualizacoes.html">Notas de Atualização</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>👑 Loja & VIP</h3>
+                <ul>
+                    <li><a href="loja.html">Loja Oficial</a></li>
+                    <li><a href="vip.html">Vantagens VIP</a></li>
+                    <li><a href="socio.html">Plano de Sócios</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>👥 Comunidade & Suporte</h3>
+                <ul>
+                    <li><a href="discord.html">Discord Oficial (115K)</a></li>
+                    <li><a href="suporte.html">Central de Atendimento</a></li>
+                    <li><a href="regras.html">Regras do Servidor</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Horizonte Games. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
                 grid-template-columns: repeat(2, 1fr);
             }
         }
