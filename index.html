@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizonte Roleplay — Construa uma Vida!</title>
+    <title>Cidade Grande — Lançamento Oficial</title>
     <style>
         * {
             margin: 0;
@@ -13,99 +13,109 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #040812;
+            background: #080202;
             color: #fff;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 30px;
-            background: rgba(4, 8, 18, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 25px 30px;
+            background: rgba(10, 2, 2, 0.95);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
         }
 
         .logo {
             font-weight: 900;
-            font-size: 18px;
-            letter-spacing: 1px;
-            color: #00bfff;
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: #ff1a1a;
+            text-transform: uppercase;
         }
 
         .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 60px 20px;
-            background: radial-gradient(circle at center, #0a1930 0%, #040812 70%);
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #260505 0%, #080202 70%);
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         .hero h1 span {
-            color: #00bfff;
+            color: #ff1a1a;
         }
 
         .hero p {
-            color: #8fa3bf;
-            font-size: 14px;
+            color: #bfa3a3;
+            font-size: 15px;
             max-width: 500px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 35px auto;
             line-height: 1.5;
         }
 
-        /* Estilo do Cronômetro */
         .countdown-container {
-            background: rgba(0, 191, 255, 0.05);
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            border-radius: 12px;
-            padding: 15px;
-            max-width: 400px;
-            margin: 0 auto 30px auto;
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 25px 35px;
+            max-width: 450px;
+            margin: 0 auto 40px auto;
             text-align: center;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
         }
 
         .countdown-title {
-            font-size: 12px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #00bfff;
-            margin-bottom: 8px;
+            letter-spacing: 2px;
+            color: #ff4d4d;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .countdown-timers {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 28px;
         }
 
         .timer-box span {
             display: block;
             font-size: 11px;
-            color: #8fa3bf;
+            color: #bfa3a3;
             font-weight: normal;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-group {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 24px;
+            padding: 14px 32px;
             border-radius: 30px;
             font-weight: bold;
             text-decoration: none;
@@ -115,101 +125,37 @@
         }
 
         .btn-primary {
-            background: #00bfff;
-            color: #040812;
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
+            background: #ff1a1a;
             color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 26, 26, 0.4);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 40px auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-        }
-
-        .card {
-            background: rgba(10, 20, 40, 0.6);
-            border: 1px solid rgba(0, 191, 255, 0.15);
-            border-radius: 14px;
-            padding: 20px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: #00bfff;
-        }
-
-        .card h3 {
-            font-size: 16px;
-            margin-bottom: 12px;
-            color: #00bfff;
-        }
-
-        .card ul {
-            list-style: none;
-        }
-
-        .card li {
-            margin: 8px 0;
-        }
-
-        .card a {
-            color: #c0d2e6;
-            text-decoration: none;
-            font-size: 13px;
-            transition: 0.2s;
-            display: block;
-            padding: 3px 0;
-        }
-
-        .card a:hover {
-            color: #00bfff;
-            padding-left: 4px;
+        .btn-primary:hover {
+            background: #e60000;
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
-            background: #020408;
-            color: #5a7393;
+            padding: 25px 20px;
+            background: #040101;
+            color: #734d4d;
             font-size: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 50px;
+            border-top: 1px solid rgba(255, 0, 0, 0.05);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">HORIZONTE RP</div>
+        <div class="logo">Cidade Grande</div>
     </header>
 
     <section class="hero">
-        <h1>Construa uma <span>Vida!</span></h1>
-        <p>Em nossos servidores você pode construir uma nova vida atuando como um personagem único.</p>
+        <h1>O Grande <span>Lançamento</span></h1>
+        <p>Prepare-se para viver a sua nova história. O servidor oficial da Cidade Grande está chegando com tudo.</p>
         
-        <!-- Cronômetro Funcional -->
         <div class="countdown-container">
-            <div class="countdown-title">Próxima Grande Atualização Em:</div>
+            <div class="countdown-title">Contagem Regressiva para o Lançamento</div>
             <div class="countdown-timers">
                 <div class="timer-box"><strong id="days">00</strong><span>Dias</span></div>
                 <div class="timer-box"><strong id="hours">00</strong><span>Horas</span></div>
@@ -219,65 +165,26 @@
         </div>
 
         <div class="btn-group">
-            <a href="#navegacao" class="btn btn-primary">Explorar Site</a>
-            <a href="https://discord.gg" target="_blank" class="btn btn-secondary">Discord</a>
+            <a href="https://discord.gg" target="_blank" class="btn btn-primary">Entrar no Discord</a>
         </div>
     </section>
 
-    <main class="container" id="navegacao">
-        <h2 class="section-title">Navegação Completa</h2>
-
-        <div class="cards-grid">
-            <div class="card">
-                <h3>🎮 Servidor</h3>
-                <ul>
-                    <li><a href="servidor.html">Como Jogar</a></li>
-                    <li><a href="empregos.html">Empregos Disponíveis</a></li>
-                    <li><a href="veiculos.html">Catálogo de Veículos</a></li>
-                    <li><a href="casas.html">Sistema de Casas</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>📥 Downloads</h3>
-                <ul>
-                    <li><a href="launcher.html">Baixar Launcher PC</a></li>
-                    <li><a href="apk.html">Baixar APK Android</a></li>
-                    <li><a href="atualizacoes.html">Notas de Atualização</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>👑 Loja & VIP</h3>
-                <ul>
-                    <li><a href="loja.html">Loja Oficial</a></li>
-                    <li><a href="vip.html">Vantagens VIP</a></li>
-                    <li><a href="socio.html">Plano de Sócios</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>👥 Comunidade</h3>
-                <ul>
-                    <li><a href="https://discord.gg" target="_blank">Discord Oficial</a></li>
-                    <li><a href="suporte.html">Central de Suporte</a></li>
-                    <li><a href="regras.html">Regras do Servidor</a></li>
-                </ul>
-            </div>
-        </div>
-    </main>
-
     <footer>
-        <p>© 2026 Horizonte Games. Todos os direitos reservados.</p>
+        <p>© 2026 Cidade Grande — Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Script do Cronômetro Regressivo automático
-        const countDate = new Date().getTime() + (5 * 24 * 60 * 60 * 1000); // 5 dias a partir de agora
+        // Data alvo: 3 de Setembro de 2026 às 00:00:00
+        const launchDate = new Date("September 3, 2026 00:00:00").getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
-            const gap = countDate - now;
+            const gap = launchDate - now;
+
+            if (gap < 0) {
+                document.querySelector(".countdown-container").innerHTML = "<h3 style='color: #ff1a1a;'>SERVIDOR LANÇADO!</h3>";
+                return;
+            }
 
             const second = 1000;
             const minute = second * 60;
@@ -296,6 +203,7 @@
         }
 
         setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
