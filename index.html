@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cidade Grande — Sitemap</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+        }
+
+        header {
+            padding: 45px 20px;
+            text-align: center;
+            background: #0e0e0e;
+            border-bottom: 1px solid #242424;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            font-size: 28px;
+        }
+
+        .title p {
+            margin-top: 8px;
+            color: #888;
+        }
+
+        .sitemap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 16px;
+            padding: 25px;
+            transition: .2s;
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            border-color: #555;
+        }
+
+        .box h3 {
+            font-size: 19px;
+            margin-bottom: 18px;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box li {
+            margin: 12px 0;
+        }
+
+        .box a {
+            color: #999;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .box a:hover {
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            text-align: center;
+            background: #0e0e0e;
+            border-top: 1px solid #242424;
+            color: #666;
+        }
+
+        @media (max-width: 900px) {
+            .sitemap {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .sitemap {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CIDADE GRANDE</h1>
+        <p>Mapa completo do site</p>
+    </header>
+
+    <main class="container">
+
+        <div class="title">
+            <h2>Sitemap</h2>
+            <p>Encontre todas as áreas do Cidade Grande.</p>
+        </div>
+
+        <section class="sitemap">
+
+            <div class="box">
+                <h3>🏠 Início</h3>
+
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="sobre.html">Sobre o Servidor</a></li>
+                    <li><a href="status.html">Status do Servidor</a></li>
+                    <li><a href="noticias.html">Últimas Notícias</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🎮 Servidor</h3>
+
+                <ul>
+                    <li><a href="servidor.html">Como Jogar</a></li>
+                    <li><a href="sistemas.html">Sistemas</a></li>
+                    <li><a href="organizacoes.html">Organizações</a></li>
+                    <li><a href="empregos.html">Empregos</a></li>
+                    <li><a href="veiculos.html">Veículos</a></li>
+                    <li><a href="casas.html">Casas</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>📥 Downloads</h3>
+
+                <ul>
+                    <li><a href="downloads.html">Central de Downloads</a></li>
+                    <li><a href="launcher.html">Launcher</a></li>
+                    <li><a href="apk.html">APK</a></li>
+                    <li><a href="atualizacoes.html">Atualizações</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>📜 Informações</h3>
+
+                <ul>
+                    <li><a href="regras.html">Regras</a></li>
+                    <li><a href="termos.html">Termos de Uso</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>📰 Notícias</h3>
+
+                <ul>
+                    <li><a href="noticias.html">Todas as Notícias</a></li>
+                    <li><a href="atualizacoes.html">Atualizações</a></li>
+                    <li><a href="avisos.html">Avisos</a></li>
+                    <li><a href="changelog.html">Changelog</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🏆 Eventos</h3>
+
+                <ul>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="proximos-eventos.html">Próximos Eventos</a></li>
+                    <li><a href="ranking.html">Ranking</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>👥 Comunidade</h3>
+
+                <ul>
+                    <li><a href="discord.html">Discord</a></li>
+                    <li><a href="redes-sociais.html">Redes Sociais</a></li>
+                    <li><a href="equipe.html">Nossa Equipe</a></li>
+                    <li><a href="parceiros.html">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🛠️ Suporte</h3>
+
+                <ul>
+                    <li><a href="suporte.html">Central de Suporte</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="problemas.html">Relatar Problema</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>👑 Loja</h3>
+
+                <ul>
+                    <li><a href="loja.html">Loja</a></li>
+                    <li><a href="vip.html">VIP</a></li>
+                    <li><a href="socio.html">Sócio</a></li>
+                    <li><a href="beneficios.html">Benefícios</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🔐 Jogador</h3>
+
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Criar Conta</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
+                    <li><a href="inventario.html">Inventário</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Cidade Grande — Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
