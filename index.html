@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidade Grande — Lançamento Oficial</title>
+    <title>Cidade Grande — Em Breve</title>
     <style>
         * {
             margin: 0;
@@ -23,19 +23,38 @@
 
         header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 25px 30px;
+            padding: 20px 30px;
             background: rgba(10, 2, 2, 0.95);
             border-bottom: 1px solid rgba(255, 0, 0, 0.15);
         }
 
         .logo {
             font-weight: 900;
-            font-size: 22px;
+            font-size: 20px;
             letter-spacing: 2px;
             color: #ff1a1a;
             text-transform: uppercase;
+        }
+
+        .admin-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff4d4d;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .admin-btn:hover {
+            background: #ff1a1a;
+            color: #fff;
+            border-color: #ff1a1a;
         }
 
         .hero {
@@ -50,10 +69,10 @@
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 900;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
@@ -63,9 +82,9 @@
 
         .hero p {
             color: #bfa3a3;
-            font-size: 15px;
-            max-width: 500px;
-            margin: 0 auto 35px auto;
+            font-size: 14px;
+            max-width: 480px;
+            margin: 0 auto 30px auto;
             line-height: 1.5;
         }
 
@@ -73,36 +92,36 @@
             background: rgba(255, 0, 0, 0.05);
             border: 1px solid rgba(255, 0, 0, 0.3);
             border-radius: 16px;
-            padding: 25px 35px;
-            max-width: 450px;
-            margin: 0 auto 40px auto;
+            padding: 20px 30px;
+            max-width: 420px;
+            margin: 0 auto 30px auto;
             text-align: center;
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
         }
 
         .countdown-title {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ff4d4d;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: bold;
         }
 
         .countdown-timers {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .timer-box span {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             color: #bfa3a3;
             font-weight: normal;
-            margin-top: 5px;
+            margin-top: 4px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -115,12 +134,12 @@
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 30px;
             font-weight: bold;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 12px;
             transition: 0.2s;
         }
 
@@ -132,6 +151,130 @@
 
         .btn-primary:hover {
             background: #e60000;
+        }
+
+        /* Modal do Painel Admin */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background: #120404;
+            border: 1px solid #ff1a1a;
+            padding: 30px;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+
+        .modal h3 {
+            color: #ff1a1a;
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            background: #080202;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .modal input:focus {
+            border-color: #ff1a1a;
+            outline: none;
+        }
+
+        .modal-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .modal-btns button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        .btn-login {
+            background: #ff1a1a;
+            color: #fff;
+        }
+
+        .btn-cancel {
+            background: #331111;
+            color: #bfa3a3;
+        }
+
+        .admin-panel {
+            display: none;
+            background: #120404;
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            max-width: 400px;
+            width: 90%;
+            text-align: left;
+        }
+
+        .admin-panel h4 {
+            color: #ff4d4d;
+            margin-bottom: 12px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .admin-panel label {
+            font-size: 11px;
+            color: #bfa3a3;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .admin-panel input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background: #080202;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .admin-panel button {
+            background: #ff1a1a;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
         }
 
         footer {
@@ -148,38 +291,74 @@
 
     <header>
         <div class="logo">Cidade Grande</div>
+        <button class="admin-btn" onclick="openModal()">Staff</button>
     </header>
 
     <section class="hero">
-        <h1>O Grande <span>Lançamento</span></h1>
-        <p>Prepare-se para viver a sua nova história. O servidor oficial da Cidade Grande está chegando com tudo.</p>
+        <h1>O Mistério Está Prestes a <span>Terminar</span></h1>
+        <p>Prepare-se para viver a sua nova história. O servidor mais aguardado do Brasil está chegando com tudo.</p>
         
         <div class="countdown-container">
-            <div class="countdown-title">Contagem Regressiva para o Lançamento</div>
+            <div class="countdown-title">Lançamento Oficial Em Breve</div>
             <div class="countdown-timers">
-                <div class="timer-box"><strong id="days">00</strong><span>Dias</span></div>
-                <div class="timer-box"><strong id="hours">00</strong><span>Horas</span></div>
-                <div class="timer-box"><strong id="minutes">00</strong><span>Min</span></div>
-                <div class="timer-box"><strong id="seconds">00</strong><span>Seg</span></div>
+                <div class="timer-box"><strong id="days">X5</strong><span>Dias</span></div>
+                <div class="timer-box"><strong id="hours">XX</strong><span>Horas</span></div>
+                <div class="timer-box"><strong id="minutes">XX</strong><span>Min</span></div>
+                <div class="timer-box"><strong id="seconds">XX</strong><span>Seg</span></div>
             </div>
         </div>
 
         <div class="btn-group">
-            <a href="https://discord.gg" target="_blank" class="btn btn-primary">Entrar no Discord</a>
+            <a href="https://discord.gg/tW8YvZbCeB" id="discordLink" target="_blank" class="btn btn-primary">Entrar no Discord</a>
+        </div>
+
+        <!-- PAINEL DE CONTROLE DO ADMIN (Visível após login correto) -->
+        <div id="adminPanel" class="admin-panel">
+            <h4>Painel de Controle (Admin)</h4>
+            <label>Nova Data de Lançamento (Ex: September 3, 2026 00:00:00):</label>
+            <input type="text" id="newDateInput" placeholder="September 3, 2026 00:00:00">
+            
+            <label>Novo Link do Discord:</label>
+            <input type="text" id="newDiscordInput" placeholder="https://discord.gg/...">
+            
+            <button onclick="saveSettings()">Salvar Alterações</button>
         </div>
     </section>
 
+    <!-- MODAL DE LOGIN -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal">
+            <h3>Área Restrita</h3>
+            <input type="text" id="userInput" placeholder="Usuário">
+            <input type="password" id="passInput" placeholder="Senha">
+            <div class="modal-btns">
+                <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+                <button class="btn-login" onclick="checkLogin()">Entrar</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2026 Cidade Grande — Todos os direitos reservados.</p>
+        <p>© 2026 Cidade Grande — Todos os direitos reservados. Desenvolvido com exclusividade.</p>
     </footer>
 
     <script>
-        // Data alvo: 3 de Setembro de 2026 às 00:00:00
-        const launchDate = new Date("September 3, 2026 00:00:00").getTime();
+        // Carrega a data salva ou usa uma padrão futura longa para manter o mistério dos X se não definida
+        let launchTime = localStorage.getItem("cidadeGrandeDate");
+        let discordSaved = localStorage.getItem("cidadeGrandeDiscord");
+
+        if (discordSaved) {
+            document.getElementById("discordLink").href = discordSaved;
+        }
 
         function updateTimer() {
+            if (!launchTime) {
+                // Se o admin não definir uma data real no painel, mantém o mistério total com os "X"
+                return;
+            }
+
             const now = new Date().getTime();
-            const gap = launchDate - now;
+            const gap = launchTime - now;
 
             if (gap < 0) {
                 document.querySelector(".countdown-container").innerHTML = "<h3 style='color: #ff1a1a;'>SERVIDOR LANÇADO!</h3>";
@@ -196,6 +375,7 @@
             const m = Math.floor((gap % hour) / minute);
             const s = Math.floor((gap % minute) / second);
 
+            // Quando o admin definir a data de verdade, os números aparecem substituindo os X
             document.getElementById("days").innerText = d < 10 ? "0" + d : d;
             document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
             document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
@@ -204,6 +384,53 @@
 
         setInterval(updateTimer, 1000);
         updateTimer();
+
+        // Funções do Modal de Login
+        function openModal() {
+            document.getElementById("loginModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("userInput").value = "";
+            document.getElementById("passInput").value = "";
+        }
+
+        function checkLogin() {
+            const user = document.getElementById("userInput").value;
+            const pass = document.getElementById("passInput").value;
+
+            // Validação exata solicitada: Usuário Felipe, Senha Ricardo
+            if (user === "Felipe" && pass === "Ricardo") {
+                closeModal();
+                document.getElementById("adminPanel").style.display = "block";
+                alert("Login efetuado com sucesso, Administrador!");
+            } else {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+
+        function saveSettings() {
+            const dateVal = document.getElementById("newDateInput").value;
+            const discordVal = document.getElementById("newDiscordInput").value;
+
+            if (dateVal) {
+                const newTimestamp = new Date(dateVal).getTime();
+                if (!isNaN(newTimestamp)) {
+                    localStorage.setItem("cidadeGrandeDate", newTimestamp);
+                    launchTime = newTimestamp;
+                }
+            }
+
+            if (discordVal) {
+                localStorage.setItem("cidadeGrandeDiscord", discordVal);
+                document.getElementById("discordLink").href = discordVal;
+            }
+
+            alert("Configurações salvas e aplicadas em tempo real!");
+            document.getElementById("adminPanel").style.display = "none";
+            updateTimer();
+        }
     </script>
 </body>
 </html>
