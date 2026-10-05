@@ -1,0 +1,12 @@
+BCG V021 - PATH + TEXDB FIX
+
+- applicationId mantido: com.cidadegranderp
+- versionCode 21 / versionName 0.0.21
+- Corrigido hook NvFOpen: caminhos absolutos antigos /Android/data/<pacote>/files/ agora sao rebaseados para o diretorio runtime configurado pelo APK.
+- Isso cobre referencias nativas antigas a com.sampunity.game sem instalar uma segunda DATA.
+- Validacao da DATA agora exige texdb/mobile/mobile.etc.tmb e texdb/player/player.dxt.tmb antes de abrir o cliente.
+- Marcador de instalacao alterado para .bcg_data_v021_ok, forcando revalidacao/reinstalacao apos atualizar.
+- Preflight local: OK.
+- Build APK nao foi executado neste ambiente porque o Gradle wrapper precisou baixar gradle-8.13 e a rede do runtime nao resolveu services.gradle.org.
+
+Base: BCG_V020_SOURCE_DATA_TEXDB_FIX.zip

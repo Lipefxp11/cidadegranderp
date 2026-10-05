@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cidade Grande RP</string>
+    <string name="play_bth">JOGAR</string>
+    <string name="samp_ver">SA:MP 0.3.7</string>
+    <string name="client_name">Cidade Grande RP • Android</string>
+    <string name="bug_info">Encontrou um problema? Exporte o log pelo launcher.</string>
+    <string name="authors">Projeto de Ricardo Santos</string>
+</resources>
