@@ -1,0 +1,26 @@
+CIDADE GRANDE RP — V1.2 PREPARAÇÃO DE BUILD E GOOGLE OAUTH
+
+ATENÇÃO: ESTE PACOTE NÃO IMPLEMENTA AINDA O LOGIN GOOGLE.
+Foi adicionada automação de compilação via GitHub Actions e scripts de build.
+Não houve compilação/execução em Android neste ambiente.
+
+BLOQUEIO DE INTEGRAÇÃO GOOGLE:
+1. O OAuth Android criado no Google Cloud utiliza o pacote informado no console (anteriormente com.cidadegranderp).
+2. ESTA SOURCE usa applicationId e namespace com.xyron.game. O Google Sign-In falhará se o cliente OAuth estiver cadastrado para outro pacote.
+3. O arquivo app/google-services.json é TEMPLATE (project_number 000000000000), não é configuração real de Firebase.
+4. Para autenticação real é preciso confirmar package + SHA-1 do APK assinado, configurar o OAuth correspondente e implementar o fluxo Android de Credential Manager / Google ID, backend validando ID token (issuer/audience/exp/signature) e vínculo da conta do jogador.
+5. Não coloque chaves privadas, senhas ou keystores em repositórios públicos.
+6. Não renomeamos o pacote neste patch: há JNI/bibliotecas nativas legadas que podem depender do nome atual.
+
+COMPILAR PELO GITHUB (RECOMENDADO):
+- Faça push da pasta extraída para seu repositório privado.
+- Abra Actions > Build BCG V1.2 Android > Run workflow.
+- Baixe o artifact BCG-V1-2-DEBUG-APK.
+- Se falhar, envie o log do step Build APK.
+
+COMPILAR LOCALMENTE (LINUX COM SDK): bash compilar_linux.sh
+TERMUX: bash compilar_termux.sh (exige Java 17 e Android SDK configurado; Gradle/Android SDK podem não funcionar diretamente em todo Termux).
+
+COMPILAR COM COMANDO DIRETO: chmod +x gradlew && ./gradlew --no-daemon :app:assembleDebug
+
+OBSERVAÇÃO: o plugin Google Services poderá rejeitar o google-services.json modelo ou inconsistência de package. Substitua pelo arquivo verdadeiro do projeto Firebase se for usar Firebase; não use um JSON de exemplo em produção.

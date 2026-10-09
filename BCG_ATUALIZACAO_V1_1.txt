@@ -1,0 +1,15 @@
+CIDADE GRANDE RP — SOURCE V1.1 (PATCH CONSERVADOR)
+
+Alterações aplicadas:
+- Marca visível do launcher: Cidade Grande RP
+- Versão 1.1.0-bcg, versionCode 2
+- compileSdk 34 (mantendo targetSdk 28 por compatibilidade legada)
+- Removida declaração duplicada do Firebase Analytics
+- Activities internas SAMP e Splash não exportadas para outros aplicativos
+
+IMPORTANTE:
+- Package com.xyron.game preservado: renomeá-lo sem atualizar Java/JNI pode quebrar o cliente.
+- CEF, VOIP, bibliotecas .so, animações e código nativo não foram alterados.
+- Não houve compilação, execução em dispositivo ou validação de integração servidor.
+- A atualização não garante bloqueio de clientes externos, nem corrige bugs de chat ou conexão.
+- Para produção, revisar targetSdk, permissões, autenticação do cliente, endpoints, e atualizar dependências em etapas testadas.
