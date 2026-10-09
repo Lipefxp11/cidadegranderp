@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#EE101827" android:orientation="vertical" android:padding="22dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CONFIGURAÇÕES" android:textColor="#FFFFFF" android:textSize="25sp" android:textStyle="bold" />
+    <EditText android:id="@+id/settingsNickname" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:hint="Digite seu usuário: Nome_Sobrenome" android:singleLine="true" android:textColor="#FFFFFF" android:textColorHint="#8290A8" />
+    <TextView android:id="@+id/fpsLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Limite de FPS: 60" android:textColor="#FFFFFF" android:textSize="16sp" />
+    <SeekBar android:id="@+id/fpsSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="90" android:progress="30" android:progressTint="#8B5CF6" android:thumbTint="#8B5CF6" />
+    <RadioGroup android:id="@+id/keyboardGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <RadioButton android:id="@+id/gameKeyboard" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:checked="true" android:text="Teclado do jogo" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+        <RadioButton android:id="@+id/androidKeyboard" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Teclado Android" android:textColor="#FFFFFF" android:buttonTint="#A78BFA" />
+    </RadioGroup>
+    <CheckBox android:id="@+id/voiceCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chat de voz" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+    <CheckBox android:id="@+id/wakeCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Manter tela ligada" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+    <TextView android:id="@+id/chatLinesLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Linhas do chat: 6" android:textColor="#FFFFFF" android:textSize="16sp" />
+    <SeekBar android:id="@+id/chatLinesSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="7" android:progress="3" android:progressTint="#60A5FA" android:thumbTint="#60A5FA" />
+</LinearLayout>

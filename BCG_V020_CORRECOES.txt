@@ -1,0 +1,18 @@
+BCG V020 - DATA/TEXDB FIX
+
+Diagnostico do log de 05/10/2026:
+- Launcher baixou 463358120 bytes e extraiu 304 arquivos.
+- O cliente caiu antes de entrar no SA-MP porque faltou:
+  texdb/mobile/mobile.etc.tmb
+- Crash: TextureDatabaseRuntime::SortEntries / Load.
+- Servidor permanece configurado em 190.102.40.7:7825.
+
+Correcoes desta source:
+- Marcador da DATA alterado para .bcg_data_v020_ok para forcar nova validacao.
+- DATA esperada fixada em 463358120 bytes, igual ao manifesto observado no log.
+- O launcher agora so habilita JOGAR se existirem anim, audio, models, texdb e texdb/mobile/mobile.etc.tmb.
+- Se a DATA estiver incompleta, mostra erro em vez de abrir o GTA e causar SIGSEGV.
+- User-Agent e versao atualizados para V020.
+
+IMPORTANTE:
+O arquivo mobile.etc.tmb nao existe dentro da source recebida. Ele precisa estar dentro do data.zip oficial no caminho texdb/mobile/mobile.etc.tmb. Sem esse arquivo, nenhuma recompilacao do APK consegue tornar a DATA atual valida.

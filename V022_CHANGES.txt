@@ -1,0 +1,10 @@
+BCG V022 - GTA 2.11 TEXDB COMPAT
+
+- versionCode 22 / versionName 0.0.22
+- Novo marcador .bcg_data_v022_ok para revalidar a DATA.
+- Removida exigência incorreta de texdb/player/player.dxt.tmb.
+- Se texdb/player vier parcialmente em PVR e sem DXT, o launcher remove esse banco parcial antes de iniciar, evitando o crash conhecido em TextureDatabaseRuntime::SortEntries no GTA 2.11.
+- Mantida validação de mobile.etc.tmb e adicionada validação samp.dxt.tmb.
+- Mantidos servidor 190.102.40.7:7825 e package com.cidadegranderp.
+
+DATA de referência pesquisada: SourceForge dragondev /files. O diretório player disponível ali é somente PVR; por isso a V022 não força DXT inexistente e saneia o banco parcial.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/launcher_background_v019" />
+    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="#B8121828" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:gravity="center" android:orientation="vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat_black" android:gravity="center" android:text="BRASIL\nCIDADE GRANDE" android:textColor="#FFFFFF" android:textSize="30sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="CONECTANDO AO SERVIDOR" android:textColor="#CBD3E2" android:textSize="13sp" />
+        <ProgressBar android:id="@+id/progressBar2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="300dp" android:layout_height="7dp" android:layout_marginTop="14dp" android:indeterminate="true" android:indeterminateTint="#8B5CF6" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="190.102.40.7:7825" android:textColor="#8190A8" android:textSize="10sp" />
+    </LinearLayout>
+</FrameLayout>
