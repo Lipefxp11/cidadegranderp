@@ -1,4 +1,4 @@
-name: Build BCG V019 Launcher
+name: Build BCG V1.2 Android
 
 permissions:
   contents: read
@@ -73,6 +73,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: BCG-V019-ANDROID-LAUNCHER-CEF-BASE
+          name: BCG-V1.2-ANDROID-LAUNCHER
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
