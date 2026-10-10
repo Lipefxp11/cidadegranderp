@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String INSTALL_MARKER = ".bcg_data_v023_ok";
     private static final int IMPORT_DATA_REQUEST = 2301;
     private static final String SERVER_HOST = "190.102.40.7";
-    private static final int SERVER_PORT = 7852;
+    private static final int SERVER_PORT = 7825;
     private static final String PREFS = "bcg_client";
     private static final String PREF_NICK = "nickname";
     private static final String PREF_FPS = "fps";

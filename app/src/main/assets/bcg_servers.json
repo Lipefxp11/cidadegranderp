@@ -1,1 +1,24 @@
-{"servers": [{"name": "Cidade Grande SA-MP • #1", "host": "190.102.40.7", "port": 7852}, {"name": "Cidade Grande SA-MP • #2", "host": "190.102.40.7", "port": 7852}, {"name": "Cidade Grande SA-MP • #3", "host": "190.102.40.7", "port": 7852}, {"name": "Cidade Grande SA-MP • #4", "host": "190.102.40.7", "port": 7852}]}
+{
+  "servers": [
+    {
+      "name": "Cidade Grande SA-MP • #1",
+      "host": "190.102.40.7",
+      "port": 7825
+    },
+    {
+      "name": "Cidade Grande SA-MP • #2",
+      "host": "190.102.40.7",
+      "port": 7825
+    },
+    {
+      "name": "Cidade Grande SA-MP • #3",
+      "host": "190.102.40.7",
+      "port": 7825
+    },
+    {
+      "name": "Cidade Grande SA-MP • #4",
+      "host": "190.102.40.7",
+      "port": 7825
+    }
+  ]
+}
