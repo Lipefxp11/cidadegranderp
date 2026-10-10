@@ -44,9 +44,20 @@ public final class GoogleLogin50 extends Activity {
  }
  private void checkSavedSession(){if(busy)return;setBusy(true,"Carregando sua conta…");worker.execute(()->{
   try{request("GET","/session",null,vault().load());runOnUiThread(this::open);}
-  catch(AuthStatus53 e){runOnUiThread(()->{if(e.code==401){setBusy(false,"Renove a sessão da conta salva.");button.setText("Continuar com Google");button.setVisibility(View.VISIBLE);button.setOnClickListener(v->signIn());}else {setBusy(false,"Serviço temporariamente indisponível. Sua conta continua salva.");button.setVisibility(View.VISIBLE);}});}
-  catch(Exception e){runOnUiThread(()->{setBusy(false,"Sem conexão com o serviço. Sua conta continua salva.");button.setVisibility(View.VISIBLE);});}
+  catch(AuthStatus53 e){runOnUiThread(()->showLoginAfterSessionFailure(e.code==401
+    ? "Sua sessão precisa ser renovada. Entre novamente com Google."
+    : "Não foi possível validar a sessão (HTTP " + e.code + "). Sua conta continua salva."));}
+  catch(Exception e){runOnUiThread(()->showLoginAfterSessionFailure(
+    "Sem conexão com o serviço de login. Sua conta continua salva."));}
  });}
+ private void showLoginAfterSessionFailure(String message){
+  if(isFinishing()||isDestroyed())return;
+  busy=false;
+  draw();
+  status.setText(message);
+  status.setVisibility(View.VISIBLE);
+  button.setEnabled(true);
+ }
  private static final class AuthStatus53 extends IOException{final int code;AuthStatus53(int c){super("Serviço de login indisponível ("+c+").");code=c;}}
  private void draw(){
   FrameLayout root=new FrameLayout(this);root.setBackgroundColor(Color.rgb(3,12,24));
