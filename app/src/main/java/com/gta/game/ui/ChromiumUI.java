@@ -50,7 +50,7 @@ public final class ChromiumUI {
            (lastServerHudAt==0 || now-lastServerHudAt>15000) && now-lastHandshakeAt>=5000){
             lastHandshakeAt=now;
             diagnostic("handshake retry; phase="+connectionPhase+" ready="+ready);
-            request(2,0,0,0,bytes("/bcgui31"));
+            diagnostic("handshake retry gerenciado pelo C++");
             Log.i("BCG_UI","Revalidando interface com a GameMode");
         }
         recovery.postDelayed(this,1000);
@@ -223,7 +223,7 @@ public final class ChromiumUI {
         }catch(Exception e){Log.e("BCG_UI","Falha ao preparar dialogo",e);}
     }
     private void startHandshake(){
-        if(ready&&!paused&&connectionPhase>=3&&connectionPhase<=5){lastHandshakeAt=android.os.SystemClock.elapsedRealtime();request(2,0,0,0,bytes("/bcgui31"));diagnostic("automatic handshake queued");}
+        if(ready&&!paused&&connectionPhase>=3&&connectionPhase<=5){diagnostic("handshake gerenciado pelo C++");}
     }
     public void connection(int phase,String message){connectionPhase=phase;if(phase==3||phase==5)startHandshake();diagnostic("connection phase="+phase);try{event(new JSONObject().put("type","connection").put("phase",phase).put("text",message));}catch(Exception e){Log.e("BCG_UI","Falha no estado da conexao",e);}}
     public void pause(boolean value){paused=value;if(value){request(5,0,0,0,bytes(""));request(5,1,0,0,bytes(""));chatVisible=false;request(2,0,0,0,bytes(""));request(3,66,0,0,bytes(""));}web.setVisibility(value?View.GONE:View.VISIBLE);if(value)web.onPause();else {web.onResume();if(ready){if(latestHud!=null)event(latestHud);if(latestServerHud!=null)event(latestServerHud);event("{\"type\":\"restoreHud\"}");startHandshake();}}}
