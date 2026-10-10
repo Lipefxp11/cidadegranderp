@@ -1,0 +1,5 @@
+{
+  "origin": "https://cidadegranderpgg.discloud.app",
+  "secret": "REPLACE_WITH_SAME_64_HEX_SERVER_SECRET",
+  "port": 18552
+}

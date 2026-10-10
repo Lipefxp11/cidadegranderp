@@ -1,0 +1,5 @@
+<resources>
+    <!-- Configure the HTTPS origin of google-auth50. Client IDs are public identifiers. -->
+    <string name="google_auth50_url" translatable="false">https://cidadegranderpgg.discloud.app</string>
+    <string name="google_android50_id" translatable="false">872777251959-h307ougvbfpdsilh5af074kodmj17l30.apps.googleusercontent.com</string>
+</resources>
