@@ -294,11 +294,13 @@ void CNetGame::UpdateNetwork()
 				break;
 
 			case ID_DISCONNECTION_NOTIFICATION:
+                        Log("BCG NETWORK DIAG: servidor notificou desconexao");
 				Packet_DisconnectionNotification(pkt);
 				//SetGameState(GAMESTATE_WAIT_CONNECT);
 				break;
 
 			case ID_CONNECTION_LOST:
+                        Log("BCG NETWORK DIAG: RakNet detectou perda de conexao");
 				Packet_ConnectionLost(pkt);
 				break;
 
