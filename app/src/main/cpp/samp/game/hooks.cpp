@@ -1,4 +1,12 @@
+#include "Navigation46.h"
+#include "../Wardrobe47.h"
 #include <GLES2/gl2.h>
+#include <algorithm>
+#include "../settings.h"
+#include <dirent.h>
+#include <strings.h>
+#include "../BCGBridge.h"
+#include "../BCGTouchCapture.h"
 #include "../main.h"
 #include "../vendor/armhook/patch.h"
 #include "game.h"
@@ -430,14 +438,34 @@ uint32_t CHudColours__GetIntColour(uintptr* thiz, uint8 colour_id)
 void (*AND_TouchEvent)(int type, int num, int posX, int posY);
 void AND_TouchEvent_hook(int type, int num, int posX, int posY)
 {
+    static BCGTouchCapture chatGesture;
     // imgui
     //bool bRet = pUI->OnTouchEvent(type, num, posX, posY);
 
-    if (pGame->IsGamePaused())
+    if (pGame->IsGamePaused()) {
+        chatGesture.Reset();
+        Plugin::SetPTT(66, false);
         return AND_TouchEvent(type, num, posX, posY);
+    }
 
     if (pUI != nullptr)
     {
+        const ImVec2 position(posX, posY);
+        const bool chatHit = !BCGBridge::ChatOpen() &&
+            pNetGame && pNetGame->GetGameState() == GAMESTATE_CONNECTED &&
+            pUI->chat()->visible() && pUI->chat()->contains(position) &&
+            !pUI->keyboard()->visible() && !pUI->dialog()->visible() &&
+            !pUI->playertablist()->visible();
+        if (chatGesture.Consume(type, num, chatHit)) {
+            const auto event = type == 2 ? TouchType::push : type == 1 ? TouchType::pop : TouchType::move;
+            pUI->chat()->touchEvent(position, event);
+            return;
+        }
+        if (BCGBridge::ChatOpen()) {
+            return;
+        }
+        if (!pUI->keyboard()->visible() && !pUI->dialog()->visible() &&
+            pUI->voicebutton()->handleTouch(ImVec2(posX, posY), type, num)) return;
         switch (type)
         {
             case 2: // push
@@ -1158,14 +1186,10 @@ extern VehicleAudioPropertiesStruct VehicleAudioProperties[20000];
 int (*CRadar__DrawRadarSprite)(unsigned int iconID, float x, float y, unsigned int alpha);
 int CRadar__DrawRadarSprite_hook(unsigned int iconID, float x, float y, unsigned int alpha)
 {
-    if(iconID == 4)
-    {
-        return 0;
-    }
     return CRadar__DrawRadarSprite(iconID, x, y, alpha);
 }
 
-bool m_bUseSquareRadar = true; // todo: move to settings.ini
+bool m_bUseSquareRadar = false; // todo: move to settings.ini
 void(*DrawRadarMask)();
 void DrawRadarMask_hook()
 {
@@ -1381,8 +1405,11 @@ void NvUtilInit_hook() {
     Log("NvUtilInit");
     LOGI("Storage located at %s", g_pszStorage != nullptr ? g_pszStorage : "not configured");
     NvUtilInit();
-    ApplyFPSPatch(120);
     ReadSettingFile();
+    extern CSettings* pSettings;
+    int bcg45FPS = pSettings ? pSettings->Get().iFPSCount : 60;
+    bcg45FPS = std::max(30, std::min(120, bcg45FPS));
+    ApplyFPSPatch(static_cast<uint8_t>(bcg45FPS));
 
 }
 
@@ -1394,13 +1421,44 @@ struct stFile
 
 char lastFile[123];
 
+static std::string ResolveGameFileCase(const char* original) {
+    const std::string root(g_pszStorage);
+    const std::string requested(original);
+    if (requested.compare(0, root.size(), root) != 0) return requested;
+    std::string found = root;
+    size_t offset = root.size();
+    while (offset < requested.size()) {
+        const auto end = requested.find('/', offset);
+        const std::string component = requested.substr(offset, end - offset);
+        if (component.empty() || component == "." || component == "..") return requested;
+        DIR* directory = opendir(found.c_str());
+        if (!directory) return requested;
+        std::string actual;
+        while (dirent* entry = readdir(directory)) {
+            if (strcasecmp(component.c_str(), entry->d_name) == 0) {
+                actual = entry->d_name;
+                break;
+            }
+        }
+        closedir(directory);
+        if (actual.empty()) return requested;
+        found += actual;
+        if (end == std::string::npos) break;
+        found += '/';
+        offset = end + 1;
+    }
+    return found;
+}
+
 stFile* NvFOpen(const char *r1)
 {
     if (r1 == nullptr) return nullptr;
     LOGI("NvFOpen %s", r1);
     snprintf(lastFile, sizeof(lastFile), "%s", r1);
-    static char path[255]{};
-    memset(path, 0, sizeof(path));
+    char path[1024]{};
+    std::string portable(r1);
+    for (char& c : portable) if (c == '\\') c = '/';
+    const char* normalized = portable.c_str();
 
     if (g_pszStorage == nullptr) {
         LOGE("NvFOpen called before storage was configured");
@@ -1411,66 +1469,79 @@ stFile* NvFOpen(const char *r1)
     // Android may report the original upstream package (com.sampunity.game)
     // from libGame. Rebase every /Android/data/<package>/files/... request
     // onto the runtime directory configured by GameActivityBase.
-    const char* androidData = strstr(r1, "/Android/data/");
+    const char* androidData = strstr(normalized, "/Android/data/");
     const char* filesPart = androidData ? strstr(androidData, "/files/") : nullptr;
     if (filesPart != nullptr) {
         filesPart += strlen("/files/");
         snprintf(path, sizeof(path), "%s%s", g_pszStorage, filesPart);
         LOGI("BCG V021 path rebase: %s -> %s", r1, path);
-    } else if (r1[0] == '/') {
+    } else if (normalized[0] == '/') {
         // Keep unrelated absolute paths untouched.
-        snprintf(path, sizeof(path), "%s", r1);
+        snprintf(path, sizeof(path), "%s", normalized);
     } else {
-        snprintf(path, sizeof(path), "%s%s", g_pszStorage, r1);
+        snprintf(path, sizeof(path), "%s%s", g_pszStorage, normalized);
     }
 
-    if(!strncmp(r1, "data/script/mainv1.scm", 22))
+    std::string request(filesPart ? filesPart : normalized);
+    for (char& c : request) c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+
+    if(request == "data/script/mainv1.scm" || request == "data/script/main.scm")
     {
         snprintf(path, sizeof(path), "%sSAMP/main.scm", g_pszStorage);
         Log("Loading mainv1");
         Log("Loading %s", path);
     }
+    // Match the custom SA-MP SCM with its own audited ARM64 SCV metadata.
+    if(request == "data/script/mainv1.scv" || request == "data/script/main.scv")
+    {
+        snprintf(path, sizeof(path), "%sSAMP/main.scv", g_pszStorage);
+        Log("BCG V026 SCV OPEN request=%s resolved=%s", request.c_str(), path);
+    }
     // ----------------------------
-    if(!strncmp(r1, "data/script/scriptv1.img", 24))
+    if(request == "data/script/scriptv1.img" || request == "data/script/script.img")
     {
         snprintf(path, sizeof(path), "%sSAMP/script.img", g_pszStorage);
         Log("Loading script.img..");
         Log("Loading %s", path);
     }
     // ----------------------------
-    if(!strncmp(r1, "data/peds.ide", 13))
+    if(request == "data/peds.ide")
     {
         snprintf(path, sizeof(path), "%sSAMP/peds.ide", g_pszStorage);
         Log("Loading peds.ide..");
         Log("Loading %s", path);
     }
     // ----------------------------
-    if(!strncmp(r1, "data/vehicles.ide", 17))
+    if(request == "data/vehicles.ide")
     {
         snprintf(path, sizeof(path), "%sSAMP/vehicles.ide", g_pszStorage);
         Log("Loading vehicles.ide..");
         Log("Loading %s", path);
     }
 
-    if (!strncmp(r1, "data/gta.dat", 12))
+    if (request == "data/gta.dat")
     {
         snprintf(path, sizeof(path), "%sSAMP/gta.dat", g_pszStorage);
         Log("Loading gta.dat..");
         Log("Loading %s", path);
     }
 
-    if (!strncmp(r1, "data/handling.cfg", 17))
+    if (request == "data/handling.cfg")
     {
         snprintf(path, sizeof(path), "%sSAMP/handling.cfg", g_pszStorage);
         Log("Loading handling.cfg..");
         Log("Loading %s", path);
     }
 
-    if (!strncmp(r1, "data/weapon.dat", 15))
+    if (request == "data/weapon.dat")
     {
         snprintf(path, sizeof(path), "%sSAMP/weapon.dat", g_pszStorage);
         Log("Loading weapon.dat..");
         Log("Loading %s", path);
+    }
+
+    if (request == "models/cutscene.img") {
+        snprintf(path, sizeof(path), "%stexdb/cutscene.img", g_pszStorage);
     }
 
 
@@ -1485,6 +1556,13 @@ stFile* NvFOpen(const char *r1)
     st->isFileExist = false;
 
     FILE *f  = fopen(path, "rb");
+    if (!f) {
+        const std::string actual = ResolveGameFileCase(path);
+        if (actual != path) {
+            f = fopen(actual.c_str(), "rb");
+            if (f) Log("BCG file case resolved: %s", actual.c_str());
+        }
+    }
 
     if(f)
     {
@@ -1594,48 +1672,8 @@ int64 GetInputType(void)
     return 0LL;
 }
 
-static bool IsHudClockText(const uint16_t* text)
-{
-    if (!text) {
-        return false;
-    }
-
-    if (text[0] < '0' || text[0] > '9') return false;
-    if (text[1] < '0' || text[1] > '9') return false;
-    if (text[2] != ':') return false;
-    if (text[3] < '0' || text[3] > '9') return false;
-    if (text[4] < '0' || text[4] > '9') return false;
-    if (text[5] != 0) return false;
-
-    return true;
-}
-
-static bool ShouldHideHudClock(float posX, float posY, const uint16_t* text)
-{
-    if (!IsHudClockText(text)) {
-        return false;
-    }
-
-    if (!RsGlobal) {
-        return true;
-    }
-
-    const float screenW = static_cast<float>(RsGlobal->maximumWidth);
-    const float screenH = static_cast<float>(RsGlobal->maximumHeight);
-    if (screenW <= 0.0f || screenH <= 0.0f) {
-        return true;
-    }
-
-    const bool inTopRight = (posX >= screenW * 0.6f) && (posY <= screenH * 0.25f);
-    return inTopRight;
-}
-
 static void CFont_PrintString_hook(float posX, float posY, uint16_t* text)
 {
-    if (ShouldHideHudClock(posX, posY, text)) {
-        return;
-    }
-
     CFont_PrintString(posX, posY, text);
 }
 
@@ -1813,6 +1851,7 @@ void CWidgetButtonSprint_Destructor_hook(void* thiz)
 }
 void CWidgetButton_Draw_hook(void* thiz)
 {
+    if(BCGBridge::ModalOpen()) return;
     if (thiz == g_pSprintButton)
     {
         if (pGame)
@@ -1969,33 +2008,109 @@ void InstallCrashFixHooks()
 
 }
 void InitGui();
+static bool (*OriginalFileMgrReadLine)(uint64_t, char*, int32_t);
+static bool BCGFileMgrReadLine(uint64_t file, char* buffer, int32_t size) {
+    if (file == 0 || buffer == nullptr || size <= 0) {
+        if (buffer != nullptr && size > 0) buffer[0] = '\0';
+        Log("BCG V026: blocked ReadLine on invalid file handle/buffer. handle=%llu size=%d", static_cast<unsigned long long>(file), size);
+        return false;
+    }
+    return OriginalFileMgrReadLine(file, buffer, size);
+}
+
+static int32_t (*OriginalFileMgrReadBytes)(uint64_t, char*, int32_t);
+static int32_t BCGFileMgrReadBytes(uint64_t file, char* buffer, int32_t size) {
+    // Preserve the engine's successful no-op for an empty SCV seed string.
+    if (size == 0) return 0;
+    if (file == 0 || buffer == nullptr || size < 0) {
+        Log("BCG V026: blocked ReadBytes on invalid file handle/buffer. handle=%llu size=%d", static_cast<unsigned long long>(file), size);
+        return 0;
+    }
+    return OriginalFileMgrReadBytes(file, buffer, size);
+}
+
+static void (*OriginalTheScriptsInit)();
+static void BCGTheScriptsInit() {
+    Log("BCG V026 SCRIPTS INIT BEGIN");
+    OriginalTheScriptsInit();
+    Log("BCG V026 SCRIPTS INIT END");
+}
+
+static void (*OriginalStreamingReadIni)();
+static void BCGStreamingReadIni() {
+    Log("BCG V026 STREAM INI BEGIN");
+    OriginalStreamingReadIni();
+    Log("BCG V026 STREAM INI END memory=%zu", CStreaming::ms_memoryAvailable);
+}
+
+static TextureDatabaseRuntime* (*OriginalTextureDatabaseLoad)(const char*, bool, TextureDatabaseFormat);
+static TextureDatabaseRuntime* BCGTextureDatabaseLoad(const char* name, bool fullyLoad, TextureDatabaseFormat format) {
+    const char* banks[] = {"mobile", "txd", "gta3", "gta_int", "cutscene", "menu", "player", "playerhi", "samp"};
+    if (name != nullptr) {
+        for (const char* bank : banks) {
+            if (strcmp(name, bank) == 0) { format = DF_DXT; break; }
+        }
+    }
+    Log("BCG TEXDB BEGIN name=%s format=%d full=%d", name ? name : "null", static_cast<int>(format), fullyLoad);
+    auto* result = OriginalTextureDatabaseLoad(name, fullyLoad, format);
+    Log("BCG TEXDB END name=%s loaded=%d", name ? name : "null", result != nullptr);
+    return result;
+}
+static RwTexture* (*OriginalBCGTextureLookup)(const char*);
+static bool BCGAvatarLoaded = false;
+static bool BCGAvatarTextureLogged = false;
+static bool BCGFemaleTextureLogged = false;
+static RwTexture* BCGTextureLookup(const char* name) {
+    if(!name || !OriginalBCGTextureLookup)return nullptr;
+    if(BCGAvatarLoaded && !strcasecmp(name,"wbdyg1")) {
+        RwTexture* texture=OriginalBCGTextureLookup("bcg_civilian_v026");
+        if(!BCGAvatarTextureLogged) {
+            Log("BCG AVATAR texture resolved=%d skin=24",texture!=nullptr);
+            BCGAvatarTextureLogged=true;
+        }
+        if(texture)return texture;
+    }
+    if(BCGAvatarLoaded && !strcasecmp(name,"bfyri")) {
+        RwTexture* texture=OriginalBCGTextureLookup("bcg_female_v027");
+        if(!BCGFemaleTextureLogged){Log("BCG AVATAR texture resolved=%d skin=12",texture!=nullptr);BCGFemaleTextureLogged=true;}
+        if(texture)return texture;
+    }
+    return OriginalBCGTextureLookup(name);
+}
+static void (*OriginalBCGPlayerInfoDraw)(void*);
+static void BCGPlayerInfoDraw(void* widget) {
+    // GTA mobile draws fist/money/health separately. Keep CHud and its radar native.
+    if (!BCGBridge::ModalOpen() && OriginalBCGPlayerInfoDraw) OriginalBCGPlayerInfoDraw(widget);
+}
 bool (*CGame__InitialiseRenderWare)();
 bool CGame__InitialiseRenderWare_hook() {
-    Log("Loading SAMP texture database..");
-    CGame__InitialiseRenderWare();
+    Log("BCG V026: initializing RenderWare with audited DXT DATA");
+    if (!CGame__InitialiseRenderWare()) return false;
 
-    TextureDatabaseRuntime::Load("samp", false, TextureDatabaseFormat::DF_Default);
+    if (!TextureDatabaseRuntime::Load("samp", false, TextureDatabaseFormat::DF_DXT)) return false;
+
+    auto* bcg47PlayerBank=TextureDatabaseRuntime::Load("player",false,TextureDatabaseFormat::DF_DXT);
+    Wardrobe47::SetAvailable(bcg47PlayerBank!=nullptr);
+    Log("BCG WARDROBE player DXT bank loaded=%d",bcg47PlayerBank!=nullptr);
+    auto* avatar=TextureDatabaseRuntime::Load("bcgskin",true,TextureDatabaseFormat::DF_DXT);
+    BCGAvatarLoaded=avatar!=nullptr;
+    if(avatar)TextureDatabaseRuntime::Register(avatar);
+    Log("BCG AVATAR bank loaded=%d",BCGAvatarLoaded);
 
     InitGui();
     return true;
-}
-void InstallUrezHooks()
-{
-    CHook::UnFuck(g_libGTASA + 0x24E4C4);
-    *(char*)(g_libGTASA + 0x24E4C4 + 12) = 'd';
-    *(char*)(g_libGTASA + 0x24E4C4 + 13) = 'x';
-    *(char*)(g_libGTASA + 0x24E4C4 + 14) = 't';
-
-    CHook::UnFuck(g_libGTASA + 0x246D17);
-    *(char*)(g_libGTASA + 0x246D17 + 12) = 'd';
-    *(char*)(g_libGTASA + 0x246D17+ 13) = 'x';
-    *(char*)(g_libGTASA + 0x246D17 + 14) = 't';
 }
 void InstallSpecialHooks()
 {
     InjectHooks();
 
-   InstallUrezHooks();
+    CHook::InlineHook("_ZN8CFileMgr8ReadLineEyPci", &BCGFileMgrReadLine, &OriginalFileMgrReadLine);
+    CHook::InlineHook("_ZN8CFileMgr9ReadBytesEyPci", &BCGFileMgrReadBytes, &OriginalFileMgrReadBytes);
+    CHook::InlineHook("_ZN11CTheScripts4InitEv", &BCGTheScriptsInit, &OriginalTheScriptsInit);
+    CHook::InlineHook("_ZN10CStreaming11ReadIniFileEv", &BCGStreamingReadIni, &OriginalStreamingReadIni);
+
+    CHook::InlineHook("_ZN22TextureDatabaseRuntime4LoadEPKcb21TextureDatabaseFormat", &BCGTextureDatabaseLoad, &OriginalTextureDatabaseLoad);
+    CHook::InlineHook("_ZN22TextureDatabaseRuntime10GetTextureEPKc", &BCGTextureLookup, &OriginalBCGTextureLookup);
 
     CHook::InlineHook("_ZN5CGame20InitialiseRenderWareEv", &CGame__InitialiseRenderWare_hook, &CGame__InitialiseRenderWare);
     CHook::InstallPLT(g_libGTASA + 0x83DE90, &StartGameScreen__OnNewGameCheck_hook, &StartGameScreen__OnNewGameCheck);
@@ -2117,7 +2232,9 @@ void InstallMiscHooks()
 
 }
 #include <EGL/egl.h>
-#include <GLES2/gl2.h>   // If using OpenGL ES 2.0 or 3.0
+#include <GLES2/gl2.h>
+#include <algorithm>
+#include "../settings.h"   // If using OpenGL ES 2.0 or 3.0
 
 void InstallHooks()
 {
@@ -2196,6 +2313,13 @@ void InstallHooks()
 
     ms_fAspectRatio = (float *) (g_libGTASA + 0xC6DC70);
     CHook::InlineHook("_ZN4CHud14DrawCrossHairsEv", &DrawCrosshair_hook, &DrawCrosshair);
+    auto* playerInfoHook = shadowhook_hook_sym_name("libGame.so", "_ZN17CWidgetPlayerInfo4DrawEv",
+        reinterpret_cast<void*>(&BCGPlayerInfoDraw), reinterpret_cast<void**>(&OriginalBCGPlayerInfoDraw));
+    Log("BCG V048 native player HUD hook installed=%d error=%d", playerInfoHook != nullptr, shadowhook_get_errno());
+    Navigation46::InstallHooks();
+    auto* modalButtonsHook = shadowhook_hook_sym_name("libGame.so", "_ZN13CWidgetButton4DrawEv",
+        reinterpret_cast<void*>(&CWidgetButton_Draw_hook), reinterpret_cast<void**>(&CWidgetButton_Draw));
+    Log("BCG V037 modal button hook installed=%d error=%d", modalButtonsHook != nullptr, shadowhook_get_errno());
 
     // retexture
     //CHook::InlineHook("_ZN7CEntity6RenderEv", &CEntity_Render_hook, &CEntity_Render);

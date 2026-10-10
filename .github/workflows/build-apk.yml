@@ -1,4 +1,4 @@
-name: Build BCG V1.2 Android
+name: Build Cidade Grande SA-MP V053
 
 permissions:
   contents: read
@@ -38,17 +38,32 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x gradlew
 
+      - name: Restore stable BCG signing key when configured
+        env:
+          BCG_KEYSTORE_BASE64: ${{ secrets.BCG_KEYSTORE_BASE64 }}
+        shell: bash
+        run: |
+          if [[ -z "$BCG_KEYSTORE_BASE64" ]]; then
+            echo "Configure BCG_KEYSTORE_BASE64 com a chave original do servidor." >&2
+            exit 1
+          fi
+          if [[ -n "$BCG_KEYSTORE_BASE64" ]]; then
+            SIGNING_PATH="$RUNNER_TEMP/bcg-debug.keystore"
+            printf '%s' "$BCG_KEYSTORE_BASE64" | base64 --decode > "$SIGNING_PATH"
+            echo "BCG_SIGNING_KEYSTORE=$SIGNING_PATH" >> "$GITHUB_ENV"
+          fi
+
       - name: Verify package, native libraries and source layout
         run: python3 scripts/verify_project.py
 
       - name: Build BCG APK
-        run: ./gradlew --no-daemon clean assembleDebug lintDebug --stacktrace
+        run: ./gradlew --no-daemon clean assembleRelease testDebugUnitTest --stacktrace
 
       - name: APK info
         if: success()
         shell: bash
         run: |
-          APK="$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)"
+          APK="$(find app/build/outputs/apk/release -type f -name '*.apk' -print -quit)"
           test -n "$APK"
           ls -lh "$APK"
           "$ANDROID_SDK_ROOT/build-tools/36.0.0/aapt" dump badging "$APK" | head -n 3
@@ -73,6 +88,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: BCG-V1.2-ANDROID-LAUNCHER
-          path: app/build/outputs/apk/debug/*.apk
+          name: CIDADE-GRANDE-SAMP-V053
+          path: app/build/outputs/apk/release/*.apk
           if-no-files-found: error

@@ -1,9 +1,11 @@
 #include "main.h"
+#include "../../BCGBridge.h"
 #include "gui/gui.h"
 #include "game/game.h"
 #include "log.h"
 #include "settings.h"
 #include "java/jniutil.h"
+#include "voice/Plugin.h"
 
 extern CGame* pGame;
 extern UI* pUI;
@@ -46,12 +48,12 @@ void Keyboard::performLayout()
     m_input->setFixedSize(ImVec2(width(), UISettings::keyboardRowHeight()));
     m_input->setPosition(ImVec2(0.0f, 0.0f));
 
-    m_layoutLowerENG->setFixedSize(ImVec2(width(), height() - m_input->height()+50.0f));
+    m_layoutLowerENG->setFixedSize(ImVec2(width(), height() - m_input->height()));
     m_layoutLowerENG->setPosition(ImVec2(0.0f, UISettings::keyboardRowHeight()));
-    m_layoutUpperENG->setFixedSize(ImVec2(width(), height() - m_input->height()+50.0f));
+    m_layoutUpperENG->setFixedSize(ImVec2(width(), height() - m_input->height()));
     m_layoutUpperENG->setPosition(ImVec2(0.0f, UISettings::keyboardRowHeight()));
 
-    m_layoutNUM->setFixedSize(ImVec2(width(), height() - m_input->height()+50.0f));
+    m_layoutNUM->setFixedSize(ImVec2(width(), height() - m_input->height()));
     m_layoutNUM->setPosition(ImVec2(0.0f, UISettings::keyboardRowHeight()));
 
     Widget::performLayout();
@@ -119,8 +121,10 @@ void Keyboard::toggleLang()
 
 void Keyboard::show(Widget* caller)
 {
+    Plugin::SetPTT(66, false);
     m_history->reset();
     m_input->clear();
+    BCGBridge::Emit("{\"type\":\"nativeKeyboard\",\"shown\":true}");
     this->setVisible(true);
     pGame->EnableGameInput(false);
     m_caller = caller;
@@ -128,6 +132,7 @@ void Keyboard::show(Widget* caller)
 
 void Keyboard::hide()
 {
+    BCGBridge::Emit("{\"type\":\"nativeKeyboard\",\"shown\":false}");
     this->setVisible(false);
     pGame->EnableGameInput(true);
     m_caller = nullptr;

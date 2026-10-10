@@ -1,0 +1,6 @@
+{
+  "endpoint": "190.102.40.7:7825",
+  "checked_at_utc": "2026-10-07T01:14:25Z",
+  "online": null,
+  "error": "[Errno 101] Network is unreachable"
+}

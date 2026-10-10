@@ -1,0 +1,7 @@
+V036
+18 verificacoes de transporte/controlos C++ com mocks.
+23 verificacoes de logica da interface com DOM simulado.
+13 testes Java existentes.
+GameMode nao compilada. Sem teste de aparelho/servidor real.
+Assinatura: mesma chave da V035.
+Chat e playerped byte-identicos a V035.

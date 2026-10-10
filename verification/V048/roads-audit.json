@@ -1,0 +1,7 @@
+{
+  "nodes": 21560,
+  "links": 44296,
+  "bytes": 608400,
+  "source": "DATA texdb/gta3.img nodes0..63.dat",
+  "water_and_switched_off_excluded": true
+}

@@ -219,9 +219,9 @@ bool Playback::BassInitHookFunc() noexcept
         "freq:%u, flags:0x%x, win:0x%x, dsguid:0x%x)...", device, freq, flags, win, dsguid);*/
 
     LogVoice("[sv:dbg:playback:bassinithook] : calling function BASS_Init(device:-1, "
-        "freq:%u, flags:0x%x)...", SV::kFrequency2, BASS_DEVICE_MONO);
+        "freq:%u, flags:0x%x)...", SV::kFrequency, BASS_DEVICE_MONO);
 
-    if(BASS_Init(-1, SV::kFrequency2, BASS_DEVICE_MONO, nullptr, nullptr) == 0)
+    if(BASS_Init(-1, SV::kFrequency, BASS_DEVICE_3D, nullptr, nullptr) == 0)
     {
         LogVoice("[sv:err:playback:bassinithook] : failed to init bass library (code:%d)", BASS_ErrorGetCode());
         return false;

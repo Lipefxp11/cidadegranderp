@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
-    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/launcher_background_v019" />
-    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/launcher_scrim" />
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:gravity="center" android:orientation="vertical">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat_black" android:gravity="center" android:letterSpacing="0.03" android:text="BRASIL\nCIDADE GRANDE" android:textColor="#FFFFFF" android:textSize="30sp" android:textStyle="bold" />
-        <TextView android:id="@+id/statusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Verificando cliente..." android:textColor="#CBD3E2" android:textSize="12sp" />
-        <ProgressBar android:id="@+id/downloadProgress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="260dp" android:layout_height="6dp" android:layout_marginTop="10dp" android:max="100" android:progressTint="#E11D48" />
-        <TextView android:id="@+id/progressText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:textColor="#AAB3C5" android:textSize="10sp" />
-        <TextView android:id="@+id/pathText" android:layout_width="1dp" android:layout_height="1dp" android:visibility="invisible" />
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_marginTop="26dp" android:layout_marginEnd="30dp" android:gravity="center" android:orientation="horizontal">
-        <Button android:id="@+id/siteButton" android:layout_width="150dp" android:layout_height="48dp" android:background="@drawable/launcher_outline_button" android:text="ACESSAR SITE" android:textColor="#FFFFFF" android:textSize="12sp" />
-        <Button android:id="@+id/settingsButton" android:layout_width="52dp" android:layout_height="48dp" android:layout_marginStart="12dp" android:background="@drawable/launcher_outline_button" android:text="⚙" android:textColor="#FFFFFF" android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_marginEnd="34dp" android:layout_marginBottom="28dp" android:gravity="center" android:orientation="horizontal">
-        <LinearLayout android:layout_width="190dp" android:layout_height="70dp" android:background="@drawable/launcher_server_card" android:gravity="center" android:orientation="vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SERVIDOR #1" android:textColor="#AAB3C5" android:textSize="11sp" />
-            <TextView android:id="@+id/serverStatusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VERIFICANDO" android:textColor="#FFFFFF" android:textSize="19sp" android:textStyle="bold" />
-        </LinearLayout>
-        <Button android:id="@+id/startButton" android:layout_width="220dp" android:layout_height="70dp" android:layout_marginStart="14dp" android:background="@drawable/launcher_play_button" android:text="▶  JOGAR" android:textColor="#FFFFFF" android:textSize="19sp" android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|start" android:layout_marginStart="24dp" android:layout_marginBottom="22dp" android:orientation="horizontal">
-        <Button android:id="@+id/logsButton" android:layout_width="140dp" android:layout_height="42dp" android:background="@drawable/launcher_outline_button" android:text="EXPORTAR LOG" android:textColor="#FFFFFF" android:textSize="10sp" />
-        <Button android:id="@+id/retryButton" android:layout_width="140dp" android:layout_height="42dp" android:layout_marginStart="8dp" android:background="@drawable/launcher_outline_button" android:text="TENTAR NOVO" android:textColor="#FFFFFF" android:textSize="10sp" android:visibility="gone" />
-    </LinearLayout>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/launcherRoot43" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#071323">
+<ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/login_background50" android:contentDescription="@null"/>
+<View android:layout_width="match_parent" android:layout_height="match_parent" android:background="#33071323"/>
+<LinearLayout android:layout_width="170dp" android:layout_height="wrap_content" android:layout_gravity="top|start" android:layout_margin="24dp" android:orientation="vertical">
+<Button android:id="@+id/switchAccount51" android:layout_width="match_parent" android:layout_height="44dp" android:background="@drawable/launcher_server_card" android:text="Trocar conta  ›" android:textColor="#FFFFFF" android:textSize="12sp" android:textAllCaps="false"/>
+<ImageButton android:id="@+id/settingsButton" android:layout_width="44dp" android:layout_height="44dp" android:layout_marginTop="10dp" android:background="@drawable/launcher_server_card" android:src="@drawable/ic_settings51" android:padding="12dp" android:contentDescription="Configurações"/>
+</LinearLayout>
+<TextView android:id="@+id/onlineBadge45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="24dp" android:padding="12dp" android:background="@drawable/launcher_server_card" android:text="VERIFICANDO" android:textColor="#66DE98" android:textSize="11sp"/>
+<LinearLayout android:id="@+id/playPanel51" android:layout_width="280dp" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_margin="24dp" android:orientation="vertical">
+<LinearLayout android:id="@+id/serverCard" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="14dp" android:background="@drawable/launcher_server_card" android:orientation="vertical" android:clickable="true" android:focusable="true" android:contentDescription="Selecionar servidor">
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Servidor selecionado" android:textColor="#A8B4C5" android:textSize="10sp"/>
+<TextView android:id="@+id/serverName" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:text="Cidade Grande • #1  ›" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+<TextView android:id="@+id/serverStatusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="VERIFICANDO" android:textColor="#66DE98" android:textSize="11sp" android:layout_marginTop="6dp"/>
+<ProgressBar android:id="@+id/serverOccupancy45" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="4dp" android:max="100" android:progressTint="#3BA4FF" android:layout_marginTop="8dp"/>
+</LinearLayout>
+<Button android:id="@+id/startButton" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="9dp" android:background="@drawable/launcher_play_button" android:text="JOGAR AGORA" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/>
+<TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Preparando cliente" android:textColor="#DAE5F3" android:textSize="10sp" android:layout_marginTop="6dp"/>
+<ProgressBar android:id="@+id/downloadProgress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="3dp" android:layout_marginTop="4dp" android:max="100" android:visibility="gone" android:progressTint="#3BA4FF"/>
+<TextView android:id="@+id/progressText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#ADBACA" android:textSize="9sp" android:visibility="gone"/>
+<Button android:id="@+id/retryButton" android:layout_width="match_parent" android:layout_height="32dp" android:text="REPARAR" android:visibility="gone"/>
+</LinearLayout>
+<TextView android:id="@+id/termsButton51" android:layout_width="wrap_content" android:layout_height="36dp" android:layout_gravity="bottom|start" android:layout_marginStart="24dp" android:layout_marginBottom="18dp" android:gravity="center_vertical" android:text="Termos Cidade Grande SA-MP" android:textSize="10sp" android:textColor="#CBD8EA" android:clickable="true" android:focusable="true"/>
+<LinearLayout android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" android:orientation="vertical"><TextView android:id="@+id/pathText" android:layout_width="1dp" android:layout_height="1dp"/><Button android:id="@+id/siteButton" android:layout_width="1dp" android:layout_height="1dp"/><Button android:id="@+id/importDataButton" android:layout_width="1dp" android:layout_height="1dp"/><Button android:id="@+id/logsButton" android:layout_width="1dp" android:layout_height="1dp"/><Button android:id="@+id/toolsButton" android:layout_width="1dp" android:layout_height="1dp"/></LinearLayout>
+<LinearLayout android:id="@+id/bootLoading45" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:background="#EE071323"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CIDADE GRANDE SA-MP" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="22sp"/><ProgressBar android:layout_width="30dp" android:layout_height="30dp" android:layout_marginTop="18dp"/></LinearLayout>
 </FrameLayout>

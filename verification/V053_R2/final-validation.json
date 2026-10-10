@@ -1,0 +1,22 @@
+{
+  "models": 152,
+  "preserved_clumps": 456,
+  "geometries_verified": 456,
+  "original_topology_uv_materials_frames_skin_weights_preserved": true,
+  "backup_migration_fingerprint": "clumps55",
+  "native_code_changed": false,
+  "android_runtime_tested": false,
+  "root_cause": "V049 generator truncated PLAYER DFF to first of three consecutive clumps; V053 R2 retains all three.",
+  "elf_16kb_libraries": 10,
+  "build": "Gradle 8.13 / AGP 8.13.1 assembleRelease success",
+  "java_tests_passed": 22,
+  "python_tests_passed": 2,
+  "package": "com.cidadegranderp",
+  "versionCode": 53,
+  "versionName": "0.0.53-r2",
+  "certificate_sha256": "d770eeaf7cb99349a52f107704c77c509ceabf149546ba9484722e79916d3cbf",
+  "signature_v2_verified": true,
+  "zip_alignment_verified": true,
+  "apk_sha256": "c19fb455e0174dcf17d95cdb04b247ab91b75dcdc8cced7df139ee1727ff30cc",
+  "native_libraries_unchanged": 7
+}

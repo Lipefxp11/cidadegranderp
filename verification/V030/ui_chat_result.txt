@@ -1,0 +1,29 @@
+PASS native open event exposes one message input
+PASS chat editor is ordinary unmasked text
+PASS touch send preserves slash command and uses native op text
+PASS double touch does not queue the same command twice
+PASS failed native send retains text and permits retry
+PASS send failure is visible
+PASS successful queue closes and clears input
+PASS Enter sends normal Portuguese text with accents
+PASS unsupported emoji is rejected before SA-MP conversion
+PASS blank input never sends a message
+PASS cancel releases native chat with explicit empty signal
+PASS cancel preserves draft for reopening
+PASS Android back closes input instead of opening a second chat
+PASS server dialog takes focus without an overlapping chat
+PASS composer fits 1536x691
+PASS active editor protects gameplay touches 1536x691
+PASS closed composer releases all touch regions 1536x691
+PASS composer fits 1280x720
+PASS active editor protects gameplay touches 1280x720
+PASS closed composer releases all touch regions 1280x720
+PASS composer fits 960x540
+PASS active editor protects gameplay touches 960x540
+PASS closed composer releases all touch regions 960x540
+PASS composer fits 854x300
+PASS active editor protects gameplay touches 854x300
+PASS closed composer releases all touch regions 854x300
+PASS connection loss closes the composer
+PASS no JavaScript exceptions in chat flow
+V030 chat UI checks=28 failures=0

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gta.launcher.activity.BootConfigTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-08T23:08:10.806Z" hostname="a2ed44bc3cea" time="0.178">
+  <properties/>
+  <testcase name="restartRetainsValidConfigWithoutReadingAssetAgain" classname="com.gta.launcher.activity.BootConfigTest" time="0.077"/>
+  <testcase name="repairsTruncatedScriptMetadataBeforePlay" classname="com.gta.launcher.activity.BootConfigTest" time="0.017"/>
+  <testcase name="restoresConfigMissingFromInstalledV023Data" classname="com.gta.launcher.activity.BootConfigTest" time="0.014"/>
+  <testcase name="repairsDamagedConfigBeforePlay" classname="com.gta.launcher.activity.BootConfigTest" time="0.018"/>
+  <testcase name="upgradesInstalledV024WithoutChangingItsStreamOrGameData" classname="com.gta.launcher.activity.BootConfigTest" time="0.011"/>
+  <testcase name="refusesWrongPackagedConfigAndLeavesExistingFileIntact" classname="com.gta.launcher.activity.BootConfigTest" time="0.002"/>
+  <testcase name="avatarIsInstalledAndRepairedWithoutChangingGameData" classname="com.gta.launcher.activity.BootConfigTest" time="0.014"/>
+  <testcase name="detectsAndRepairsDeletionBetweenLauncherAndPlay" classname="com.gta.launcher.activity.BootConfigTest" time="0.013"/>
+  <testcase name="refusesWrongScriptMetadataAssetWithoutReplacingExistingFile" classname="com.gta.launcher.activity.BootConfigTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

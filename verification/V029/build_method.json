@@ -1,0 +1,13 @@
+{
+  "java_sources_unchanged": 47,
+  "changed_java": [],
+  "changed_resources": [
+    "app/src/main/res/drawable/launcher_server_card.xml",
+    "app/src/main/res/drawable/launcher_play_button.xml",
+    "app/src/main/res/drawable/launcher_scrim.xml",
+    "app/src/main/res/drawable/launcher_outline_button.xml",
+    "app/src/main/res/layout/main_activity.xml",
+    "app/src/main/res/layout/launcher_settings.xml"
+  ],
+  "build_method": "Recompile resources using APKTool 2.12.1; verified V028 Java dex and native binaries reused unchanged."
+}

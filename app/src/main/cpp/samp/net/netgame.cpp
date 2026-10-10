@@ -1,6 +1,9 @@
 #include "../main.h"
+#include <algorithm>
 #include "../game/game.h"
 #include "netgame.h"
+#include "BCGBridge.h"
+#include "../Wardrobe47.h"
 #include "../gui/gui.h"
 #include "../audiostream.h"
 
@@ -203,6 +206,39 @@ void CNetGame::UninitializePools()
 	}
 }
 
+void CNetGame::NotifyConnection(int phase, const char* message)
+{
+    if(phase==0 || phase==1 || phase==6 || phase==7)BCGBridge::ResetSession();
+    if(m_bcgPhase == phase)return;
+    m_bcgPhase=phase;
+    if (phase != 5) Plugin::SetPTT(66, false);
+    Log("BCG CONNECTION state=%d endpoint=%s:%d message=%s",phase,m_szHostOrIp,m_iPort,message);
+    if(pUI)pUI->chat()->addDebugMessage("%s",message);
+    if(pJavaWrapper)pJavaWrapper->ConnectionStatus(phase,message);
+    if(phase==2)m_bcgJoinTick=GetTickCount();
+}
+bool CNetGame::HandleBCGControl(const char* message)
+{
+    if(Wardrobe47::Packet(message))return true;
+    if(!strcmp(message,"[BCG:INPUT]")){BCGBridge::Emit("{\"type\":\"chatAck\"}");return true;}
+    if(!strncmp(message,"[BCG:UI]ACK|",12))BCGBridge::ConfirmServerUI();
+    if(!strncmp(message,"[BCG:HUD]",9))BCGBridge::ConfirmServerUI();
+    if(!strncmp(message,"[BCG:UI]",8)){BCGBridge::Emit("{\"type\":\"serverUi\",\"text\":"+BCGBridge::Quote(Encoding::cp2utf(message+8))+"}");return true;}
+    if(!strncmp(message,"[BCG:HUD]",9)){BCGBridge::Emit("{\"type\":\"serverHud\",\"text\":"+BCGBridge::Quote(Encoding::cp2utf(message+9))+"}");return true;}
+    if(!strcmp(message,"[BCG:AUTH]")) {
+        NotifyConnection(3,"Conectado. Entre na sua conta ou crie um personagem.");
+        return true;
+    }
+    if(!strcmp(message,"[BCG:ENTER]")) {
+        if(m_bcgPhase==3)NotifyConnection(4,"Carregando sua conta e entrando no jogo...");
+        return true;
+    }
+    if(!strcmp(message,"[BCG:READY]")) {
+        if(m_bcgPhase==3 || m_bcgPhase==4)NotifyConnection(5,"Voce entrou no servidor Brasil Cidade Grande RP.");
+        return true;
+    }
+    return false;
+}
 void CNetGame::Process()
 {
 	static uint32_t time = GetTickCount();
@@ -219,8 +255,12 @@ void CNetGame::Process()
 
 	//pGame->PreloadObjectsAnims();
 
+    if(m_bcgPhase==2 && GetTickCount()-m_bcgJoinTick > 30000) {
+        Packet_ConnectionLost(nullptr);
+        return;
+    }
 	if (GetGameState() == GAMESTATE_CONNECTED) {
-		ProcessPools();
+        ProcessPools();
 	}
 	else {
 		ProcessLoadingScreen();
@@ -272,7 +312,6 @@ void CNetGame::UpdateNetwork()
 
 			case ID_CONNECTION_BANNED:
 				Packet_ConnectionBanned(pkt);
-				SetGameState(GAMESTATE_WAIT_CONNECT);
 				break;
 
 			case ID_INVALID_PASSWORD:
@@ -383,6 +422,7 @@ void CNetGame::Packet_CustomRPC(Packet *p) {
 // 0.3.7
 void CNetGame::ShutdownForGameModeRestart()
 {
+    NotifyConnection(6,"Servidor reiniciando. Aguardando nova conexao...");
 	// voice
 	SpeakerList::Hide();
 	MicroIcon::Hide();
@@ -471,6 +511,7 @@ void CNetGame::ProcessPools()
 void CNetGame::ProcessLoadingScreen()
 {
 	CPlayerPed* pPlayerPed = pGame->FindPlayerPed();
+    if(!pPlayerPed || !pPlayerPed->m_pPed)return;
 	if (pPlayerPed->IsInVehicle()) {
 		pPlayerPed->RemoveFromVehicleAndPutAt(1093.4, -2036.5, 82.710602);
 	}
@@ -486,10 +527,13 @@ void CNetGame::ProcessLoadingScreen()
 // 0.3.7
 void CNetGame::ProcessConnecting()
 {
-	if (GetTickCount() - m_dwLastConnectAttempt > 1000/*3000*/)
+	if (GetTickCount() - m_dwLastConnectAttempt > (m_bcgAttempts==0 ? 1000 : std::min(30000u,3000u+m_bcgAttempts*1000u)))
 	{
 		//if (pUI) pUI->chat()->addDebugMessage("Connecting to %s:%d...", m_szHostOrIp, m_iPort);
-		if (pUI) pUI->chat()->addDebugMessage("Connecting to Server...");
+		char notice[350];
+        snprintf(notice,sizeof notice,"Conectando a %s:%d...",m_szHostOrIp,m_iPort);
+        NotifyConnection(1,notice);
+        ++m_bcgAttempts;
 
 		m_pRakClient->Connect(m_szHostOrIp, m_iPort, 0, 0, 2);
 
@@ -528,7 +572,7 @@ void CNetGame::Packet_AuthKey(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_ConnectAttemptFailed(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("The server didn't respond. Retrying..");
+	NotifyConnection(6,"O servidor nao respondeu. Tentando novamente...");
 	if (pAudioStream) { //add new
 		pAudioStream->Stop(true);
 	}
@@ -542,7 +586,7 @@ void CNetGame::Packet_ConnectAttemptFailed(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_NoFreeIncomingConnections(Packet *pkt)
 {
-	if(pUI) pUI->chat()->addDebugMessage("The server is full. Retrying...");
+	NotifyConnection(6,"Servidor cheio. Aguardando uma vaga...");
 	SpeakerList::Hide(); //addnew
 	MicroIcon::Hide();
 	SetGameState(GAMESTATE_WAIT_CONNECT);
@@ -553,14 +597,8 @@ void CNetGame::Packet_NoFreeIncomingConnections(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_DisconnectionNotification(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Server closed the connection.");
-	if (pAudioStream) {
-		pAudioStream->Stop(true);
-	}
-	m_pRakClient->Disconnect(2000);
-
-	SpeakerList::Hide();
-	MicroIcon::Hide();
+    Packet_ConnectionLost(pkt);
+    NotifyConnection(6,"O servidor encerrou a conexao. Nova tentativa em alguns segundos...");
 }
 // 0.3.7
 void CNetGame::Packet_ConnectionSucceeded(Packet *pkt)
@@ -579,7 +617,8 @@ void CNetGame::Packet_ConnectionSucceeded(Packet *pkt)
 	bsSuccAuth.Read(uiChallenge);
 	uiChallenge ^= iVersion;
 
-	if (pUI) pUI->chat()->addDebugMessage("Connected. Joining the game...");
+	m_bcgAttempts=0;
+    NotifyConnection(2,"Conexao estabelecida. Entrando no servidor...");
 
 	SetGameState(GAMESTATE_AWAIT_JOIN);
 
@@ -616,17 +655,22 @@ void CNetGame::Packet_ConnectionSucceeded(Packet *pkt)
 // 0.3.7
 void CNetGame::Packet_FailedInitializeEncription(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Failed to initialize encryption.");
+	NotifyConnection(7,"Falha no protocolo de conexao. Feche o jogo e tente novamente.");
+    SetGameState(0);
+    m_pRakClient->Disconnect(0);
 }
 // 0.3.7
 void CNetGame::Packet_ConnectionBanned(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("You are banned from this server.");
+	NotifyConnection(7,"Conexao recusada. Este acesso esta banido no servidor.");
+    SetGameState(0);
+    m_pRakClient->Disconnect(0);
 }
 // 0.3.7
 void CNetGame::Packet_InvalidPassword(Packet *pkt)
 {
-	if (pUI) pUI->chat()->addDebugMessage("Wrong server password.");
+	NotifyConnection(7,"Senha de acesso ao servidor incorreta.");
+    SetGameState(0);
 	m_pRakClient->Disconnect(0);
 }
 // 0.3.7
@@ -636,7 +680,9 @@ void CNetGame::Packet_ConnectionLost(Packet *pkt)
 		m_pRakClient->Disconnect(0);
 	}
 
-	if (pUI) pUI->chat()->addDebugMessage("Lost connection to the server. Reconnecting..");
+	NotifyConnection(6,"Conexao perdida. Reconectando ao servidor...");
+    m_dwLastConnectAttempt=GetTickCount();
+    m_bcgAttempts=std::max(2u,m_bcgAttempts);
 	ShutdownForGameModeRestart();
 
 	CPlayerPool *pPlayerPool = GetPlayerPool();
@@ -971,29 +1017,33 @@ void CNetGame::SendDialogResponse(uint16_t wDialogID, uint8_t byteButtonID, uint
 	m_pRakClient->RPC(&RPC_DialogResponse, &bsSend, HIGH_PRIORITY, RELIABLE_ORDERED, 0, false, UNASSIGNED_NETWORK_ID, nullptr);
 }
 
-void CNetGame::SendChatMessage(const char* szMsg)
+bool CNetGame::SendChatMessage(const char* szMsg)
 {
-	if (GetGameState() != GAMESTATE_CONNECTED) return;
-
-	RakNet::BitStream bsSend;
-	uint8_t byteTextLen = strlen(szMsg);
-
-	bsSend.Write(byteTextLen);
-	bsSend.Write(szMsg, byteTextLen);
-
-	m_pRakClient->RPC(&RPC_Chat, &bsSend, HIGH_PRIORITY, RELIABLE, 0, false, UNASSIGNED_NETWORK_ID, NULL);
+    if (!szMsg || !m_pRakClient || GetGameState()!=GAMESTATE_CONNECTED) {
+        Log("BCG CHAT message rejected: connection unavailable"); return false;
+    }
+    const size_t length = strnlen(szMsg,145);
+    if (!length || length>144 || strchr(szMsg,'\n') || strchr(szMsg,'\r')) return false;
+    RakNet::BitStream bsSend;
+    uint8_t byteTextLen=static_cast<uint8_t>(length);
+    bsSend.Write(byteTextLen);bsSend.Write(szMsg,byteTextLen);
+    const bool sent=m_pRakClient->RPC(&RPC_Chat,&bsSend,HIGH_PRIORITY,RELIABLE,0,false,UNASSIGNED_NETWORK_ID,NULL);
+    Log("BCG CHAT message bytes=%u queued=%d",byteTextLen,sent);
+    return sent;
 }
-
-void CNetGame::SendChatCommand(const char* szCommand)
+bool CNetGame::SendChatCommand(const char* szCommand)
 {
-	if (GetGameState() != GAMESTATE_CONNECTED) return;
-
-	RakNet::BitStream bsParams;
-	int iStrlen = strlen(szCommand);
-
-	bsParams.Write(iStrlen);
-	bsParams.Write(szCommand, iStrlen);
-	m_pRakClient->RPC(&RPC_ServerCommand, &bsParams, HIGH_PRIORITY, RELIABLE, 0, false, UNASSIGNED_NETWORK_ID, NULL);
+    if (!szCommand || !m_pRakClient || GetGameState()!=GAMESTATE_CONNECTED) {
+        Log("BCG CHAT command rejected: connection unavailable"); return false;
+    }
+    const size_t length=strnlen(szCommand,145);
+    if (!length || length>144 || szCommand[0]!='/' || strchr(szCommand,'\n') || strchr(szCommand,'\r')) return false;
+    RakNet::BitStream bsParams;
+    int iStrlen=static_cast<int>(length);
+    bsParams.Write(iStrlen);bsParams.Write(szCommand,iStrlen);
+    const bool sent=m_pRakClient->RPC(&RPC_ServerCommand,&bsParams,HIGH_PRIORITY,RELIABLE,0,false,UNASSIGNED_NETWORK_ID,NULL);
+    Log("BCG CHAT command bytes=%d queued=%d",iStrlen,sent);
+    return sent;
 }
 // 0.3.7
 void CNetGame::SetMapIcon(uint8_t byteIconID, float fPosX, float fPosY, float fPosZ, uint8_t byteType, uint32_t dwColor, uint8_t byteStyle)
@@ -1007,7 +1057,7 @@ void CNetGame::SetMapIcon(uint8_t byteIconID, float fPosX, float fPosY, float fP
 // 0.3.7
 void CNetGame::DisableMapIcon(uint8_t byteIconID)
 {
-	ScriptCommand(&disable_marker, m_dwMapIcon[byteIconID]);
+	pGame->DisableMarker(m_dwMapIcon[byteIconID]);
 	m_dwMapIcon[byteIconID] = 0;
 }
 // 0.3.7
@@ -1061,7 +1111,7 @@ void CNetGame::ResetMapIcons()
 	for (int i = 0; i < MAX_MAP_ICONS; i++)
 	{
 		if (m_dwMapIcon[i]) {
-			ScriptCommand(&disable_marker, m_dwMapIcon[i]);
+			pGame->DisableMarker(m_dwMapIcon[i]);
 			m_dwMapIcon[i] = 0;
 		}
 	}

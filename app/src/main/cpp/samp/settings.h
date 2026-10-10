@@ -55,6 +55,7 @@ struct stSettings
 	bool iFirstPerson;
 
 	int iFPSCount;
+    float fLightBoost52;
 
 	bool iDialog;
 };

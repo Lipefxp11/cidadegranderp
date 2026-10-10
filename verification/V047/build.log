@@ -1,0 +1,1139 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:prepareBcgEngineLibs UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:configureCMakeDebug[arm64-v8a]
+
+> Task :app:buildCMakeDebug[arm64-v8a]
+C/C++: ninja: Entering directory `/workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/.cxx/Debug/54m3l545/arm64-v8a'
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    79 |     CVector& operator=(const CVector& right) {
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                                                              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+C/C++:       |        ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+C/C++:    11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+C/C++:       |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+C/C++:       |                                                                 w(w)  x(x)  y(y)  z(z)
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++:       |             top{ top }
+C/C++:    40 |             right{ right },
+C/C++:    41 |             top{ top }
+C/C++:       |             ~~~~~~~~~~
+C/C++:       |             bottom{ bottom }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+C/C++:    40 |             right{ right },
+C/C++:       |             ^~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+C/C++:     8 | struct CTimeInfo {
+C/C++:       |        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CEntityGTA : public CPlaceable{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+C/C++:    14 |     class CEntityGTA**      m_ppEntity;
+C/C++:       |     ^~~~~
+C/C++:       |     struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CPedGTA;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+C/C++:    14 | class CPedGTA;
+C/C++:       |       ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/vehicle.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CVehicleGTA.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:     8 | struct CPhysical : public CEntityGTA {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+C/C++:    10 | class CPhysical;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    17 |     class CPedGTA* m_pPed;
+C/C++:       |     ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+C/C++:    16 | struct CPedGTA;
+C/C++:       |        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    73 | struct CPedGTA : public CPhysical {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+C/C++:    14 | class CPedGTA;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    70 |         PlayerID& operator = ( const PlayerID& input )
+C/C++:       |                   ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+C/C++:   772 |                         Write(var.playerId);
+C/C++:       |                               ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    96 |         NetworkID& operator = ( const NetworkID& input );
+C/C++:       |                    ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+C/C++:   895 |                 Write(var);
+C/C++:       |                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+C/C++:  1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+C/C++:       |                            ~~~~~~~~~~                                ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/StringCompressor.h:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_Map.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+C/C++:    93 |                 unsigned index;
+C/C++:       |                          ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:55:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/textlabelpool.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/gui.h:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/samp_widgets/voicebutton.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                ^~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+C/C++:   258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+C/C++:       |                ^~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+C/C++:   577 |         static void VerifyMacroImpl(bool result) {
+C/C++:       |                     ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Wardrobe47.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+C/C++:   579 | static const char* GetTaskTypeName(eTaskType taskType) {
+C/C++:       |                    ^~~~~~~~~~~~~~~
+C/C++: 21 warnings generated.
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    79 |     CVector& operator=(const CVector& right) {
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                                                              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+C/C++:       |        ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Camera.h:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+C/C++:    11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+C/C++:       |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+C/C++:       |                                                                 w(w)  x(x)  y(y)  z(z)
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++:       |             top{ top }
+C/C++:    40 |             right{ right },
+C/C++:    41 |             top{ top }
+C/C++:       |             ~~~~~~~~~~
+C/C++:       |             bottom{ bottom }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+C/C++:    40 |             right{ right },
+C/C++:       |             ^~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+C/C++:     8 | struct CTimeInfo {
+C/C++:       |        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Camera.h:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CEntityGTA : public CPlaceable{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+C/C++:    14 |     class CEntityGTA**      m_ppEntity;
+C/C++:       |     ^~~~~
+C/C++:       |     struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CPedGTA;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+C/C++:    14 | class CPedGTA;
+C/C++:       |       ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/playerped.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/vehicle.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Entity/CVehicleGTA.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:     8 | struct CPhysical : public CEntityGTA {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+C/C++:    10 | class CPhysical;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    17 |     class CPedGTA* m_pPed;
+C/C++:       |     ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+C/C++:    16 | struct CPedGTA;
+C/C++:       |        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/playerped.h:5:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    73 | struct CPedGTA : public CPhysical {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+C/C++:    14 | class CPedGTA;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    70 |         PlayerID& operator = ( const PlayerID& input )
+C/C++:       |                   ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+C/C++:   772 |                         Write(var.playerId);
+C/C++:       |                               ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    96 |         NetworkID& operator = ( const NetworkID& input );
+C/C++:       |                    ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+C/C++:   895 |                 Write(var);
+C/C++:       |                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+C/C++:  1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+C/C++:       |                            ~~~~~~~~~~                                ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/StringCompressor.h:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_Map.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+C/C++:    93 |                 unsigned index;
+C/C++:       |                          ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:55:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/textlabelpool.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/gui.h:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/samp_widgets/voicebutton.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:23:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/ReliabilityLayer.h:145:27: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   145 |         RakNetStatisticsStruct * const GetStatistics( void );
+C/C++:       |                                  ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:23:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:25:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RSACrypt.h:87:7: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+C/C++:    87 |                                                 umultiply( r, x, r );
+C/C++:       |                                                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RSACrypt.h:78:6: note: previous statement is here
+C/C++:    78 |                                         if ( squares )
+C/C++:       |                                         ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:470:27: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   470 |         RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId );
+C/C++:       |                                  ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:387:27: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   387 |         RakNetStatisticsStruct * const GetStatistics( void );
+C/C++:       |                                  ^~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:50:7: warning: 'RakClient::Connect' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:    50 |         bool Connect( const char* host, unsigned short serverPort, unsigned short clientPort, unsigned int depreciated, int threadSleepTimer );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:111:7: note: hidden overloaded virtual function 'RakPeer::Connect' declared here: different number of parameters (4 vs 5)
+C/C++:   111 |         bool Connect( const char* host, unsigned short remotePort, char* passwordData, int passwordDataLength );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:64:7: warning: 'RakClient::InitializeSecurity' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:    64 |         void InitializeSecurity( const char *privKeyP, const char *privKeyQ );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:73:7: note: hidden overloaded virtual function 'RakPeer::InitializeSecurity' declared here: different number of parameters (4 vs 2)
+C/C++:    73 |         void InitializeSecurity(const char *pubKeyE, const char *pubKeyN, const char *privKeyP, const char *privKeyQ );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:82:7: warning: 'RakClient::Send' hides overloaded virtual functions [-Woverloaded-virtual]
+C/C++:    82 |         bool Send( const char *data, const int length, PacketPriority priority, PacketReliability reliability, char orderingChannel );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:138:7: note: hidden overloaded virtual function 'RakPeer::Send' declared here: different number of parameters (7 vs 5)
+C/C++:   138 |         bool Send( const char *data, const int length, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:148:7: note: hidden overloaded virtual function 'RakPeer::Send' declared here: different number of parameters (6 vs 5)
+C/C++:   148 |         bool Send( RakNet::BitStream * bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:91:7: warning: 'RakClient::Send' hides overloaded virtual functions [-Woverloaded-virtual]
+C/C++:    91 |         bool Send( RakNet::BitStream * bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:138:7: note: hidden overloaded virtual function 'RakPeer::Send' declared here: different number of parameters (7 vs 4)
+C/C++:   138 |         bool Send( const char *data, const int length, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:148:7: note: hidden overloaded virtual function 'RakPeer::Send' declared here: different number of parameters (6 vs 4)
+C/C++:   148 |         bool Send( RakNet::BitStream * bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:122:6: warning: 'RakClient::GetAveragePing' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:   122 |         int GetAveragePing( void );
+C/C++:       |             ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:267:6: note: hidden overloaded virtual function 'RakPeer::GetAveragePing' declared here: different number of parameters (1 vs 0)
+C/C++:   267 |         int GetAveragePing( const PlayerID playerId );
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:126:6: warning: 'RakClient::GetLastPing' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:   126 |         int GetLastPing( void ) const;
+C/C++:       |             ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:272:6: note: hidden overloaded virtual function 'RakPeer::GetLastPing' declared here: different number of parameters (1 vs 0)
+C/C++:   272 |         int GetLastPing( const PlayerID playerId ) const;
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:130:6: warning: 'RakClient::GetLowestPing' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:   130 |         int GetLowestPing( void ) const;
+C/C++:       |             ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:277:6: note: hidden overloaded virtual function 'RakPeer::GetLowestPing' declared here: different number of parameters (1 vs 0)
+C/C++:   277 |         int GetLowestPing( const PlayerID playerId ) const;
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:217:7: warning: 'RakClient::RPC' hides overloaded virtual functions [-Woverloaded-virtual]
+C/C++:   217 |         bool RPC( int* uniqueID, const char *data, unsigned int bitLength, PacketPriority priority, PacketReliability reliability, char orderingChannel, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:197:7: note: hidden overloaded virtual function 'RakPeer::RPC' declared here: different number of parameters (11 vs 9)
+C/C++:   197 |         bool RPC( int* uniqueID, const char *data, unsigned int bitLength, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:215:7: note: hidden overloaded virtual function 'RakPeer::RPC' declared here: different number of parameters (10 vs 9)
+C/C++:   215 |         bool RPC( int* uniqueID, RakNet::BitStream *bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:232:7: warning: 'RakClient::RPC' hides overloaded virtual functions [-Woverloaded-virtual]
+C/C++:   232 |         bool RPC( int* uniqueID, RakNet::BitStream *bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:197:7: note: hidden overloaded virtual function 'RakPeer::RPC' declared here: different number of parameters (11 vs 8)
+C/C++:   197 |         bool RPC( int* uniqueID, const char *data, unsigned int bitLength, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:215:7: note: hidden overloaded virtual function 'RakPeer::RPC' declared here: different number of parameters (10 vs 8)
+C/C++:   215 |         bool RPC( int* uniqueID, RakNet::BitStream *bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, PlayerID playerId, bool broadcast, bool shiftTimestamp, NetworkID networkID, RakNet::BitStream *replyFromTarget );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:355:7: warning: 'RakClient::SetTimeoutTime' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:   355 |         void SetTimeoutTime( RakNetTime timeMS );
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:324:7: note: hidden overloaded virtual function 'RakPeer::SetTimeoutTime' declared here: different number of parameters (2 vs 1)
+C/C++:   324 |         void SetTimeoutTime( RakNetTime timeMS, const PlayerID target );
+C/C++:       |              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/Network.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakClient.h:387:33: warning: 'RakClient::GetStatistics' hides overloaded virtual function [-Woverloaded-virtual]
+C/C++:   387 |         RakNetStatisticsStruct * const GetStatistics( void );
+C/C++:       |                                        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../voice/../vendor/raknet/RakPeer.h:470:33: note: hidden overloaded virtual function 'RakPeer::GetStatistics' declared here: different number of parameters (1 vs 0)
+C/C++:   470 |         RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId );
+C/C++:       |                                        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:6:32: warning: backslash and newline separated by space [-Wbackslash-newline-escape]
+C/C++:     6 |         if ((env)->ExceptionCheck()) \ 
+C/C++:       |                                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:34:3: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+C/C++:    34 |                 jbyteArray array = p->NewByteArray (len);
+C/C++:       |                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:33:9: note: previous statement is here
+C/C++:    33 |         if (!p) return nullptr;
+C/C++:       |         ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:15:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/CServerManager.h:19:109: warning: field '_port' will be initialized after field '_isVoice' [-Wreorder-ctor]
+C/C++:    19 |                         _buffer{}, _decrypted{ false }, _key{ static_cast<const char>(len % 255) }, _length{ len }, _sum{ sum }, _port{ port }, _isVoice{ isVoice }
+C/C++:       |                                                                                                                                  ^~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~
+C/C++:       |                                                                                                                                  _isVoice{ isVoice } _port{ port }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:107:14: warning: unused variable 'sampVer' [-Wunused-variable]
+C/C++:   107 |         const char* sampVer = SAMP_VERSION;
+C/C++:       |                     ^~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:245:7: warning: variable 'bProcess' set but not used [-Wunused-but-set-variable]
+C/C++:   245 |         bool bProcess = false;
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:279:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+C/C++:   279 |         while (pkt = m_pRakClient->Receive())
+C/C++:       |                ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:279:13: note: place parentheses around the assignment to silence this warning
+C/C++:   279 |         while (pkt = m_pRakClient->Receive())
+C/C++:       |                    ^                        
+C/C++:       |                (                            )
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:279:13: note: use '==' to turn this assignment into an equality comparison
+C/C++:   279 |         while (pkt = m_pRakClient->Receive())
+C/C++:       |                    ^
+C/C++:       |                    ==
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:711:11: warning: unused variable 'dwTime' [-Wunused-variable]
+C/C++:   711 |         uint32_t dwTime = 0;
+C/C++:       |                  ^~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:792:11: warning: unused variable 'dwTime' [-Wunused-variable]
+C/C++:   792 |         uint32_t dwTime = 0;
+C/C++:       |                  ^~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                ^~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+C/C++:   258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+C/C++:       |                ^~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+C/C++:   577 |         static void VerifyMacroImpl(bool result) {
+C/C++:       |                     ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.cpp:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+C/C++:   579 | static const char* GetTaskTypeName(eTaskType taskType) {
+C/C++:       |                    ^~~~~~~~~~~~~~~
+C/C++: 44 warnings generated.
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:2:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.h:2:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    79 |     CVector& operator=(const CVector& right) {
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                                                              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+C/C++:       |        ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+C/C++:    11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+C/C++:       |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+C/C++:       |                                                                 w(w)  x(x)  y(y)  z(z)
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++:       |             top{ top }
+C/C++:    40 |             right{ right },
+C/C++:    41 |             top{ top }
+C/C++:       |             ~~~~~~~~~~
+C/C++:       |             bottom{ bottom }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+C/C++:    40 |             right{ right },
+C/C++:       |             ^~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+C/C++:     8 | struct CTimeInfo {
+C/C++:       |        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CEntityGTA : public CPlaceable{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+C/C++:    14 |     class CEntityGTA**      m_ppEntity;
+C/C++:       |     ^~~~~
+C/C++:       |     struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CPedGTA;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+C/C++:    14 | class CPedGTA;
+C/C++:       |       ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/vehicle.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CVehicleGTA.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:     8 | struct CPhysical : public CEntityGTA {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+C/C++:    10 | class CPhysical;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    17 |     class CPedGTA* m_pPed;
+C/C++:       |     ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+C/C++:    16 | struct CPedGTA;
+C/C++:       |        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    73 | struct CPedGTA : public CPhysical {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+C/C++:    14 | class CPedGTA;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    70 |         PlayerID& operator = ( const PlayerID& input )
+C/C++:       |                   ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+C/C++:   772 |                         Write(var.playerId);
+C/C++:       |                               ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    96 |         NetworkID& operator = ( const NetworkID& input );
+C/C++:       |                    ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+C/C++:   895 |                 Write(var);
+C/C++:       |                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+C/C++:  1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+C/C++:       |                            ~~~~~~~~~~                                ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/StringCompressor.h:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_Map.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+C/C++:    93 |                 unsigned index;
+C/C++:       |                          ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:55:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/textlabelpool.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/gui.h:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/samp_widgets/voicebutton.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:8:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:6:32: warning: backslash and newline separated by space [-Wbackslash-newline-escape]
+C/C++:     6 |         if ((env)->ExceptionCheck()) \ 
+C/C++:       |                                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:34:3: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+C/C++:    34 |                 jbyteArray array = p->NewByteArray (len);
+C/C++:       |                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:33:9: note: previous statement is here
+C/C++:    33 |         if (!p) return nullptr;
+C/C++:       |         ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:2:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.h:2:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                ^~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+C/C++:   258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+C/C++:       |                ^~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+C/C++:   577 |         static void VerifyMacroImpl(bool result) {
+C/C++:       |                     ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/BCGBridge.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+C/C++:   579 | static const char* GetTaskTypeName(eTaskType taskType) {
+C/C++:       |                    ^~~~~~~~~~~~~~~
+C/C++: 23 warnings generated.
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:9:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    79 |     CVector& operator=(const CVector& right) {
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                                                              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:9:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+C/C++:       |        ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+C/C++:    11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+C/C++:       |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+C/C++:       |                                                                 w(w)  x(x)  y(y)  z(z)
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++:       |             top{ top }
+C/C++:    40 |             right{ right },
+C/C++:    41 |             top{ top }
+C/C++:       |             ~~~~~~~~~~
+C/C++:       |             bottom{ bottom }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+C/C++:    40 |             right{ right },
+C/C++:       |             ^~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+C/C++:     8 | struct CTimeInfo {
+C/C++:       |        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CEntityGTA : public CPlaceable{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+C/C++:    14 |     class CEntityGTA**      m_ppEntity;
+C/C++:       |     ^~~~~
+C/C++:       |     struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CPedGTA;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+C/C++:    14 | class CPedGTA;
+C/C++:       |       ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/vehicle.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CVehicleGTA.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:     8 | struct CPhysical : public CEntityGTA {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+C/C++:    10 | class CPhysical;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    17 |     class CPedGTA* m_pPed;
+C/C++:       |     ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+C/C++:    16 | struct CPedGTA;
+C/C++:       |        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    73 | struct CPedGTA : public CPhysical {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+C/C++:    14 | class CPedGTA;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/RakClientInterface.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    70 |         PlayerID& operator = ( const PlayerID& input )
+C/C++:       |                   ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+C/C++:   772 |                         Write(var.playerId);
+C/C++:       |                               ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    96 |         NetworkID& operator = ( const NetworkID& input );
+C/C++:       |                    ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+C/C++:   895 |                 Write(var);
+C/C++:       |                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+C/C++:  1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+C/C++:       |                            ~~~~~~~~~~                                ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:3:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/StringCompressor.h:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/DS_Map.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+C/C++:    93 |                 unsigned index;
+C/C++:       |                          ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/netgame.h:55:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/textlabelpool.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../gui/gui.h:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../net/../gui/samp_widgets/voicebutton.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:6:32: warning: backslash and newline separated by space [-Wbackslash-newline-escape]
+C/C++:     6 |         if ((env)->ExceptionCheck()) \ 
+C/C++:       |                                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:34:3: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+C/C++:    34 |                 jbyteArray array = p->NewByteArray (len);
+C/C++:       |                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/java/jniutil.h:33:9: note: previous statement is here
+C/C++:    33 |         if (!p) return nullptr;
+C/C++:       |         ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/ModelInfo.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/PedModelInfo.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/ClumpModelInfo.h:13:1: warning: 'CClumpModelInfo' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    13 | struct CClumpModelInfo : public CBaseModelInfo {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:38:1: note: did you mean struct here?
+C/C++:    38 | class CClumpModelInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/ModelInfo.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/PedModelInfo.h:11:1: warning: 'CPedModelInfo' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    11 | struct CPedModelInfo : public CClumpModelInfo{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:42:1: note: did you mean struct here?
+C/C++:    42 | class CPedModelInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/ModelInfo.h:8:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/AtomicModelInfo.h:10:1: warning: 'CAtomicModelInfo' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    10 | struct CAtomicModelInfo : public CBaseModelInfo {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:37:1: note: did you mean struct here?
+C/C++:    37 | class CAtomicModelInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/ModelInfo.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/VehicleModelInfo.h:70:1: warning: 'CVehicleModelInfo' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    70 | struct CVehicleModelInfo : public CClumpModelInfo {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:44:1: note: did you mean struct here?
+C/C++:    44 | class CVehicleModelInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:25:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Collision/Collision.h:74:17: warning: '__stdcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    74 |     static bool __stdcall PointInTriangle(CVector const& point, CVector const* triPoints);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/TxdStore.h:8:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/TxdDef.h:24:1: warning: converting the result of '?:' with integer constants to a boolean always evaluates to 'true' [-Wtautological-constant-compare]
+C/C++:    24 | VALIDATE_SIZE(TxdDef, VER_x32 ? 0x38 : 0x40);
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/../PedIK.h:7:50: note: expanded from macro 'VALIDATE_SIZE'
+C/C++:     7 | #define VALIDATE_SIZE(struc, size) static_assert(sizeof(struc) == size, "Invalid structure size of " #struc)
+C/C++:       |                                                  ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:32:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Animation/AnimManager.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Animation/AnimBlendAssociation.h:144:55: warning: offset of on non-standard-layout type 'CAnimBlendAssociation' [-Winvalid-offsetof]
+C/C++:   144 |         return (CAnimBlendAssociation*)((char*)link - offsetof(CAnimBlendAssociation, m_Link));
+C/C++:       |                                                       ^                               ~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/build45/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/19/include/__stddef_offsetof.h:16:24: note: expanded from macro 'offsetof'
+C/C++:    16 | #define offsetof(t, d) __builtin_offsetof(t, d)
+C/C++:       |                        ^                     ~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:206:90: warning: format specifies type 'unsigned int' but the argument has type 'uintptr_t' (aka 'unsigned long') [-Wformat]
+C/C++:   206 |         LOGI("[CRadar::ClearBlip]: Invalid blip ID (%d) called from 0x%X", (uint16_t)a2, dwRetAddr);
+C/C++:       |                                                                       ~~                 ^~~~~~~~~
+C/C++:       |                                                                       %lX
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../log.h:7:64: note: expanded from macro 'LOGI'
+C/C++:     7 | #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "AXL", __VA_ARGS__)
+C/C++:       |                                                                ^~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:242:33: warning: comparison of integers of different signs: 'int32' (aka 'int') and 'const uint32_t' (aka 'const unsigned int') [-Wsign-compare]
+C/C++:   242 |         if (pObject->m_nModelId == buildingInfo.modelId || buildingInfo.modelId == static_cast<uint32_t>(-1))
+C/C++:       |             ~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:369:13: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:   369 |     ((void (__fastcall *)(uintptr_t, uintptr_t))(g_libGTASA + (VER_x32 ? 0x4F6FE0:0x6007E0)))(pTask, a1);
+C/C++:       |             ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:372:12: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:   372 |     ((int (__fastcall *)(uintptr_t, uintptr_t, int, int))(g_libGTASA + (VER_x32 ? 0x53397A:0x64E084)))(a2, pTask, 3, 0);
+C/C++:       |            ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:683:54: warning: '&&' within '||' [-Wlogical-op-parentheses]
+C/C++:   682 |                         if (*ppEntity == GamePool_FindPlayerPed() ||
+C/C++:       |                                                                   ~~
+C/C++:   683 |                             pLocalPed->IsInVehicle() && *ppEntity == pLocalPed->pVehicle)
+C/C++:       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:683:54: note: place parentheses around the '&&' expression to silence this warning
+C/C++:   683 |                             pLocalPed->IsInVehicle() && *ppEntity == pLocalPed->pVehicle)
+C/C++:       |                                                      ^                                  
+C/C++:       |                             (                                                           )
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:872:65: warning: implicit conversion from 'unsigned long long' to 'uint32_t' (aka 'unsigned int') changes value from 18446744073709551615 to 4294967295 [-Wconstant-conversion]
+C/C++:   872 |                     *(uint32_t*)(g_libGTASA + 0x9F86F8 + 128) = 0xFFFFFFFFFFFFFFFFLL;
+C/C++:       |                                                               ~ ^~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:891:65: warning: implicit conversion from 'unsigned long long' to 'uint32_t' (aka 'unsigned int') changes value from 18446744073709551615 to 4294967295 [-Wconstant-conversion]
+C/C++:   891 |                     *(uint32_t*)(g_libGTASA + 0x9F86F8 + 128) = 0xFFFFFFFFFFFFFFFFLL;
+C/C++:       |                                                               ~ ^~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:1099:30: warning: cast to 'unsigned int *' from smaller integer type 'uint32_t' (aka 'unsigned int') [-Wint-to-pointer-cast]
+C/C++:  1099 |         glBindBuffer(34962, *(uint32_t *)(buffer + 8));
+C/C++:       |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:1125:11: warning: cast to 'void (**)(unsigned int *)' from smaller integer type 'uint32_t' (aka 'unsigned int') [-Wint-to-pointer-cast]
+C/C++:  1125 |         (*(void (**)(uint32_t *))(*buffer + 4))(buffer);
+C/C++:       |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:1722:10: warning: cast to 'unsigned long *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+C/C++:  1722 |     if (*(uintptr_t*)(a1 + 16))
+C/C++:       |          ^~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:1747:18: warning: unused variable 'uiNewId' [-Wunused-variable]
+C/C++:  1747 |         uint     uiNewId = id + (i / 2) * ((i & 1) ? -1 : 1);
+C/C++:       |                  ^~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:9:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                ^~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+C/C++:   258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+C/C++:       |                ^~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:9:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/../game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+C/C++:   577 |         static void VerifyMacroImpl(bool result) {
+C/C++:       |                     ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:11:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+C/C++:   579 | static const char* GetTaskTypeName(eTaskType taskType) {
+C/C++:       |                    ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:51:14: warning: unused function 'GetPedPoolGta' [-Wunused-function]
+C/C++:    51 | static auto& GetPedPoolGta()                { return CPools::ms_pPedPool; }
+C/C++:       |              ^~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:52:14: warning: unused function 'GetVehiclePoolGta' [-Wunused-function]
+C/C++:    52 | static auto& GetVehiclePoolGta()            { return CPools::ms_pVehiclePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:53:14: warning: unused function 'GetBuildingPool' [-Wunused-function]
+C/C++:    53 | static auto& GetBuildingPool()              { return CPools::ms_pBuildingPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:54:14: warning: unused function 'GetObjectPoolGta' [-Wunused-function]
+C/C++:    54 | static auto& GetObjectPoolGta()             { return CPools::ms_pObjectPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:55:14: warning: unused function 'GetDummyPool' [-Wunused-function]
+C/C++:    55 | static auto& GetDummyPool()                 { return CPools::ms_pDummyPool; }
+C/C++:       |              ^~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:56:14: warning: unused function 'GetColModelPoolGta' [-Wunused-function]
+C/C++:    56 | static auto& GetColModelPoolGta()           { return CPools::ms_pColModelPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:57:14: warning: unused function 'GetTaskPool' [-Wunused-function]
+C/C++:    57 | static auto& GetTaskPool()                  { return CPools::ms_pTaskPool; }
+C/C++:       |              ^~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:58:14: warning: unused function 'GetPedIntelligencePoolGta' [-Wunused-function]
+C/C++:    58 | static auto& GetPedIntelligencePoolGta()    { return CPools::ms_pPedIntelligencePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:59:14: warning: unused function 'GetPtrNodeSingleLinkPool' [-Wunused-function]
+C/C++:    59 | static auto& GetPtrNodeSingleLinkPool()     { return CPools::ms_pPtrNodeSingleLinkPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:60:14: warning: unused function 'GetPtrNodeDoubleLinkPool' [-Wunused-function]
+C/C++:    60 | static auto& GetPtrNodeDoubleLinkPool()     { return CPools::ms_pPtrNodeDoubleLinkPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:61:14: warning: unused function 'GetEntryInfoNodePool' [-Wunused-function]
+C/C++:    61 | static auto& GetEntryInfoNodePool()         { return CPools::ms_pEntryInfoNodePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:62:14: warning: unused function 'GetPointRoutePoolGta' [-Wunused-function]
+C/C++:    62 | static auto& GetPointRoutePoolGta()         { return CPools::ms_pPointRoutePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:63:14: warning: unused function 'GetPatrolRoutePoolGta' [-Wunused-function]
+C/C++:    63 | static auto& GetPatrolRoutePoolGta()        { return CPools::ms_pPatrolRoutePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:64:14: warning: unused function 'GetEventPoolGta' [-Wunused-function]
+C/C++:    64 | static auto& GetEventPoolGta()              { return CPools::ms_pEventPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:65:14: warning: unused function 'GetNodeRoutePoolGta' [-Wunused-function]
+C/C++:    65 | static auto& GetNodeRoutePoolGta()          { return CPools::ms_pNodeRoutePool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:66:14: warning: unused function 'GetTaskAllocatorPoolGta' [-Wunused-function]
+C/C++:    66 | static auto& GetTaskAllocatorPoolGta()      { return CPools::ms_pTaskAllocatorPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:67:14: warning: unused function 'GetPedAttractorPoolGta' [-Wunused-function]
+C/C++:    67 | static auto& GetPedAttractorPoolGta()       { return CPools::ms_pPedAttractorPool; }
+C/C++:       |              ^~~~~~~~~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:29:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Streaming.h:12:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/CdStreamInfo.h:19:15: warning: unused function 'CdStreamGetLastPosn' [-Wunused-function]
+C/C++:    19 | static uint32 CdStreamGetLastPosn() { return CHook::CallFunction<uint32>(g_libGTASA + 0x3AD460); }
+C/C++:       |               ^~~~~~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Textures/TextureDatabase.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Textures/TextureListingContainer.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Textures/TextureListing.h:12:12: warning: private field 'nameHash' is not used [-Wunused-private-field]
+C/C++:    12 |     uint16 nameHash;
+C/C++:       |            ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Textures/TextureListing.h:13:12: warning: private field 'format' is not used [-Wunused-private-field]
+C/C++:    13 |     uint16 format;
+C/C++:       |            ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Textures/TextureListing.h:14:12: warning: private field 'width' is not used [-Wunused-private-field]
+C/C++:    14 |     uint16 width;
+C/C++:       |            ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:18:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/Heli.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/Automobile.h:13:13: warning: private field 'pad0' is not used [-Wunused-private-field]
+C/C++:    13 |     uint8_t pad0[0x470];
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:18:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/Heli.h:13:13: warning: private field 'pad0' is not used [-Wunused-private-field]
+C/C++:    13 |     uint8_t pad0[0x98];
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/hooks.cpp:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Pools.h:19:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CutsceneObject.h:14:17: warning: private field 'm_pAttachmentObject' is not used [-Wunused-private-field]
+C/C++:    14 |     CObjectGta* m_pAttachmentObject;
+C/C++:       |                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CutsceneObject.h:15:17: warning: private field 'm_vWorldPosition' is not used [-Wunused-private-field]
+C/C++:    15 |     CVector     m_vWorldPosition;
+C/C++:       |                 ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CutsceneObject.h:16:17: warning: private field 'm_vForce' is not used [-Wunused-private-field]
+C/C++:    16 |     CVector     m_vForce;
+C/C++:       |                 ^
+C/C++: 67 warnings generated.
+
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:mergeDebugNativeLibs
+> Task :app:processDebugMainManifest
+> Task :app:stripDebugDebugSymbols
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:compressDebugAssets
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+> Task :app:extractDebugNativeDebugMetadata
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:bundleDebugClassesToRuntimeJar UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :app:compileDebugUnitTestJavaWithJavac UP-TO-DATE
+> Task :app:testDebugUnitTest UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 27s
+46 actionable tasks: 15 executed, 31 up-to-date

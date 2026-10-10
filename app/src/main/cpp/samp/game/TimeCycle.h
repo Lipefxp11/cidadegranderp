@@ -16,6 +16,7 @@ public:
 
 public:
     static void InjectHooks();
+    static void ApplyCityLighting52(float boost);
 };
 
 

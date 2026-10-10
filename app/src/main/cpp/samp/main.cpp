@@ -3,6 +3,7 @@
 #include <syscall.h>
 
 #include "main.h"
+#include "BCGBridge.h"
 #include "game/game.h"
 #include "net/netgame.h"
 #include "gui/gui.h"
@@ -280,7 +281,7 @@ extern "C" {
 		std::string szStr((char*)pMsg, length);
 		
 		if(pNetGame) {
-			pNetGame->SendDialogResponse(i, i3, i2, (char*)szStr.c_str());
+			BCGBridge::Queue(1,i,i3,i2,szStr);
 			//pGame->FindPlayerPed()->TogglePlayerControllableWithoutLock(true);
 		}
 
@@ -293,6 +294,8 @@ void MainLoop()
 	if (pGame->bIsGameExiting) return;
 
 	DoInitStuff();
+    BCGBridge::Process();
+    Plugin::ProcessFrame();
 
 	if (bDebug) {
 		DoDebugLoop();

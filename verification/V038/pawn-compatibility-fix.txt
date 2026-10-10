@@ -1,0 +1,1 @@
+Correção: buffers mutáveis para APIs db_query/sscanf de includes antigos. Limites: query <17000 células, payload <145 células. Sem alteração do protocolo ou APK. Revisão estática e consistência do módulo incorporado; Pawn não compilado.

@@ -1,0 +1,7 @@
+Pawn compiler 3.10.10	 	 	Copyright (c) 1997-2006, ITB CompuPhase
+
+Header size:           1144 bytes
+Code size:             6796 bytes
+Data size:            19724 bytes
+Stack/heap size:      16384 bytes; estimated max. usage=165 cells (660 bytes)
+Total requirements:   44048 bytes

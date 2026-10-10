@@ -68,13 +68,12 @@ CTextDraw::CTextDraw(TEXT_DRAW_TRANSMIT* pTextDrawTransmit, const char* szText)
 // 0.3.7
 CTextDraw::~CTextDraw()
 {
-    if (m_TextDrawData.iTextureSlot != -1 && m_TextDrawData.iTextureSlot != 0x0 && TextDrawTexture[m_TextDrawData.iTextureSlot]) RwTextureDestroy((RwTexture*)TextDrawTexture[m_TextDrawData.iTextureSlot]);
     DestroyTextDrawTexture(m_TextDrawData.iTextureSlot);
 }
 
 uintptr_t LoadFromTxdSlot(const char* szSlot, const char* szTexture)
 {
-    RwTexture* tex;
+    RwTexture* tex = nullptr;
     if (strncmp(szSlot, "none", 5u))
     {
         /*uintptr_t v10 = ((int (*)(const char*))(g_libGTASA + 0x55BB85))(szSlot);
@@ -131,7 +130,7 @@ void CTextDraw::Draw()
         return DrawTextured();
     }
 
-    if (m_TextDrawData.dwStyle == 4) {
+    if (m_TextDrawData.dwStyle >= 4) {
         return DrawTextured();
     }
 
@@ -226,6 +225,7 @@ void CTextDraw::DrawDefault()
 
 void CTextDraw::DrawTextured()
 {
+    if (m_TextDrawData.iTextureSlot < 0 || m_TextDrawData.iTextureSlot >= 200) return;
     float scaleX = (float)(RsGlobal->maximumWidth) * (1.0f / 640.0f);
     float scaleY = (float)(RsGlobal->maximumHeight) * (1.0f / 448.0f);
 
@@ -266,6 +266,7 @@ void CTextDraw::SetText(const char* szText)
     if (m_TextDrawData.dwStyle == 4 && m_TextDrawData.iTextureSlot != -1)
     {
         DestroyTextDrawTexture(m_TextDrawData.iTextureSlot);
+        m_TextDrawData.iTextureSlot = GetFreeTextDrawTextureSlot();
         LoadTexture();
     }
 }
@@ -338,6 +339,8 @@ void CTextDraw::SnapshotProcess()
         m_TextDrawData.iTextureSlot = GetFreeTextDrawTextureSlot();
         if (m_TextDrawData.iTextureSlot != -1) {
             TextDrawTexture[m_TextDrawData.iTextureSlot] = snapshot;
+        } else {
+            RwTextureDestroy(reinterpret_cast<RwTexture*>(snapshot));
         }
     }
 }

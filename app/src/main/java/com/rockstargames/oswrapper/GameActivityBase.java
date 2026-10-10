@@ -365,6 +365,7 @@ public abstract class GameActivityBase extends AppCompatActivity {
         Log.i(TAG, "[!!] onResume");
         super.onResume();
         hideSystemUI();
+        com.gta.game.ui.DisplayRate45.apply(this);
         getView().onResume();
     }
 

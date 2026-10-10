@@ -5,6 +5,7 @@
 #include <algorithm>
 #include "../settings.h"
 #include "java/jniutil.h"
+#include "BCGBridge.h"
 
 extern UI* pUI;
 extern CGame* pGame;
@@ -29,7 +30,7 @@ void Chat::addInfoMessage(const std::string& format, ...)
 
     va_list args;
     va_start(args, format);
-    vsprintf(tmp_buf, format.c_str(), args);
+    vsnprintf(tmp_buf, sizeof tmp_buf, format.c_str(), args);
     va_end(args);
 
     addMessage(std::string(tmp_buf), ImColor(0x00, 0xc8, 0xc8));
@@ -41,7 +42,7 @@ void Chat::addDebugMessage(const std::string& format, ...)
 
     va_list args;
     va_start(args, format);
-    vsprintf(tmp_buf, format.c_str(), args);
+    vsnprintf(tmp_buf, sizeof tmp_buf, format.c_str(), args);
     va_end(args);
 
     addMessage(std::string(tmp_buf), ImColor(0xbe, 0xbe, 0xbe));
@@ -95,16 +96,18 @@ void Chat::activateEvent(bool active)
 
 void Chat::touchPopEvent()
 {
-    if (pUI->playertablist()->visible()) return;
+    if (!pUI || pUI->keyboard()->visible() || pUI->playertablist()->visible()) return;
 
+    // Restore the original client keyboard and direct native RPC path.
     pUI->keyboard()->show(this);
 }
 
 void Chat::keyboardEvent(const std::string& input)
 {
-    if (input.length() > 0 && pNetGame)
-    {
-        if (input[0] == '/') pNetGame->SendChatCommand(input.c_str());
-        else pNetGame->SendChatMessage(input.c_str());
-    }
+    // Native KeyboardInput already stores SA-MP CP1252 bytes.
+    if (!pNetGame || input.empty() || input.size() > 144 ||
+        input.find_first_of("\r\n") != std::string::npos ||
+        input.find('\0') != std::string::npos) return;
+    const bool sent=input.front()=='/'?pNetGame->SendChatCommand(input.c_str()):pNetGame->SendChatMessage(input.c_str());
+    if (!sent && pUI) pUI->chat()->addInfoMessage("Conexao indisponivel. Nao foi possivel enviar.");
 }

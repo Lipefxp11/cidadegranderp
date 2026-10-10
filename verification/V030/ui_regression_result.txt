@@ -1,0 +1,29 @@
+PASS HUD waits for login
+PASS tablist headers preserve native item index
+PASS PIN masked and controlled by keypad
+PASS PIN limited to six digits
+PASS PIN submits through real dialog bridge
+PASS ordinary input recovers after PIN
+PASS ordinary dialog preserves typed text
+PASS home shows seven implemented apps
+PASS apps have distinct icons
+PASS inventory app keeps server app index
+PASS calculator performs real arithmetic
+PASS calculator handles division by zero
+PASS authenticated connection enables HUD
+PASS no HTML map, second chat history or PTT
+PASS server feeds needs and city
+PASS speedometer displays supplied real speed
+PASS fuel and engine follow server state
+PASS native life and actual voice state do not overwrite server money
+PASS decorative HUD and speedometer do not consume touches
+PASS on-foot state hides speedometer
+PASS wire decodes CP1252 accents
+PASS notifications treat markup as text
+PASS inventory renders supplied slots without fake items
+PASS use sends actual native text command
+PASS drop sends selected real slot
+PASS back closes inventory on client and server
+PASS disconnect clears modal, HUD and notifications
+PASS no browser JavaScript exceptions
+V030 UI regression checks=28 failures=0

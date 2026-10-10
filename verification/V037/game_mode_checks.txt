@@ -1,0 +1,1 @@
+Inspecao estatica: nomes novos sem colisao com macros; sem strings adjacentes incompativeis. Fluxo de cadastro termina em BCG36Selector. Sem compilar Pawn.

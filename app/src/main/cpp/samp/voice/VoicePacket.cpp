@@ -6,7 +6,7 @@ static uint32_t CalcCrc32cHash(const char *buffer, uint32_t length, uint32_t crc
 
     while (length--)
     {
-        crc ^= *buffer++;
+        crc ^= static_cast<uint8_t>(*buffer++);
 
         for (int k = 0; k < 8; ++k)
         {

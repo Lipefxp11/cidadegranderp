@@ -611,39 +611,23 @@ void ScrApplyPlayerAnimation(RPCParameters* rpcParams)
 // 0.3.7
 void ScrClearPlayerAnimations(RPCParameters* rpcParams)
 {
-	return;
-
-	unsigned char* Data = reinterpret_cast<unsigned char*>(rpcParams->input);
-	int iBitLength = rpcParams->numberOfBitsOfData;
-	RakNet::BitStream bsData((unsigned char*)Data, (iBitLength / 8) + 1, false);
-
-	Log("ClearAnimation");
-
-	PLAYERID playerId;
-	bsData.Read(playerId);
-	RwMatrix mat;
-
-	CPlayerPool * pPlayerPool = NULL;
-	CPlayerPed * pPlayerPed = NULL;
-
-	pPlayerPool = pNetGame->GetPlayerPool();
-
-	if (pPlayerPool)
-	{
-		if (playerId == pPlayerPool->GetLocalPlayerID()) {
-			pPlayerPed = pPlayerPool->GetLocalPlayer()->GetPlayerPed();
-		}
-		else {
-			if (pPlayerPool->GetSlotState(playerId)) {
-				pPlayerPed = pPlayerPool->GetAt(playerId)->GetPlayerPed();
-				pPlayerPool->GetAt(playerId)->m_bAppliedAnimation = false;
-			}
-		}
-		if (pPlayerPed) {
-			mat = pPlayerPed->m_pPed->GetMatrix().ToRwMatrix();
-			pPlayerPed->m_pPed->SetPosn(mat.pos.x, mat.pos.y, mat.pos.z);
-		}
-	}
+    if (!rpcParams || !rpcParams->input || rpcParams->numberOfBitsOfData < 16 || !pNetGame) return;
+    RakNet::BitStream bsData(reinterpret_cast<unsigned char*>(rpcParams->input),
+        (rpcParams->numberOfBitsOfData + 7) / 8, false);
+    PLAYERID playerId;
+    if (!bsData.Read(playerId) || playerId >= MAX_PLAYERS) return;
+    CPlayerPool* pool=pNetGame->GetPlayerPool();
+    if (!pool) return;
+    CPlayerPed* ped=nullptr;
+    if (playerId==pool->GetLocalPlayerID()) {
+        if (pool->GetLocalPlayer()) ped=pool->GetLocalPlayer()->GetPlayerPed();
+    } else if (pool->GetSlotState(playerId) && pool->GetAt(playerId)) {
+        CRemotePlayer* remote=pool->GetAt(playerId);
+        ped=remote->GetPlayerPed();remote->m_bAppliedAnimation=false;
+    }
+    if (!ped || !ped->m_pPed) return;
+    ped->ClearAllTasks();
+    Log("BCG ANIM cleared server animation for player=%u",playerId);
 }
 // 0.3.7
 void ScrSetPlayerHealth(RPCParameters* rpcParams)
@@ -686,88 +670,61 @@ void ScrSetPlayerInterior(RPCParameters* rpcParams)
 extern UI *pUI;
 void ScrShowTextDraw(RPCParameters* rpcParams)
 {
-    /*
-	unsigned char* Data = reinterpret_cast<unsigned char*>(rpcParams->input);
-	int iBitLength = rpcParams->numberOfBitsOfData;
-
-	Log("ScrShowTextDraw");
-
-	CTextDrawPool* pTextDrawPool = pNetGame->GetTextDrawPool();
-	if (pTextDrawPool == nullptr) {
-		Log("no textdraw pool");
-		return;
-	}
-
-	uint16_t wTextDrawID;
-	TEXT_DRAW_TRANSMIT textDrawTransmit;
-	uint16_t wTextLength;
-	RakNet::BitStream bsData(Data, (iBitLength / 8) + 1, false);
-	bsData.Read(wTextDrawID);
-	bsData.Read((char*)& textDrawTransmit, sizeof(TEXT_DRAW_TRANSMIT));
-	bsData.Read(wTextLength);
-
-	char szText[1024 + 1];
-
-	bsData.Read(szText, wTextLength);
-	szText[wTextLength] = 0;
-
-	pTextDrawPool->New(wTextDrawID, &textDrawTransmit, szText);
-     */
+    if (!rpcParams || !rpcParams->input || !pNetGame) return;
+    constexpr unsigned int headerBits = (sizeof(uint16_t) * 2 + sizeof(TEXT_DRAW_TRANSMIT)) * 8;
+    if (rpcParams->numberOfBitsOfData < headerBits) return;
+    CTextDrawPool* pool = pNetGame->GetTextDrawPool();
+    if (!pool) return;
+    RakNet::BitStream data(rpcParams->input, (rpcParams->numberOfBitsOfData + 7) / 8, false);
+    data.SetWriteOffset(rpcParams->numberOfBitsOfData);
+    uint16_t id = 0, length = 0;
+    TEXT_DRAW_TRANSMIT wire{};
+    if (!data.Read(id) || id >= MAX_TEXT_DRAWS ||
+        !data.Read(reinterpret_cast<char*>(&wire), sizeof wire) || !data.Read(length)) return;
+    if (length > 1024 || data.GetNumberOfUnreadBits() < length * 8 || wire.byteStyle > 5) return;
+    char text[1025]{};
+    if (length && !data.Read(text, length)) return;
+    text[length] = '\0';
+    pool->New(id, &wire, text);
 }
 // 0.3.7
 void ScrHideTextDraw(RPCParameters* rpcParams)
 {
-	unsigned char* Data = reinterpret_cast<unsigned char*>(rpcParams->input);
-	int iBitLength = rpcParams->numberOfBitsOfData;
-
-	CTextDrawPool* pTextDrawPool = pNetGame->GetTextDrawPool();
-	if (pTextDrawPool == nullptr) return;
-
-	uint16_t wTextDrawID;
-	RakNet::BitStream bsData(Data, (iBitLength / 8) + 1, false);
-	bsData.Read(wTextDrawID);
-
-	pTextDrawPool->Delete(wTextDrawID);
+    if (!rpcParams || !rpcParams->input || !pNetGame || rpcParams->numberOfBitsOfData < 16) return;
+    CTextDrawPool* pool = pNetGame->GetTextDrawPool();
+    if (!pool) return;
+    RakNet::BitStream data(rpcParams->input, (rpcParams->numberOfBitsOfData + 7) / 8, false);
+    uint16_t id = 0;
+    if (data.Read(id) && id < MAX_TEXT_DRAWS) pool->Delete(id);
 }
 // 0.3.7
-void ScrTextDrawSetString(RPCParameters * rpcParams)
+void ScrTextDrawSetString(RPCParameters* rpcParams)
 {
-	unsigned char* Data = reinterpret_cast<unsigned char*>(rpcParams->input);
-	int iBitLength = rpcParams->numberOfBitsOfData;
-
-	CTextDrawPool* pTextDrawPool = pNetGame->GetTextDrawPool();
-	if (pTextDrawPool == nullptr) return;
-
-	uint16_t wTextDrawID;
-	uint16_t wTextLength;
-	RakNet::BitStream bsData(Data, (iBitLength / 8) + 1, false);
-	bsData.Read(wTextDrawID);
-	bsData.Read(wTextLength);
-
-	if (wTextLength < 1024)
-	{
-		char szText[1024 + 1];
-		bsData.Read(szText, wTextLength);
-		szText[wTextLength] = '\0';
-
-		CTextDraw* pTextDraw = pTextDrawPool->GetAt(wTextDrawID);
-		if (pTextDraw) pTextDraw->SetText(szText);
-	}
-
+    if (!rpcParams || !rpcParams->input || !pNetGame || rpcParams->numberOfBitsOfData < 32) return;
+    CTextDrawPool* pool = pNetGame->GetTextDrawPool();
+    if (!pool) return;
+    RakNet::BitStream data(rpcParams->input, (rpcParams->numberOfBitsOfData + 7) / 8, false);
+    data.SetWriteOffset(rpcParams->numberOfBitsOfData);
+    uint16_t id = 0, length = 0;
+    if (!data.Read(id) || id >= MAX_TEXT_DRAWS || !data.Read(length) ||
+        length > 1024 || data.GetNumberOfUnreadBits() < length * 8) return;
+    char text[1025]{};
+    if (length && !data.Read(text, length)) return;
+    text[length] = '\0';
+    CTextDraw* draw = pool->GetAt(id);
+    if (draw) draw->SetText(text);
 }
 
 void ScrSelectTextDraw(RPCParameters* rpcParams)
 {
-	unsigned char* Data = reinterpret_cast<unsigned char*>(rpcParams->input);
-	int iBitLength = rpcParams->numberOfBitsOfData;
-
-	bool bEnable = false;
-	uint32_t dwColor = 0;
-	RakNet::BitStream bsData(Data, (iBitLength / 8) + 1, false);
-	bsData.Read(bEnable);
-	bsData.Read(dwColor);
-
-	pNetGame->GetTextDrawPool()->SetSelectState(bEnable ? true : false, dwColor);
+    if (!rpcParams || !rpcParams->input || !pNetGame || rpcParams->numberOfBitsOfData < 33) return;
+    CTextDrawPool* pool = pNetGame->GetTextDrawPool();
+    if (!pool) return;
+    RakNet::BitStream data(rpcParams->input, (rpcParams->numberOfBitsOfData + 7) / 8, false);
+    data.SetWriteOffset(rpcParams->numberOfBitsOfData);
+    bool enabled = false;
+    uint32_t color = 0;
+    if (data.Read(enabled) && data.Read(color)) pool->SetSelectState(enabled, color);
 }
 
 // 0.3.7

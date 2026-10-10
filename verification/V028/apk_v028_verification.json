@@ -1,0 +1,207 @@
+{
+  "apk": "BCG_V028_MAPA_CHAT_VOIP.apk",
+  "bytes": 23452396,
+  "sha256": "b3da148076b795f2b3d3cb8396d29be88d86a4b04e772ac6f5bd28c6f5edb89a",
+  "applicationId": "com.cidadegranderp",
+  "versionCode": 28,
+  "versionName": "0.0.28",
+  "minSdk": 28,
+  "targetSdk": 36,
+  "signerSha256": "9143bd23931f6bf3c7cbeb5ff7e5d499ad263e94bff8c7784ffdf1437ddb5b50",
+  "signatureVerified": true,
+  "zipalign16KVerified": true,
+  "duplicateEntries": [],
+  "firebaseClassesFound": false,
+  "htmlMinimapAssetAbsent": true,
+  "currentUiAssetsMatched": [
+    "bcg_ui/index.html",
+    "bcg_ui/ui.css",
+    "bcg_ui/ui.js"
+  ],
+  "nativeMarkers": {
+    "_ZN17CWidgetPlayerInfo4DrawEv": true,
+    "BCG CHAT message bytes=": true,
+    "BCG CHAT command bytes=": true,
+    "bcgui27": true
+  },
+  "libraries": [
+    {
+      "name": "libGame.so",
+      "bytes": 8943088,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libEGL.so",
+        "libGLESv2.so",
+        "libVendor_mpg123.so",
+        "libopenal.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "name": "libVendor_mpg123.so",
+      "bytes": 186688,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libEGL.so",
+        "libGLESv2.so",
+        "libopenal.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "name": "libbass.so",
+      "bytes": 324744,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libOpenSLES.so",
+        "libandroid.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ]
+    },
+    {
+      "name": "libbass_fx.so",
+      "bytes": 104344,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libbass.so",
+        "libc.so",
+        "libm.so",
+        "libstdc++.so"
+      ]
+    },
+    {
+      "name": "libbass_ssl.so",
+      "bytes": 2381480,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libc.so",
+        "libdl.so"
+      ]
+    },
+    {
+      "name": "libc++_shared.so",
+      "bytes": 1253544,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ]
+    },
+    {
+      "name": "libopenal.so",
+      "bytes": 724560,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libOpenSLES.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libc.so"
+      ]
+    },
+    {
+      "name": "libsamp.so",
+      "bytes": 2723608,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "liblog.so",
+        "libandroid.so",
+        "libEGL.so",
+        "libGLESv3.so",
+        "libshadowhook.so",
+        "libbass.so",
+        "libbass_fx.so",
+        "libbass_ssl.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "name": "libshadowhook.so",
+      "bytes": 74584,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "name": "libz.so",
+      "bytes": 86832,
+      "abi": "AArch64",
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    }
+  ]
+}

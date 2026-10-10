@@ -74,6 +74,7 @@ typedef struct _TEXT_DRAW_TRANSMIT
     uint16_t wColor1;
     uint16_t wColor2;
 } TEXT_DRAW_TRANSMIT;
+static_assert(sizeof(TEXT_DRAW_TRANSMIT) == 63, "SA-MP TextDraw RPC layout changed");
 #pragma pack(pop)
 #pragma pack(push, 1)
 class CTextDraw
@@ -88,6 +89,8 @@ public:
 
 
     void SetText(const char* szText);
+    const TEXT_DRAW_DATA& GetBCGData() const{return m_TextDrawData;}
+    const char* GetBCGText() const{return m_szText;}
 
     void LoadTexture();
 

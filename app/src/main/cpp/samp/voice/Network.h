@@ -10,6 +10,7 @@
 #include "ControlPacket.h"
 #include "VoicePacket.h"
 #include "Header.h"
+#include <atomic>
 
 class Network {
     Network() = delete;
@@ -76,7 +77,7 @@ private:
     static bool initStatus;
 
     static int socketHandle;
-    static int connectionStatus;
+    static std::atomic<int> connectionStatus;
     static std::thread voiceThread;
     static std::string serverIp;
     static uint32_t serverKey;

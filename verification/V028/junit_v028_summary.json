@@ -1,0 +1,16 @@
+[
+  {
+    "suite": "com.gta.game.ui.ConnectionStateTest",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "com.gta.launcher.activity.BootConfigTest",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+]

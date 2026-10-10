@@ -1,0 +1,10 @@
+{
+  "native_transport_checks": 18,
+  "javascript_logic_checks": 23,
+  "java_tests": 13,
+  "gamemode_compiled": false,
+  "live_server_tested": false,
+  "android_visual_tested": false,
+  "signature_sha256": "9143bd23931f6bf3c7cbeb5ff7e5d499ad263e94bff8c7784ffdf1437ddb5b50",
+  "gamemode_sha256": "0901d63ae2abb9198edaef86ca32b44e0be8471461b449fc1d7368274ead22ef"
+}

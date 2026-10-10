@@ -1,0 +1,26 @@
+{
+  "version": 43,
+  "vehicles": [
+    {
+      "model": 400,
+      "name": "BMW X7 2023",
+      "file": "landstal.dff",
+      "size": 4807770,
+      "sha256": "ea5cb45acb355965fb0fa898cc6abc1890dc41ce966ea4e0b01932ca90c0f36a"
+    },
+    {
+      "model": 489,
+      "name": "BMW X6 Competition",
+      "file": "rancher.dff",
+      "size": 4965646,
+      "sha256": "c6ae3b7c697f45f0dee068fe50ef6eb341c3f5e6a794c7e1d45f1abf827896f2"
+    },
+    {
+      "model": 543,
+      "name": "Hilux SRX 2017",
+      "file": "sadler.dff",
+      "size": 5497962,
+      "sha256": "0edc5a8a3fc4632703d2a2d1a836211a3d7e3ba6a837331fa4567535fc8d1a4e"
+    }
+  ]
+}

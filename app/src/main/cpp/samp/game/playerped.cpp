@@ -521,6 +521,15 @@ void CPlayerPed::SetModelIndex(uint uiModel)
 
         m_pPed->SetModelIndex(uiModel);
 
+        // UsePlayerPedAnims must also survive a later skin/model change. The
+        // engine's model animation group was disabled by ToggleCJWalk, leaving
+        // a previous pedestrian group behind on some spawn/model transitions.
+        if (pNetGame && pNetGame->m_pNetSet && pNetGame->m_pNetSet->bUseCJWalk)
+        {
+            m_pPed->m_nAnimGroup = ANIM_GROUP_PLAYER;
+            m_pPed->bResetWalkAnims = true;
+        }
+
         CStreaming::RemoveModelIfNoRefs(oldModelId);
     }
 }
@@ -2054,6 +2063,7 @@ void CPlayerPed::ClearAllTasks()
     }
 
     ScriptCommand(&clear_char_tasks, m_dwGTAId);
+    m_iCarryState = 0;
 }
 
 void CPlayerPed::ProcessSpecialAction(int iAction)
@@ -2069,7 +2079,9 @@ void CPlayerPed::ProcessSpecialAction(int iAction)
 
     if (iAction != SPECIAL_ACTION_CARRY && IsCarry())
     {
-        ApplyAnimation("crry_prtial", "CARRY", 4.00, false, false, false, false, 1);
+        // Replaying the same partial carry animation here leaves one arm
+        // raised while walking/running after the carried object is removed.
+        ClearAllTasks();
 
         m_iCarryState = 0;
 

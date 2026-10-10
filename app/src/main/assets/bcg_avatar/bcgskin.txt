@@ -1,0 +1,3 @@
+cat=0 name=BCGSkin onfoot=5 slow=5 fast=5 defaultformat=2 defaultstream=0
+"bcg_civilian_v026" width=512 height=1024 png=093d2312 img=bb70b195
+"bcg_female_v027" width=512 height=1024 png=5b7bc5bb img=b32910a3

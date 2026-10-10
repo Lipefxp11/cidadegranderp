@@ -12,6 +12,7 @@
 #include "WidgetButton.h"
 
 #include "../../gui/gui.h"
+#include "../../BCGBridge.h"
 extern UI* pUI;
 
 extern CNetGame *pNetGame;

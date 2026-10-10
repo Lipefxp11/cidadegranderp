@@ -1,5 +1,10 @@
+#include "../settings.h"
+#include "TimeCycle.h"
+extern CSettings* pSettings;
 #include "../main.h"
 #include "game.h"
+#include "../BCGBridge.h"
+#include "../Navigation46.h"
 #include "../vendor/armhook/patch.h"
 #include "Streaming.h"
 #include "MemoryMgr.h"
@@ -447,6 +452,7 @@ bool CGame::RemovePlayer(CPlayerPed* pPed)
 // 0.3.7
 void CGame::DisableMarker(uint32_t dwMarker)
 {
+	BCGBridge::RemoveMarker(dwMarker);
 	ScriptCommand(&disable_marker, dwMarker);
 }
 // 0.3.7
@@ -477,6 +483,7 @@ uint32_t CGame::CreateRadarMarkerIcon(uint8_t byteType, float fPosX, float fPosY
         }
     }
 
+    BCGBridge::Marker(dwMarkerID,fPosX,fPosY,dwColor,byteType);
     return dwMarkerID;
 }
 // 0.3.7
@@ -529,6 +536,7 @@ CVehicle* CGame::NewVehicle(int iVehicleType, float fX, float fY, float fZ, floa
 // 0.3.7
 void CGame::SetCheckpointInformation(CVector* vecPos, CVector* vecSize)
 {
+	Navigation46::Checkpoint(*vecPos);
 	m_vecCheckpointPos.x = vecPos->x;
 	m_vecCheckpointPos.y = vecPos->y;
 	m_vecCheckpointPos.z = vecPos->z;
@@ -704,7 +712,17 @@ void CGame::DisableEnterExits()
 
 void CGame::ToggleCJWalk(bool bUseCJWalk)
 {
-    CHook::NOP(g_libGTASA + 0x5B83D8, 2);
+    // ARM64 GTA 2.11: restore the original anim-group selection when CJ walk is off.
+    static const uint8_t original[]={0x68,0x32,0x06,0xB9,0x04,0x00,0x00,0x14};
+    if(bUseCJWalk)CHook::NOP(g_libGTASA+0x5B83D8,4);
+    else{CHook::UnFuck(g_libGTASA+0x5B83D8,sizeof original);memcpy((void*)(g_libGTASA+0x5B83D8),original,sizeof original);__builtin___clear_cache((char*)(g_libGTASA+0x5B83D8),(char*)(g_libGTASA+0x5B83D8+sizeof original));}
+    if (bUseCJWalk) {
+        CPlayerPed* ped=FindPlayerPed();
+        if (ped && ped->m_pPed) {
+            ped->m_pPed->m_nAnimGroup=ANIM_GROUP_PLAYER;
+            ped->m_pPed->bResetWalkAnims=true;
+        }
+    }
 }
 
 void CGame::InitialiseOnceBeforeRW() {
@@ -954,6 +972,7 @@ void CGame::Process() {
         }
         ((void (*)()) (g_libGTASA + 0x5DF680))(); // CPostEffects::Update()
         ((void (*)()) (g_libGTASA + 0x4C2E24))(); // CTimeCycle::Update() crash without
+        CTimeCycle::ApplyCityLighting52(pSettings?pSettings->GetReadOnly().fLightBoost52:0.0f);
         // CPopCycle::Update()
 
         // CInterestingEvents::ScanForNearbyEntities

@@ -1237,6 +1237,7 @@ bool RakPeer::RPC( int* uniqueID, const char *data, unsigned int bitLength, Pack
 	if (routeSend)
 		sendListSize=1;
 
+	bool sentToAll = true;
 	RakNet::BitStream outgoingBitStream;
 	// remoteSystemList in network thread
 	for (sendListIndex=0; sendListIndex < (unsigned)sendListSize; sendListIndex++)
@@ -1263,13 +1264,15 @@ bool RakPeer::RPC( int* uniqueID, const char *data, unsigned int bitLength, Pack
 		else
 			outgoingBitStream.WriteCompressed( ( unsigned int ) 0 );
 
-			Send(&outgoingBitStream, priority, reliability, orderingChannel, remoteSystemList[sendList[sendListIndex]].playerId, false);
+			sentToAll = Send(&outgoingBitStream, priority, reliability, orderingChannel, remoteSystemList[sendList[sendListIndex]].playerId, false) && sentToAll;
 	
 	}
 
 #if defined(_COMPATIBILITY_1)
 	delete [] sendList;
 #endif
+
+	if (!sentToAll) return false;
 
 	if (replyFromTarget)
 	{

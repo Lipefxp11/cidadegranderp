@@ -1,3 +1,5 @@
+#include <cerrno>
+#include <sys/time.h>
 #include "../main.h"
 #include "../game/game.h"
 #include "../net/netgame.h"
@@ -60,7 +62,7 @@ void Network::Free() noexcept
     Network::connectionStatus = ConnectionStatus::Disconnected;
 
     if(Network::voiceThread.joinable())
-        Network::voiceThread.detach();
+        Network::voiceThread.join();
 
     close(Network::socketHandle);
     Network::socketHandle = INVALID_SOCKET;
@@ -271,7 +273,7 @@ void Network::RemoveDisconnectCallback(const std::size_t callback) noexcept
 void Network::VoiceThread() noexcept
 {
     VoicePacket keepAlivePacket;
-    Timer::time_t keepAliveLastTime { NULL };
+    int64_t keepAliveLastTime=0;
 
     //ZeroMemory(&keepAlivePacket, sizeof(keepAlivePacket));
     memset(&keepAlivePacket, 0, sizeof(keepAlivePacket));
@@ -286,14 +288,14 @@ void Network::VoiceThread() noexcept
 
     while(true)
     {
-        const auto curStatus = Network::connectionStatus;
+        const auto curStatus = Network::connectionStatus.load();
 
         if(curStatus == ConnectionStatus::Disconnected) break;
 
         // Sending keep-alive packets...
         // -----------------------------------------------------------------
 
-        const auto curTime = Timer::Get();
+        const auto curTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
 
         if(curTime - keepAliveLastTime >= kKeepAliveInterval)
         {
@@ -316,8 +318,7 @@ void Network::VoiceThread() noexcept
             static_cast<char*>(Network::inputVoicePacket.GetData()),
             Network::inputVoicePacket.GetSize(), NULL);
 
-        if(received == SOCKET_ERROR)
-            break;
+        if(received == SOCKET_ERROR){if(errno==EAGAIN||errno==EWOULDBLOCK||errno==EINTR)continue;break;}
 
         if(received < static_cast<decltype(received)>(sizeof(VoicePacket)))
             continue;
@@ -398,6 +399,7 @@ bool Network::OnRaknetReceive(Packet& packet) noexcept
     {
         case SV::ControlPacketType::serverInfo:
         {
+            if(Network::voiceThread.joinable()||Network::connectionStatus!=ConnectionStatus::RNConnecting)return false;
             const auto& stData = *reinterpret_cast<SV::ServerInfoPacket*>(controlPacketPtr->data);
             if(controlPacketPtr->length != sizeof(stData)) return false;
 
@@ -429,6 +431,8 @@ bool Network::OnRaknetReceive(Packet& packet) noexcept
 
             Network::connectionStatus = ConnectionStatus::SVConnecting;
 
+            timeval timeout{0,200000};
+            setsockopt(Network::socketHandle,SOL_SOCKET,SO_RCVTIMEO,&timeout,sizeof timeout);
             Network::voiceThread = std::thread(Network::VoiceThread);
         } 
         break;
@@ -477,7 +481,7 @@ void Network::OnRaknetDisconnect() noexcept
     Network::connectionStatus = ConnectionStatus::Disconnected;
 
     if(Network::voiceThread.joinable())
-        Network::voiceThread.detach();
+        Network::voiceThread.join();
 
     Network::serverIp.clear();
     Network::serverKey = NULL;
@@ -496,7 +500,7 @@ void Network::OnRaknetDisconnect() noexcept
 bool Network::initStatus { false };
 
 int Network::socketHandle { INVALID_SOCKET };
-int Network::connectionStatus { ConnectionStatus::Disconnected };
+std::atomic<int> Network::connectionStatus { ConnectionStatus::Disconnected };
 std::thread Network::voiceThread;
 std::string Network::serverIp;
 DWORD Network::serverKey { NULL };

@@ -1,0 +1,118 @@
+{
+  "bytes_before": 4807770,
+  "bytes_after": 2742170,
+  "geometries": [
+    {
+      "triangles_before": 13376,
+      "triangles_after": 7680,
+      "vertices_before": 12724,
+      "vertices_after": 8269,
+      "relative_error": 0.002986219711601734
+    },
+    {
+      "triangles_before": 2000,
+      "triangles_after": 1850,
+      "vertices_before": 1839,
+      "vertices_after": 1694,
+      "relative_error": 0.0029277883004397154
+    },
+    {
+      "triangles_before": 6000,
+      "triangles_after": 5310,
+      "vertices_before": 7884,
+      "vertices_after": 7216,
+      "relative_error": 0.0029979876708239317
+    },
+    {
+      "triangles_before": 11644,
+      "triangles_after": 5507,
+      "vertices_before": 6934,
+      "vertices_after": 3424,
+      "relative_error": 0.0029730740934610367
+    },
+    {
+      "triangles_before": 6504,
+      "triangles_after": 2832,
+      "vertices_before": 3791,
+      "vertices_after": 1698,
+      "relative_error": 0.00299487030133605
+    },
+    {
+      "triangles_before": 18042,
+      "triangles_after": 7225,
+      "vertices_before": 14759,
+      "vertices_after": 7597,
+      "relative_error": 0.002660150174051523
+    },
+    {
+      "triangles_before": 2166,
+      "triangles_after": 984,
+      "vertices_before": 2032,
+      "vertices_after": 931,
+      "relative_error": 0.0029869305435568094
+    },
+    {
+      "triangles_before": 12865,
+      "triangles_after": 5181,
+      "vertices_before": 9348,
+      "vertices_after": 4221,
+      "relative_error": 0.0029800012707710266
+    },
+    {
+      "triangles_before": 1539,
+      "triangles_after": 623,
+      "vertices_before": 897,
+      "vertices_after": 381,
+      "relative_error": 0.002673219656571746
+    },
+    {
+      "triangles_before": 1699,
+      "triangles_after": 675,
+      "vertices_before": 1445,
+      "vertices_after": 662,
+      "relative_error": 0.0008191045490093529
+    },
+    {
+      "triangles_before": 3421,
+      "triangles_after": 1368,
+      "vertices_before": 2071,
+      "vertices_after": 926,
+      "relative_error": 0.00039330581785179675
+    },
+    {
+      "triangles_before": 4228,
+      "triangles_after": 2630,
+      "vertices_before": 3191,
+      "vertices_after": 2123,
+      "relative_error": 0.002983679296448827
+    },
+    {
+      "triangles_before": 4223,
+      "triangles_after": 2631,
+      "vertices_before": 3187,
+      "vertices_after": 2121,
+      "relative_error": 0.002995883347466588
+    },
+    {
+      "triangles_before": 5427,
+      "triangles_after": 3289,
+      "vertices_before": 3964,
+      "vertices_after": 2532,
+      "relative_error": 0.0029922856483608484
+    },
+    {
+      "triangles_before": 5425,
+      "triangles_after": 3246,
+      "vertices_before": 3770,
+      "vertices_after": 2347,
+      "relative_error": 0.002983781509101391
+    },
+    {
+      "triangles_before": 5980,
+      "triangles_after": 3932,
+      "vertices_before": 6297,
+      "vertices_after": 4426,
+      "relative_error": 0.002997300121933222
+    }
+  ]
+}

@@ -155,7 +155,9 @@ void InitGame(RPCParameters* rpcParams)
 	//if (pUI) pUI->chat()->addDebugMessage("Connected to {B9C9BF}%.64s", Encoding::cp2utf(pNetGame->m_szHostName).c_str());
 
 	pNetGame->SetGameState(GAMESTATE_CONNECTED);
-	if (pJavaWrapper) pJavaWrapper->HideLoadingScreen();
+	// InitGame is the standard SA-MP handshake. The GM owns account authentication.
+	pNetGame->NotifyConnection(3,"Servidor conectado. Autenticacao pela GameMode.");
+	pNetGame->NotifyConnection(5,"Conectado ao servidor. Interface nativa da GameMode.");
 
 	pPlayerPool->GetLocalPlayer()->HandleClassSelection();
 
@@ -331,7 +333,10 @@ void ClientMessage(RPCParameters *rpcParams)
 	{
 		bsData.Read(szMsg, dwStrLen);
 		szMsg[dwStrLen] = '\0';
-		Log::addParameter("szMsg", szMsg);
+        if(pNetGame && pNetGame->HandleBCGControl(szMsg))return;
+        if(pJavaWrapper && pNetGame && pNetGame->GetBCGPhase()!=5)
+            pJavaWrapper->ConnectionNotice(Encoding::cp2utf(szMsg).c_str());
+        Log::addParameter("szMsg", szMsg);
 		if (pUI) pUI->chat()->addClientMessage(Encoding::cp2utf(szMsg), UI::fixcolor(dwColor));
 	}
 }

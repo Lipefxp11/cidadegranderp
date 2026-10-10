@@ -1,0 +1,10 @@
+{
+  "models": 152,
+  "preserved_clumps": 456,
+  "geometries_verified": 456,
+  "original_topology_uv_materials_frames_skin_weights_preserved": true,
+  "backup_migration_fingerprint": "clumps55",
+  "native_code_changed": false,
+  "android_runtime_tested": false,
+  "root_cause": "V049 generator truncated PLAYER DFF to first of three consecutive clumps; V053 R2 retains all three."
+}

@@ -1,0 +1,1729 @@
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/nvidia/devtech/NvAPKFileHelper.java:29: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        String lower = str.toLowerCase();
+                           ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/nvidia/devtech/NvAPKFileHelper.java:36: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        apkFileMap.put(str.toLowerCase(), str);
+                           ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/nvidia/devtech/NvAPKFileHelper.java:52: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                        apkFileMap.put(line.toLowerCase(), line);
+                                            ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/oswrapper/view/PlaylistHandler.java:159: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                    if (path != null && path.toLowerCase().startsWith(prefix.toLowerCase())) {
+                                             ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/oswrapper/view/PlaylistHandler.java:159: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                    if (path != null && path.toLowerCase().startsWith(prefix.toLowerCase())) {
+                                                                             ~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/GLES3JNIView.java:14: Warning: The indentation string here is different from on the previous line (" " vs \t) [SuspiciousIndentation]
+  getHolder().setFormat(-3);
+~~
+    /workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/GLES3JNIView.java:13: Previous line indentation here
+
+   Explanation for issues of type "SuspiciousIndentation":
+   This check looks for cases where the indentation suggests a grouping that
+   isn't actually there in the code. A common example of this would be
+   something like
+   if (column > width)
+       line++
+       column = 0
+   Here, the column = 0 line will be executed every single time, not just if
+   the condition is true.
+
+   Available options:
+
+   **always-run** (default is false):
+   Whether this check should be included while editing.
+
+   While you're editing, it's common to have a temporary situation where you have suspicious indentation scenarios -- e.g. you start typing an `if` statement on the line above something you want to make conditional, and you haven't indented it yet. It can be distracting and misleading to suddenly have both statements light up as errors. Therefore, lint will avoid including this check when running on the fly in the editor, unless it looks like the file has not been recently edited. With this option, you can turn it on in all cases.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="SuspiciousIndentation">
+           <option name="always-run" value="false" />
+       </issue>
+   </lint>
+   ```
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:59: Warning: Attribute enableOnBackInvokedCallback is only used in API level 33 and higher (current min is 28) [UnusedAttribute]
+            android:enableOnBackInvokedCallback="true"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/AttachEdit.java:51: Warning: Avoid passing null as the view root (needed to resolve layout parameters on the inflated layout's root element) [InflateParams]
+        ConstraintLayout layout = (ConstraintLayout) activity.getLayoutInflater().inflate(R.layout.attachedit, null);
+                                                                                                               ~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogManager.java:91: Warning: Avoid passing null as the view root (needed to resolve layout parameters on the inflated layout's root element) [InflateParams]
+        ConstraintLayout layout = (ConstraintLayout) activity.getLayoutInflater().inflate(R.layout.dialog, null);
+                                                                                                           ~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/LoadingScreen.java:17: Warning: Avoid passing null as the view root (needed to resolve layout parameters on the inflated layout's root element) [InflateParams]
+        mainLayout=existing!=null ? existing : (FrameLayout)activity.getLayoutInflater().inflate(R.layout.loadingscreen,null);
+                                                                                                                        ~~~~
+
+   Explanation for issues of type "InflateParams":
+   When inflating a layout, avoid passing in null as the parent view, since
+   otherwise any layout parameters on the root of the inflated layout will be
+   ignored.
+
+   https://www.bignerdranch.com/blog/understanding-androids-layoutinflater-inflate/
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/ic_dialog_select.xml:4: Warning: Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more [VectorRaster]
+    android:width="1017dp"
+                   ~~~~~~
+
+   Explanation for issues of type "VectorRaster":
+   Vector icons require API 21 or API 24 depending on used features, but when
+   minSdkVersion is less than 21 or 24 and Android Gradle plugin 1.4 or higher
+   is used, a vector drawable placed in the drawable folder is automatically
+   moved to drawable-anydpi-v21 or drawable-anydpi-v24 and bitmap images are
+   generated for different screen resolutions for backwards compatibility.
+
+   However, there are some limitations to this raster image generation, and
+   this lint check flags elements and attributes that are not fully supported.
+   You should manually check whether the generated output is acceptable for
+   those older devices.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/build.gradle.kts:136: Warning: A newer version of com.google.android.material:material than 1.9.0 is available: 1.10.0 [GradleDependency]
+    implementation("com.google.android.material:material:1.9.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/build.gradle.kts:144: Warning: A newer version of com.bytedance.android:shadowhook than 1.0.10 is available: 2.0.1 [NewerVersionAvailable]
+    implementation("com.bytedance.android:shadowhook:1.0.10")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NewerVersionAvailable":
+   This detector checks with a central repository to see if there are newer
+   versions available for the dependencies used by this project. This is
+   similar to the GradleDependency check, which checks for newer versions
+   available in the Android SDK tools and libraries, but this works with any
+   MavenCentral dependency, and connects to the library every time, which
+   makes it more flexible but also much slower.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:55: Warning: Expecting android:resizeableActivity="true" for this activity so the user can take advantage of the multi-window environment on all devices. NOTE: beginning with Android 12, all apps run in multi-window mode on large screen devices. [NonResizeableActivity]
+            android:resizeableActivity="false" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NonResizeableActivity":
+   The <activity> element should be allowed to be resized to allow users to
+   take advantage of the multi-window environments available on larger screen
+   Android devices.
+
+   To fix the issue, consider declaring the corresponding activity element
+   with resizableActivity="true" attribute.
+
+   https://developer.android.com/topic/arc/window-management
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:38: Warning: Fixed screen orientations will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios. [DiscouragedApi]
+            android:screenOrientation="landscape"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:51: Warning: Fixed screen orientations will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios. [DiscouragedApi]
+            android:screenOrientation="userLandscape"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:55: Warning: Setting resizeableActivity to false will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios. [DiscouragedApi]
+            android:resizeableActivity="false" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:60: Warning: Fixed screen orientations will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios. [DiscouragedApi]
+            android:screenOrientation="landscape"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DiscouragedApi":
+   Discouraged APIs are allowed and are not deprecated, but they may be unfit
+   for common use (e.g. due to slow performance or subtle behavior).
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:23: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+   android:layout_marginStart="48.0px"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:24: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+   android:layout_marginTop="32.0px"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:25: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+   android:layout_marginEnd="48.0px"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:26: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+   android:layout_marginBottom="48.0px"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:30: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+   app:layout_constraintHeight_max="800.0px"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:44: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:textSize="36.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:52: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginTop="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:53: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginBottom="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:57: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    app:layout_constraintHeight_max="632.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:74: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="28.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:86: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginTop="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:87: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginBottom="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:107: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingStart="24.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:108: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingTop="20.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:109: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingEnd="24.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:110: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingBottom="20.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:114: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:textSize="32.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:126: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginTop="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:127: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginBottom="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:131: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    app:layout_constraintHeight_max="632.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:132: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    app:layout_constraintHeight_min="632.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:140: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingStart="32.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:141: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingEnd="64.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:142: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:paddingBottom="12.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:154: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:158: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:169: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:173: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:184: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:188: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:199: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:203: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:223: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginStart="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:224: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginTop="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:225: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginEnd="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:226: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginBottom="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:229: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:scrollbarSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:248: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginStart="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:249: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginTop="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:250: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+    android:layout_marginEnd="24.0px"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:271: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginStart="48.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:272: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginTop="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:273: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginEnd="48.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:274: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginBottom="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:281: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:293: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+     android:layout_marginStart="16.0px"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:305: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginStart="48.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:306: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginTop="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:307: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginEnd="48.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:308: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:layout_marginBottom="16.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:315: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+      android:textSize="32.0px"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:5: Warning: Avoid using "px" as units; use "dp" instead [PxUsage]
+ android:paddingEnd="48.0px"
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PxUsage":
+   For performance reasons and to keep the code simpler, the Android system
+   uses pixels as the standard unit for expressing dimension or coordinate
+   values. That means that the dimensions of a view are always expressed in
+   the code using pixels, but always based on the current screen density. For
+   instance, if myView.getWidth() returns 10, the view is 10 pixels wide on
+   the current screen, but on a device with a higher density screen, the value
+   returned might be 15. If you use pixel values in your application code to
+   work with bitmaps that are not pre-scaled for the current screen density,
+   you might need to scale the pixel values that you use in your code to match
+   the un-scaled bitmap source.
+
+   https://developer.android.com/guide/practices/screens_support.html#screen-independence
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/xml/network_security_config.xml:3: Warning: Insecure Base Configuration [InsecureBaseConfiguration]
+    <base-config cleartextTrafficPermitted="true" />
+                                            ~~~~
+
+   Explanation for issues of type "InsecureBaseConfiguration":
+   Permitting cleartext traffic could allow eavesdroppers to intercept data
+   sent by your app, which impacts the privacy of your users. Consider only
+   allowing encrypted traffic by setting the cleartextTrafficPermitted tag to
+   false.
+
+   https://goo.gle/InsecureBaseConfiguration
+   https://developer.android.com/preview/features/security-config.html
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/AndroidManifest.xml:30: Warning: The attribute android:allowBackup is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute android:dataExtractionRules specifying an @xml resource which configures cloud backups and device transfers on Android 12 and higher. [DataExtractionRules]
+        android:allowBackup="false"
+                             ~~~~~
+
+   Explanation for issues of type "DataExtractionRules":
+   Before Android 12, the attributes android:allowBackup and
+   android:fullBackupContent were used to configure all forms of backup,
+   including cloud backups, device-to-device transfers and adb backup.
+
+   In Android 12 and higher, these attributes have been deprecated and will
+   only apply to cloud backups. You should instead use the attribute
+   android:dataExtractionRules, specifying an @xml resource that configures
+   which files to back up, for cloud backups and for device-to-device
+   transfers, separately. If your minSdkVersion supports older versions,
+   you'll still want to specify an android:fullBackupContent resource if the
+   default behavior is not right for your app.
+
+   https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   https://goo.gle/DataExtractionRules
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogAdapter.java:86: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+            notifyDataSetChanged();
+            ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogAdapter.java:99: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogManager.java:94: Warning: Unnecessary; SDK_INT is always >= 28 [ObsoleteSdkInt]
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogManager.java:161: Warning: Unnecessary; SDK_INT is always >= 28 [ObsoleteSdkInt]
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogManager.java:185: Warning: Unnecessary; SDK_INT is always >= 28 [ObsoleteSdkInt]
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/oswrapper/GameThread.java:115: Warning: Unnecessary; SDK_INT is never < 28 [ObsoleteSdkInt]
+        if (esVersion > 2 && Build.VERSION.SDK_INT < 21) {
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/MainActivity.java:124: Warning: Unnecessary; SDK_INT is always >= 28 [ObsoleteSdkInt]
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:199: Warning: Unnecessary; SDK_INT is always >= 28 [ObsoleteSdkInt]
+                    if(!bcgMicRequested && android.os.Build.VERSION.SDK_INT>=23 && checkSelfPermission(android.Manifest.permission.RECORD_AUDIO)!=android.content.pm.PackageManager.PERMISSION_GRANTED){bcgMicRequested=true;requestPermissions(new String[]{android.Manifest.permission.RECORD_AUDIO},271);statusText.setText("Autorize o microfone e toque em JOGAR novamente. Você pode jogar sem voz se negar.");return;}
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 28. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/themes.xml:13: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+                                            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/dialog/DialogManager.java:29: Warning: Do not place Android context classes in static fields (static reference to DialogManager which has field activity pointing to Activity); this is a memory leak [StaticFieldLeak]
+    private static DialogManager instance;
+            ~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/MainActivity.java:42: Warning: Do not place Android context classes in static fields; this is a memory leak [StaticFieldLeak]
+    public static  View vTouch;
+           ~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/nvidia/devtech/NvAPKFileHelper.java:11: Warning: Do not place Android context classes in static fields (static reference to NvAPKFileHelper which has field context pointing to Context); this is a memory leak [StaticFieldLeak]
+    private static final NvAPKFileHelper instance = new NvAPKFileHelper();
+            ~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/nvidia/devtech/NvUtil.java:8: Warning: Do not place Android context classes in static fields (static reference to NvUtil which has field activity pointing to Activity); this is a memory leak [StaticFieldLeak]
+ private static NvUtil instance = new NvUtil();
+         ~~~~~~
+
+   Explanation for issues of type "StaticFieldLeak":
+   A static field will leak contexts.
+
+   Non-static inner classes have an implicit reference to their outer class.
+   If that outer class is for example a Fragment or Activity, then this
+   reference means that the long-running handler/loader/task will hold a
+   reference to the activity which prevents it from getting garbage
+   collected.
+
+   Similarly, direct field references to activities and fragments from these
+   longer running instances can cause leaks.
+
+   ViewModel classes should never point to Views or non-application Contexts.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/loadingscreen.xml:2: Warning: Possible overdraw: Root element paints background #08090D with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.NoActionBar) [Overdraw]
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#08090D" android:clickable="true" android:focusable="true">
+                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:2: Warning: Possible overdraw: Root element paints background #101923 with a theme that also paints a background (inferred theme is @style/Theme_AppCompat_Light_NoActionBar_FullScreen) [Overdraw]
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#101923">
+                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/splash.xml:3: Warning: Possible overdraw: Root element paints background @android:color/black with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.NoActionBar) [Overdraw]
+    android:background="@android:color/black"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/background.xml:2: Warning: The resource R.drawable.background appears to be unused [UnusedResources]
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/background_br_input.xml:2: Warning: The resource R.drawable.background_br_input appears to be unused [UnusedResources]
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/background_window_red.xml:2: Warning: The resource R.drawable.background_window_red appears to be unused [UnusedResources]
+<inset xmlns:android="http://schemas.android.com/apk/res/android" android:insetLeft="0dp" android:insetRight="0dp" android:insetTop="0dp" android:insetBottom="0dp">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/xml/backup_rules.xml:8: Warning: The resource R.xml.backup_rules appears to be unused [UnusedResources]
+<full-backup-content>
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/btn_click_modern.xml:2: Warning: The resource R.anim.btn_click_modern appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/btn_release_modern.xml:2: Warning: The resource R.anim.btn_release_modern appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/btn_scale_modern.xml:2: Warning: The resource R.anim.btn_scale_modern appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/button.xml:2: Warning: The resource R.drawable.button appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/button_br_red.xml:2: Warning: The resource R.drawable.button_br_red appears to be unused [UnusedResources]
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/button_br_red_unfilled.xml:2: Warning: The resource R.drawable.button_br_red_unfilled appears to be unused [UnusedResources]
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/button_br_red_unfilled_ss.xml:2: Warning: The resource R.drawable.button_br_red_unfilled_ss appears to be unused [UnusedResources]
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#aa000000">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/button_click.xml:2: Warning: The resource R.anim.button_click appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android" android:interpolator="@android:anim/accelerate_interpolator">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/click.xml:2: Warning: The resource R.anim.click appears to be unused [UnusedResources]
+<set android:interpolator="@android:anim/linear_interpolator"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.common_signin_btn_dark_text_default appears to be unused [UnusedResources]
+    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.common_signin_btn_dark_text_pressed appears to be unused [UnusedResources]
+    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:5: Warning: The resource R.color.common_signin_btn_dark_text_disabled appears to be unused [UnusedResources]
+    <color name="common_signin_btn_dark_text_disabled">#ffaaaaaa</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:6: Warning: The resource R.color.common_signin_btn_dark_text_focused appears to be unused [UnusedResources]
+    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:7: Warning: The resource R.color.common_signin_btn_light_text_default appears to be unused [UnusedResources]
+    <color name="common_signin_btn_light_text_default">#ff737373</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:8: Warning: The resource R.color.common_signin_btn_light_text_pressed appears to be unused [UnusedResources]
+    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:9: Warning: The resource R.color.ic_launcher_background appears to be unused [UnusedResources]
+    <color name="ic_launcher_background">#ff000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:10: Warning: The resource R.color.common_signin_btn_light_text_disabled appears to be unused [UnusedResources]
+    <color name="common_signin_btn_light_text_disabled">#ffaaaaaa</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:11: Warning: The resource R.color.common_signin_btn_light_text_focused appears to be unused [UnusedResources]
+    <color name="common_signin_btn_light_text_focused">#ff737373</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:12: Warning: The resource R.color.common_signin_btn_default_background appears to be unused [UnusedResources]
+    <color name="common_signin_btn_default_background">#ffdd4b39</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:13: Warning: The resource R.color.common_action_bar_splitter appears to be unused [UnusedResources]
+    <color name="common_action_bar_splitter">#ffd2d2d2</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:14: Warning: The resource R.color.wallet_bright_foreground_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:15: Warning: The resource R.color.wallet_dim_foreground_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_dim_foreground_holo_dark">#ffbebebe</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:16: Warning: The resource R.color.wallet_dim_foreground_disabled_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_dim_foreground_disabled_holo_dark">#80bebebe</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:17: Warning: The resource R.color.wallet_dim_foreground_inverse_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_dim_foreground_inverse_holo_dark">#ff323232</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:18: Warning: The resource R.color.wallet_dim_foreground_inverse_disabled_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_dim_foreground_inverse_disabled_holo_dark">#80323232</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:19: Warning: The resource R.color.wallet_bright_foreground_disabled_holo_light appears to be unused [UnusedResources]
+    <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:20: Warning: The resource R.color.wallet_bright_foreground_holo_light appears to be unused [UnusedResources]
+    <color name="wallet_bright_foreground_holo_light">#ff000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:21: Warning: The resource R.color.wallet_hint_foreground_holo_light appears to be unused [UnusedResources]
+    <color name="wallet_hint_foreground_holo_light">#ff808080</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:22: Warning: The resource R.color.wallet_hint_foreground_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_hint_foreground_holo_dark">#ff808080</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:23: Warning: The resource R.color.wallet_highlighted_text_holo_light appears to be unused [UnusedResources]
+    <color name="wallet_highlighted_text_holo_light">#6633b5e5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:24: Warning: The resource R.color.speed appears to be unused [UnusedResources]
+    <color name="speed">#ffffc53d</color>
+           ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:25: Warning: The resource R.color.car_hp_line appears to be unused [UnusedResources]
+    <color name="car_hp_line">#ff2626</color>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:26: Warning: The resource R.color.fuel_line appears to be unused [UnusedResources]
+    <color name="fuel_line">#ff7a00</color>
+           ~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:27: Warning: The resource R.color.wallet_highlighted_text_holo_dark appears to be unused [UnusedResources]
+    <color name="wallet_highlighted_text_holo_dark">#6633b5e5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:28: Warning: The resource R.color.wallet_holo_blue_light appears to be unused [UnusedResources]
+    <color name="wallet_holo_blue_light">#ff33b5e5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:29: Warning: The resource R.color.wallet_link_text_light appears to be unused [UnusedResources]
+    <color name="wallet_link_text_light">#ff0000ee</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:30: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#ff000000</color>
+           ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:32: Warning: The resource R.color.transparent appears to be unused [UnusedResources]
+    <color name="transparent">#00000000</color>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:33: Warning: The resource R.color.shadow_black appears to be unused [UnusedResources]
+    <color name="shadow_black">#4d000000</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:34: Warning: The resource R.color.shadow_white appears to be unused [UnusedResources]
+    <color name="shadow_white">#2bffffff</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:35: Warning: The resource R.color.progress_gray appears to be unused [UnusedResources]
+    <color name="progress_gray">#FFD8D8D8</color>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:36: Warning: The resource R.color.progress_gray_dark appears to be unused [UnusedResources]
+    <color name="progress_gray_dark">#FF383838</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:37: Warning: The resource R.color.default_blue_light appears to be unused [UnusedResources]
+    <color name="default_blue_light">#ff33b5e5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:38: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:39: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:40: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:41: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:42: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:43: Warning: The resource R.color.gradient1 appears to be unused [UnusedResources]
+    <color name="gradient1">#ffce0e03</color>
+           ~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:44: Warning: The resource R.color.gradient2 appears to be unused [UnusedResources]
+    <color name="gradient2">#FF3636</color>
+           ~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:45: Warning: The resource R.color.white6 appears to be unused [UnusedResources]
+    <color name="white6">#14ffffff</color>
+           ~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:46: Warning: The resource R.color.black20 appears to be unused [UnusedResources]
+    <color name="black20">#33000000</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:47: Warning: The resource R.color.color_0F0F0F appears to be unused [UnusedResources]
+    <color name="color_0F0F0F">#ff0f0f0f</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:48: Warning: The resource R.color.menuTextDisable appears to be unused [UnusedResources]
+    <color name="menuTextDisable">#ffffffff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:49: Warning: The resource R.color.menuTextEnable appears to be unused [UnusedResources]
+    <color name="menuTextEnable">#ffde2a09</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:50: Warning: The resource R.color.white15 appears to be unused [UnusedResources]
+    <color name="white15">#40ffffff</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:51: Warning: The resource R.color.black30 appears to be unused [UnusedResources]
+    <color name="black30">#40000000</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:52: Warning: The resource R.color.black60 appears to be unused [UnusedResources]
+    <color name="black60">#99000000</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:53: Warning: The resource R.color.black_60_transparency appears to be unused [UnusedResources]
+    <color name="black_60_transparency">#99212229</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:54: Warning: The resource R.color.black_72_transparency appears to be unused [UnusedResources]
+    <color name="black_72_transparency">#b8212229</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:55: Warning: The resource R.color.black_75_transparency appears to be unused [UnusedResources]
+    <color name="black_75_transparency">#bf000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:56: Warning: The resource R.color.blue appears to be unused [UnusedResources]
+    <color name="blue">#ff3ea2ff</color>
+           ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:57: Warning: The resource R.color.gray appears to be unused [UnusedResources]
+    <color name="gray">#ff666666</color>
+           ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:59: Warning: The resource R.color.colorPrimary appears to be unused [UnusedResources]
+    <color name="colorPrimary">#ff000000</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:60: Warning: The resource R.color.colorPrimaryDark appears to be unused [UnusedResources]
+    <color name="colorPrimaryDark">#ff000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:61: Warning: The resource R.color.red_7 appears to be unused [UnusedResources]
+    <color name="red_7">#ff250000</color>
+           ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:62: Warning: The resource R.color.red_bg_queue_smi_dialog appears to be unused [UnusedResources]
+    <color name="red_bg_queue_smi_dialog">#ffe2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:63: Warning: The resource R.color.red_bg_queue_smi_dialog_15 appears to be unused [UnusedResources]
+    <color name="red_bg_queue_smi_dialog_15">#26e2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:64: Warning: The resource R.color.red_bg_queue_smi_dialog_25 appears to be unused [UnusedResources]
+    <color name="red_bg_queue_smi_dialog_25">#40e2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:65: Warning: The resource R.color.red_bg_queue_smi_dialog_50 appears to be unused [UnusedResources]
+    <color name="red_bg_queue_smi_dialog_50">#80e2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:66: Warning: The resource R.color.red_bg_queue_smi_dialog_75 appears to be unused [UnusedResources]
+    <color name="red_bg_queue_smi_dialog_75">#bfe2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:67: Warning: The resource R.color.red_diagnostics appears to be unused [UnusedResources]
+    <color name="red_diagnostics">#ffff4b25</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:68: Warning: The resource R.color.inv_background appears to be unused [UnusedResources]
+    <color name="inv_background">#94000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:69: Warning: The resource R.color.inv_background_dialog_apply appears to be unused [UnusedResources]
+    <color name="inv_background_dialog_apply">#cc151515</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:70: Warning: The resource R.color.inv_background_item_in_ivn appears to be unused [UnusedResources]
+    <color name="inv_background_item_in_ivn">#73000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:71: Warning: The resource R.color.inv_background_items appears to be unused [UnusedResources]
+    <color name="inv_background_items">#a6151515</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:72: Warning: The resource R.color.inv_background_main_menu appears to be unused [UnusedResources]
+    <color name="inv_background_main_menu">#ff151515</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:73: Warning: The resource R.color.inv_bg_chat_if_other appears to be unused [UnusedResources]
+    <color name="inv_bg_chat_if_other">#ffd2d2d2</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:74: Warning: The resource R.color.inv_bg_edit_text_chat appears to be unused [UnusedResources]
+    <color name="inv_bg_edit_text_chat">#ff3c3c3c</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:75: Warning: The resource R.color.inv_chat_gradient_end appears to be unused [UnusedResources]
+    <color name="inv_chat_gradient_end">#ff00f0ff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:76: Warning: The resource R.color.inv_chat_gradient_start appears to be unused [UnusedResources]
+    <color name="inv_chat_gradient_start">#ff0057ff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:77: Warning: The resource R.color.inv_full_transparency appears to be unused [UnusedResources]
+    <color name="inv_full_transparency">#00000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:78: Warning: The resource R.color.inv_gradient_end appears to be unused [UnusedResources]
+    <color name="inv_gradient_end">#ff0a7800</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:79: Warning: The resource R.color.inv_gradient_start appears to be unused [UnusedResources]
+    <color name="inv_gradient_start">#ff12dd00</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:80: Warning: The resource R.color.inv_items_name_color_in_chat appears to be unused [UnusedResources]
+    <color name="inv_items_name_color_in_chat">#ffea3f10</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:81: Warning: The resource R.color.inv_not_active_text appears to be unused [UnusedResources]
+    <color name="inv_not_active_text">#ff9a7575</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:82: Warning: The resource R.color.inv_players_color appears to be unused [UnusedResources]
+    <color name="inv_players_color">#fff85715</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:83: Warning: The resource R.color.inv_this_text appears to be unused [UnusedResources]
+    <color name="inv_this_text">#ffff3d00</color>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:84: Warning: The resource R.color.color_000000C9 appears to be unused [UnusedResources]
+    <color name="color_000000C9">#000000c9</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:85: Warning: The resource R.color.color_00FFBA08 appears to be unused [UnusedResources]
+    <color name="color_00FFBA08">#00ffba08</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:86: Warning: The resource R.color.color_15_273647 appears to be unused [UnusedResources]
+    <color name="color_15_273647">#25273647</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:87: Warning: The resource R.color.color_15_FFFFFF appears to be unused [UnusedResources]
+    <color name="color_15_FFFFFF">#1fffffff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:88: Warning: The resource R.color.color_1AE2310C appears to be unused [UnusedResources]
+    <color name="color_1AE2310C">#1ae2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:89: Warning: The resource R.color.color_1F2024 appears to be unused [UnusedResources]
+    <color name="color_1F2024">#ff1f2024</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:90: Warning: The resource R.color.color_1FFFFFFF appears to be unused [UnusedResources]
+    <color name="color_1FFFFFFF">#1fffffff</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:91: Warning: The resource R.color.color_20212A appears to be unused [UnusedResources]
+    <color name="color_20212A">#ff20212a</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:92: Warning: The resource R.color.color_212121 appears to be unused [UnusedResources]
+    <color name="color_212121">#ff212121</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:93: Warning: The resource R.color.color_252736 appears to be unused [UnusedResources]
+    <color name="color_252736">#ff252736</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:94: Warning: The resource R.color.color_252736_61 appears to be unused [UnusedResources]
+    <color name="color_252736_61">#9c252736</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:95: Warning: The resource R.color.color_257728 appears to be unused [UnusedResources]
+    <color name="color_257728">#ff257728</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:96: Warning: The resource R.color.color_262836 appears to be unused [UnusedResources]
+    <color name="color_262836">#ff262836</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:97: Warning: The resource R.color.color_262837 appears to be unused [UnusedResources]
+    <color name="color_262837">#ff262837</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:98: Warning: The resource R.color.color_26_FFFFFF appears to be unused [UnusedResources]
+    <color name="color_26_FFFFFF">#26ffffff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:99: Warning: The resource R.color.color_28_252736 appears to be unused [UnusedResources]
+    <color name="color_28_252736">#47252736</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:100: Warning: The resource R.color.color_2A2A3754 appears to be unused [UnusedResources]
+    <color name="color_2A2A3754">#2a2a3754</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:101: Warning: The resource R.color.color_2E303B appears to be unused [UnusedResources]
+    <color name="color_2E303B">#ff2e303b</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:102: Warning: The resource R.color.color_30EF37 appears to be unused [UnusedResources]
+    <color name="color_30EF37">#ff30ef37</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:103: Warning: The resource R.color.color_313148 appears to be unused [UnusedResources]
+    <color name="color_313148">#ff313148</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:104: Warning: The resource R.color.color_323343 appears to be unused [UnusedResources]
+    <color name="color_323343">#ff323343</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:105: Warning: The resource R.color.color_333548 appears to be unused [UnusedResources]
+    <color name="color_333548">#ff333548</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:106: Warning: The resource R.color.color_38383D appears to be unused [UnusedResources]
+    <color name="color_38383D">#ff38383d</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:107: Warning: The resource R.color.color_384DF1 appears to be unused [UnusedResources]
+    <color name="color_384DF1">#ff384df1</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:108: Warning: The resource R.color.color_40_121212 appears to be unused [UnusedResources]
+    <color name="color_40_121212">#66121212</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:109: Warning: The resource R.color.color_40_608CFF appears to be unused [UnusedResources]
+    <color name="color_40_608CFF">#66608cff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:110: Warning: The resource R.color.color_42B6BFD9 appears to be unused [UnusedResources]
+    <color name="color_42B6BFD9">#42b6bfd9</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:111: Warning: The resource R.color.color_444754 appears to be unused [UnusedResources]
+    <color name="color_444754">#ff444754</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:112: Warning: The resource R.color.color_4586FF8B appears to be unused [UnusedResources]
+    <color name="color_4586FF8B">#4586ff8b</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:113: Warning: The resource R.color.color_45FF8989 appears to be unused [UnusedResources]
+    <color name="color_45FF8989">#45ff8989</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:114: Warning: The resource R.color.color_474960 appears to be unused [UnusedResources]
+    <color name="color_474960">#ff474960</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:115: Warning: The resource R.color.color_49_252736 appears to be unused [UnusedResources]
+    <color name="color_49_252736">#7d252736</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:116: Warning: The resource R.color.color_4CDB5A appears to be unused [UnusedResources]
+    <color name="color_4CDB5A">#ff4cdb5a</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:117: Warning: The resource R.color.color_4D555555 appears to be unused [UnusedResources]
+    <color name="color_4D555555">#4d555555</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:118: Warning: The resource R.color.color_50_121212 appears to be unused [UnusedResources]
+    <color name="color_50_121212">#80121212</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:119: Warning: The resource R.color.color_50_676B89 appears to be unused [UnusedResources]
+    <color name="color_50_676B89">#80676b89</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:120: Warning: The resource R.color.color_50_B6BFD9 appears to be unused [UnusedResources]
+    <color name="color_50_B6BFD9">#80b6bfd9</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:121: Warning: The resource R.color.color_53_2B2D38 appears to be unused [UnusedResources]
+    <color name="color_53_2B2D38">#872b2d38</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:122: Warning: The resource R.color.color_58_515151 appears to be unused [UnusedResources]
+    <color name="color_58_515151">#94515151</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:123: Warning: The resource R.color.color_597B8D appears to be unused [UnusedResources]
+    <color name="color_597B8D">#ff597b8d</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:124: Warning: The resource R.color.color_5E6076 appears to be unused [UnusedResources]
+    <color name="color_5E6076">#ff5e6076</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:125: Warning: The resource R.color.color_5F9BDC appears to be unused [UnusedResources]
+    <color name="color_5F9BDC">#ff5f9bdc</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:126: Warning: The resource R.color.color_66E2310C appears to be unused [UnusedResources]
+    <color name="color_66E2310C">#66e2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:127: Warning: The resource R.color.color_6D6D6D appears to be unused [UnusedResources]
+    <color name="color_6D6D6D">#ff6d6d6d</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:128: Warning: The resource R.color.color_6F717C appears to be unused [UnusedResources]
+    <color name="color_6F717C">#ff6f717c</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:129: Warning: The resource R.color.color_7592A1 appears to be unused [UnusedResources]
+    <color name="color_7592A1">#ff7592a1</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:130: Warning: The resource R.color.color_75_212333 appears to be unused [UnusedResources]
+    <color name="color_75_212333">#c0212333</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:131: Warning: The resource R.color.color_7D252736 appears to be unused [UnusedResources]
+    <color name="color_7D252736">#7d252736</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:132: Warning: The resource R.color.color_7D86A0 appears to be unused [UnusedResources]
+    <color name="color_7D86A0">#ff7d86a0</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:133: Warning: The resource R.color.color_80B6BFD9_50 appears to be unused [UnusedResources]
+    <color name="color_80B6BFD9_50">#80b6bfd9</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:134: Warning: The resource R.color.color_80E2310C appears to be unused [UnusedResources]
+    <color name="color_80E2310C">#80e2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:135: Warning: The resource R.color.color_80FFE564 appears to be unused [UnusedResources]
+    <color name="color_80FFE564">#80ffe564</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:136: Warning: The resource R.color.color_80_608CFF appears to be unused [UnusedResources]
+    <color name="color_80_608CFF">#cc608cff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:137: Warning: The resource R.color.color_85_262536 appears to be unused [UnusedResources]
+    <color name="color_85_262536">#d9262536</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:138: Warning: The resource R.color.color_8C0000 appears to be unused [UnusedResources]
+    <color name="color_8C0000">#ff8c0000</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:139: Warning: The resource R.color.color_9CB6BFD9_61 appears to be unused [UnusedResources]
+    <color name="color_9CB6BFD9_61">#9cb6bfd9</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:140: Warning: The resource R.color.color_9F280F appears to be unused [UnusedResources]
+    <color name="color_9F280F">#ff9f280f</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:141: Warning: The resource R.color.color_AB38383D appears to be unused [UnusedResources]
+    <color name="color_AB38383D">#ab38383d</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:142: Warning: The resource R.color.color_ABFFC757 appears to be unused [UnusedResources]
+    <color name="color_ABFFC757">#abffc757</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:143: Warning: The resource R.color.color_B6BFD9 appears to be unused [UnusedResources]
+    <color name="color_B6BFD9">#ffb6bfd9</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:144: Warning: The resource R.color.color_BDC6EF appears to be unused [UnusedResources]
+    <color name="color_BDC6EF">#ffbdc6ef</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:145: Warning: The resource R.color.color_EF3B30 appears to be unused [UnusedResources]
+    <color name="color_EF3B30">#ffef3b30</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:146: Warning: The resource R.color.color_FF4D5877 appears to be unused [UnusedResources]
+    <color name="color_FF4D5877">#ff4d5877</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:147: Warning: The resource R.color.color_FF5531 appears to be unused [UnusedResources]
+    <color name="color_FF5531">#ffff5531</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:148: Warning: The resource R.color.color_FF8F8F8F appears to be unused [UnusedResources]
+    <color name="color_FF8F8F8F">#ff8f8f8f</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:149: Warning: The resource R.color.color_FFA61D appears to be unused [UnusedResources]
+    <color name="color_FFA61D">#ffffa61d</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:150: Warning: The resource R.color.color_FFB001 appears to be unused [UnusedResources]
+    <color name="color_FFB001">#ffffb001</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:151: Warning: The resource R.color.color_FFB138 appears to be unused [UnusedResources]
+    <color name="color_FFB138">#ffffb138</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:152: Warning: The resource R.color.color_FFBA08 appears to be unused [UnusedResources]
+    <color name="color_FFBA08">#ffffba08</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:153: Warning: The resource R.color.color_FFBA0800 appears to be unused [UnusedResources]
+    <color name="color_FFBA0800">#ffba0800</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:154: Warning: The resource R.color.color_FFD66D appears to be unused [UnusedResources]
+    <color name="color_FFD66D">#ffffd66d</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:155: Warning: The resource R.color.color_FFDE67 appears to be unused [UnusedResources]
+    <color name="color_FFDE67">#ffffde67</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:156: Warning: The resource R.color.color_FFDED8 appears to be unused [UnusedResources]
+    <color name="color_FFDED8">#ffffded8</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:157: Warning: The resource R.color.color_FFE2310C appears to be unused [UnusedResources]
+    <color name="color_FFE2310C">#ffe2310c</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:158: Warning: The resource R.color.color_FFFFBA08 appears to be unused [UnusedResources]
+    <color name="color_FFFFBA08">#ffffba08</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:159: Warning: The resource R.color.color_FFFFC700 appears to be unused [UnusedResources]
+    <color name="color_FFFFC700">#ffffc700</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:160: Warning: The resource R.color.dark_bg_smi_dialog appears to be unused [UnusedResources]
+    <color name="dark_bg_smi_dialog">#ff20212b</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:161: Warning: The resource R.color.dark_bg_smi_dialog_43 appears to be unused [UnusedResources]
+    <color name="dark_bg_smi_dialog_43">#6e20212b</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:162: Warning: The resource R.color.dark_bg_smi_dialog_67 appears to be unused [UnusedResources]
+    <color name="dark_bg_smi_dialog_67">#ab20212b</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:163: Warning: The resource R.color.diving_school_actual_answer appears to be unused [UnusedResources]
+    <color name="diving_school_actual_answer">#ff45475e</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:164: Warning: The resource R.color.diving_school_actual_answers_border appears to be unused [UnusedResources]
+    <color name="diving_school_actual_answers_border">#ff959eb8</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:165: Warning: The resource R.color.diving_school_bg_dialog_end_test appears to be unused [UnusedResources]
+    <color name="diving_school_bg_dialog_end_test">#d9000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:166: Warning: The resource R.color.diving_school_bg_end_test appears to be unused [UnusedResources]
+    <color name="diving_school_bg_end_test">#47898989</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:167: Warning: The resource R.color.diving_school_bg_radial_dark appears to be unused [UnusedResources]
+    <color name="diving_school_bg_radial_dark">#ff212229</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:168: Warning: The resource R.color.diving_school_bg_radial_light appears to be unused [UnusedResources]
+    <color name="diving_school_bg_radial_light">#ff303140</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:169: Warning: The resource R.color.diving_school_bg_radial_light_25 appears to be unused [UnusedResources]
+    <color name="diving_school_bg_radial_light_25">#40303140</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:170: Warning: The resource R.color.diving_school_border_end_test appears to be unused [UnusedResources]
+    <color name="diving_school_border_end_test">#66ffffff</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:171: Warning: The resource R.color.diving_school_green_text_color appears to be unused [UnusedResources]
+    <color name="diving_school_green_text_color">#ff67ff88</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:172: Warning: The resource R.color.diving_school_not_active_color appears to be unused [UnusedResources]
+    <color name="diving_school_not_active_color">#ff62606f</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:173: Warning: The resource R.color.diving_school_not_actual_answer appears to be unused [UnusedResources]
+    <color name="diving_school_not_actual_answer">#8a24252f</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:174: Warning: The resource R.color.diving_school_yellow_text_background appears to be unused [UnusedResources]
+    <color name="diving_school_yellow_text_background">#ffffc634</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:175: Warning: The resource R.color.blue_button_smi_dialog appears to be unused [UnusedResources]
+    <color name="blue_button_smi_dialog">#ff4d5877</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:176: Warning: The resource R.color.white25 appears to be unused [UnusedResources]
+    <color name="white25">#40ffffff</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:177: Warning: The resource R.color.white50 appears to be unused [UnusedResources]
+    <color name="white50">#80ffffff</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:178: Warning: The resource R.color.white80 appears to be unused [UnusedResources]
+    <color name="white80">#cdffffff</color>
+           ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:179: Warning: The resource R.color.blue_not_active_switch appears to be unused [UnusedResources]
+    <color name="blue_not_active_switch">#ff4d5877</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:180: Warning: The resource R.color.yellow_line appears to be unused [UnusedResources]
+    <color name="yellow_line">#ffffcc47</color>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:181: Warning: The resource R.color.yellow appears to be unused [UnusedResources]
+    <color name="yellow">#fbc02d</color>
+           ~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:182: Warning: The resource R.color.yellow_active_switch appears to be unused [UnusedResources]
+    <color name="yellow_active_switch">#ffffba08</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:183: Warning: The resource R.color.orange appears to be unused [UnusedResources]
+    <color name="orange">#ffef4711</color>
+           ~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:184: Warning: The resource R.color.primary_red appears to be unused [UnusedResources]
+    <color name="primary_red">#8B0000</color>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:185: Warning: The resource R.color.primary_blue appears to be unused [UnusedResources]
+    <color name="primary_blue">#1E3A8A</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:186: Warning: The resource R.color.primary_dark appears to be unused [UnusedResources]
+    <color name="primary_dark">#0F0F0F</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:189: Warning: The resource R.color.card_dark appears to be unused [UnusedResources]
+    <color name="card_dark">#1A1A1A</color>
+           ~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:190: Warning: The resource R.color.input_background appears to be unused [UnusedResources]
+    <color name="input_background">#2D2D2D</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:193: Warning: The resource R.color.text_primary appears to be unused [UnusedResources]
+    <color name="text_primary">#E0E0E0</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:194: Warning: The resource R.color.text_secondary appears to be unused [UnusedResources]
+    <color name="text_secondary">#888888</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:197: Warning: The resource R.color.switch_track appears to be unused [UnusedResources]
+    <color name="switch_track">#404040</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:199: Warning: The resource R.color.health_green appears to be unused [UnusedResources]
+    <color name="health_green">#FF4CAF50</color>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:200: Warning: The resource R.color.health_green_light appears to be unused [UnusedResources]
+    <color name="health_green_light">#334CAF50</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:203: Warning: The resource R.color.armour_blue appears to be unused [UnusedResources]
+    <color name="armour_blue">#FF2196F3</color>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:204: Warning: The resource R.color.armour_blue_light appears to be unused [UnusedResources]
+    <color name="armour_blue_light">#332196F3</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:207: Warning: The resource R.color.wanted_red appears to be unused [UnusedResources]
+    <color name="wanted_red">#FFF44336</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:208: Warning: The resource R.color.wanted_red_light appears to be unused [UnusedResources]
+    <color name="wanted_red_light">#33F44336</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/colors.xml:209: Warning: The resource R.color.dialog_bg_color appears to be unused [UnusedResources]
+    <color name="dialog_bg_color">#A0FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/xml/data_extraction_rules.xml:6: Warning: The resource R.xml.data_extraction_rules appears to be unused [UnusedResources]
+<data-extraction-rules>
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:3: Warning: The resource R.dimen.fab_margin appears to be unused [UnusedResources]
+    <dimen name="fab_margin">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:4: Warning: The resource R.dimen.hud_margin_start appears to be unused [UnusedResources]
+    <dimen name="hud_margin_start">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:5: Warning: The resource R.dimen.hud_margin_top appears to be unused [UnusedResources]
+    <dimen name="hud_margin_top">8dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:6: Warning: The resource R.dimen.title1_text_size appears to be unused [UnusedResources]
+    <dimen name="title1_text_size">24sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:7: Warning: The resource R.dimen.title2_text_size appears to be unused [UnusedResources]
+    <dimen name="title2_text_size">18sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:8: Warning: The resource R.dimen.small_text_size appears to be unused [UnusedResources]
+    <dimen name="small_text_size">12sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:9: Warning: The resource R.dimen.medium_text_size appears to be unused [UnusedResources]
+    <dimen name="medium_text_size">14sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:10: Warning: The resource R.dimen.very_small_text_size appears to be unused [UnusedResources]
+    <dimen name="very_small_text_size">10sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:11: Warning: The resource R.dimen.button_width appears to be unused [UnusedResources]
+    <dimen name="button_width">200dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:12: Warning: The resource R.dimen.button_height appears to be unused [UnusedResources]
+    <dimen name="button_height">55dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:13: Warning: The resource R.dimen.button_text_size appears to be unused [UnusedResources]
+    <dimen name="button_text_size">18sp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:14: Warning: The resource R.dimen.horizontal_margin appears to be unused [UnusedResources]
+    <dimen name="horizontal_margin">20dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:15: Warning: The resource R.dimen.bottom_margin appears to be unused [UnusedResources]
+    <dimen name="bottom_margin">20dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:16: Warning: The resource R.dimen.title_margin_top appears to be unused [UnusedResources]
+    <dimen name="title_margin_top">20dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:17: Warning: The resource R.dimen.cache_padding appears to be unused [UnusedResources]
+    <dimen name="cache_padding">6dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:18: Warning: The resource R.dimen.icon_button_size appears to be unused [UnusedResources]
+    <dimen name="icon_button_size">48dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:19: Warning: The resource R.dimen.text_small appears to be unused [UnusedResources]
+    <dimen name="text_small">8sp</dimen>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:20: Warning: The resource R.dimen.text_medium appears to be unused [UnusedResources]
+    <dimen name="text_medium">10sp</dimen>
+           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:21: Warning: The resource R.dimen.text_large appears to be unused [UnusedResources]
+    <dimen name="text_large">12sp</dimen>
+           ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:22: Warning: The resource R.dimen.margin_small appears to be unused [UnusedResources]
+    <dimen name="margin_small">12dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/dimens.xml:23: Warning: The resource R.dimen.margin_medium appears to be unused [UnusedResources]
+    <dimen name="margin_medium">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/fade_in.xml:2: Warning: The resource R.anim.fade_in appears to be unused [UnusedResources]
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/fade_in_delay.xml:2: Warning: The resource R.anim.fade_in_delay appears to be unused [UnusedResources]
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/fade_out.xml:2: Warning: The resource R.anim.fade_out appears to be unused [UnusedResources]
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/launcher_scrim.xml:2: Warning: The resource R.drawable.launcher_scrim appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><gradient android:angle="0" android:startColor="#DD0C0B0D" android:centerColor="#A00C0B0D" android:endColor="#990C0B0D" /></shape>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/loading_dots.xml:2: Warning: The resource R.anim.loading_dots appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_render_screen.xml:2: Warning: The resource R.layout.main_render_screen appears to be unused [UnusedResources]
+<FrameLayout
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/rotate_animation.xml:2: Warning: The resource R.anim.rotate_animation appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/scale_click.xml:2: Warning: The resource R.anim.scale_click appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/scale_release.xml:2: Warning: The resource R.anim.scale_release appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/anim/slide_up.xml:2: Warning: The resource R.anim.slide_up appears to be unused [UnusedResources]
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/strings.xml:3: Warning: The resource R.string.play_bth appears to be unused [UnusedResources]
+    <string name="play_bth">JOGAR</string>
+            ~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/strings.xml:4: Warning: The resource R.string.samp_ver appears to be unused [UnusedResources]
+    <string name="samp_ver">SA:MP 0.3.7</string>
+            ~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/strings.xml:5: Warning: The resource R.string.client_name appears to be unused [UnusedResources]
+    <string name="client_name">Cidade Grande RP • Android</string>
+            ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/strings.xml:6: Warning: The resource R.string.bug_info appears to be unused [UnusedResources]
+    <string name="bug_info">Encontrou um problema? Exporte o log pelo launcher.</string>
+            ~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/strings.xml:7: Warning: The resource R.string.authors appears to be unused [UnusedResources]
+    <string name="authors">Projeto de Ricardo Santos</string>
+            ~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/style.xml:3: Warning: The resource R.style.tab_layout_title appears to be unused [UnusedResources]
+    <style name="tab_layout_title" parent="@android:style/TextAppearance.Widget.TabWidget">
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/style.xml:6: Warning: The resource R.style.BarraProgreso appears to be unused [UnusedResources]
+    <style name="BarraProgreso" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+           ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/style.xml:13: Warning: The resource R.style.CustomDialog appears to be unused [UnusedResources]
+    <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+           ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/style.xml:34: Warning: The resource R.style.DownloaderText appears to be unused [UnusedResources]
+    <style name="DownloaderText" parent="">
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/themes.xml:3: Warning: The resource R.style.Theme_SAMPLauncher appears to be unused [UnusedResources]
+    <style name="Theme.SAMPLauncher" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/themes.xml:17: Warning: The resource R.style.Theme_SAMPLauncher_NoActionBar appears to be unused [UnusedResources]
+    <style name="Theme.SAMPLauncher.NoActionBar">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/themes.xml:22: Warning: The resource R.style.Theme_SAMPLauncher_AppBarOverlay appears to be unused [UnusedResources]
+    <style name="Theme.SAMPLauncher.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/values/themes.xml:24: Warning: The resource R.style.Theme_SAMPLauncher_PopupOverlay appears to be unused [UnusedResources]
+    <style name="Theme.SAMPLauncher.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+   Available options:
+
+   **skip-libraries** (default is true):
+   Whether the unused resource check should skip reporting unused resources in libraries.
+
+   Many libraries will declare resources that are part of the library surface; other modules depending on the library will also reference the resources. To avoid reporting all these resources as unused (in the context of a library), the unused resource check normally skips reporting unused resources in libraries. Instead, run the unused resource check on the consuming app module (along with `checkDependencies=true`).
+
+   However, there are cases where you want to check that all the resources declared in a library are used; in that case, you can disable the skip option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UnusedResources">
+           <option name="skip-libraries" value="true" />
+       </issue>
+   </lint>
+   ```
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/drawable/launcher_background_v019.png: Warning: Found bitmap drawable res/drawable/launcher_background_v019.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:19: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+<Button android:id="@+id/settingsButton" android:layout_width="180dp" android:layout_height="40dp" android:background="@drawable/launcher_outline_button" android:text="CONFIGURACOES" android:textColor="#C4D6E6" android:textSize="10sp"/>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:20: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+<Button android:id="@+id/toolsButton" android:layout_width="185dp" android:layout_height="40dp" android:layout_marginStart="12dp" android:background="@drawable/launcher_outline_button" android:text="ARQUIVOS E SUPORTE" android:textColor="#C4D6E6" android:textSize="10sp"/>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:4: Warning: This text field does not specify an inputType [TextFields]
+    <EditText android:id="@+id/settingsNickname" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:hint="Digite seu usuário: Nome_Sobrenome" android:singleLine="true" android:textColor="#FFFFFF" android:textColorHint="#8290A8" />
+     ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:6: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BRASIL CIDADE GRANDE" android:textColor="#28B9DA" android:letterSpacing="0.15" android:textSize="10sp" android:textStyle="bold"/>
+                                                                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:10: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+<TextView android:id="@+id/progressText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#95A9BC" android:textSize="10sp" android:layout_marginTop="5dp"/>
+                                                                                                                                              ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:14: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+<TextView android:id="@+id/serverStatusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VERIFICANDO" android:textColor="#75D9CF" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:19: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+<Button android:id="@+id/settingsButton" android:layout_width="180dp" android:layout_height="40dp" android:background="@drawable/launcher_outline_button" android:text="CONFIGURACOES" android:textColor="#C4D6E6" android:textSize="10sp"/>
+                                                                                                                                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:20: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+<Button android:id="@+id/toolsButton" android:layout_width="185dp" android:layout_height="40dp" android:layout_marginStart="12dp" android:background="@drawable/launcher_outline_button" android:text="ARQUIVOS E SUPORTE" android:textColor="#C4D6E6" android:textSize="10sp"/>
+                                                                                                                                                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SmallSp":
+   Avoid using sizes smaller than 11sp.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:96: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:4: Warning: Missing autofillHints attribute [Autofill]
+    <EditText android:id="@+id/settingsNickname" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:hint="Digite seu usuário: Nome_Sobrenome" android:singleLine="true" android:textColor="#FFFFFF" android:textColorHint="#8290A8" />
+     ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/AttachEdit.java:180: Warning: onTouch should call View#performClick when a click is detected [ClickableViewAccessibility]
+        @Override public boolean onTouch(View view, MotionEvent event) {
+                                 ~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/game/ui/ChromiumUI.java:156: Warning: Custom view Surface overrides onTouchEvent but not performClick [ClickableViewAccessibility]
+        @Override public boolean onTouchEvent(MotionEvent event){
+                                 ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/util/CustomRecyclerView.java:30: Warning: Custom view CustomRecyclerView overrides onTouchEvent but not performClick [ClickableViewAccessibility]
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+                   ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/oswrapper/GameView.java:131: Warning: Custom view GameView overrides onTouchEvent but not performClick [ClickableViewAccessibility]
+    public boolean onTouchEvent(MotionEvent event) {
+                   ~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/MainActivity.java:70: Warning: onTouch should call View#performClick when a click is detected [ClickableViewAccessibility]
+                public boolean onTouch(View v, MotionEvent event) {
+                               ~~~~~~~
+
+   Explanation for issues of type "ClickableViewAccessibility":
+   If a View that overrides onTouchEvent or uses an OnTouchListener does not
+   also implement performClick and call it when clicks are detected, the View
+   may not handle accessibility actions properly. Logic handling the click
+   actions should ideally be placed in View#performClick as some accessibility
+   services invoke performClick when a click action should occur.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:9: Warning: Missing contentDescription attribute on image [ContentDescription]
+ <ImageView
+  ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:155: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        pathText.setText("DATA: " + gameDir.getAbsolutePath());
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:155: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        pathText.setText("DATA: " + gameDir.getAbsolutePath());
+                         ~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:158: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            progressText.setText("100% • DATA instalada");
+                                 ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:159: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.setText("Cliente pronto para iniciar");
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:161: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            startButton.setText("JOGAR");
+                                ~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:166: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            startButton.setText("AGUARDANDO DATA");
+                                ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:167: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.setText("Importe a DATA compatível entregue com o APK");
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:168: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            progressText.setText("Toque em IMPORTAR DATA e selecione o ZIP entregue");
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:186: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        statusText.setText("Validando arquivos do cliente…");
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:199: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    if(!bcgMicRequested && android.os.Build.VERSION.SDK_INT>=23 && checkSelfPermission(android.Manifest.permission.RECORD_AUDIO)!=android.content.pm.PackageManager.PERMISSION_GRANTED){bcgMicRequested=true;requestPermissions(new String[]{android.Manifest.permission.RECORD_AUDIO},271);statusText.setText("Autorize o microfone e toque em JOGAR novamente. Você pode jogar sem voz se negar.");return;}
+                                                                                                                                                                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:439: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        runOnUiThread(() -> { statusText.setText("Instalando arquivos…"); progressText.setText("Extraindo DATA…"); progressBar.setIndeterminate(true); });
+                                                 ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:439: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        runOnUiThread(() -> { statusText.setText("Instalando arquivos…"); progressText.setText("Extraindo DATA…"); progressBar.setIndeterminate(true); });
+                                                                                               ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:457: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    if ((count % 50) == 0) { final int f = count; runOnUiThread(() -> progressText.setText("Extraindo… " + f + " arquivos")); }
+                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:457: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    if ((count % 50) == 0) { final int f = count; runOnUiThread(() -> progressText.setText("Extraindo… " + f + " arquivos")); }
+                                                                                                           ~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:457: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    if ((count % 50) == 0) { final int f = count; runOnUiThread(() -> progressText.setText("Extraindo… " + f + " arquivos")); }
+                                                                                                                               ~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:500: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        statusText.setText("Importando DATA…");
+                           ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:543: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        int fpsValue = prefs.getInt(PREF_FPS, 60); fps.setProgress(Math.max(0, fpsValue - 30)); fpsLabel.setText("Limite de FPS: " + fpsValue);
+                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:543: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        int fpsValue = prefs.getInt(PREF_FPS, 60); fps.setProgress(Math.max(0, fpsValue - 30)); fpsLabel.setText("Limite de FPS: " + fpsValue);
+                                                                                                                 ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:544: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        int lines = prefs.getInt(PREF_CHAT_LINES, 6); chat.setProgress(Math.max(0, lines - 3)); chatLabel.setText("Linhas do chat: " + lines);
+                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:544: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        int lines = prefs.getInt(PREF_CHAT_LINES, 6); chat.setProgress(Math.max(0, lines - 3)); chatLabel.setText("Linhas do chat: " + lines);
+                                                                                                                  ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:547: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        fps.setOnSeekBarChangeListener(simpleSeek(value -> fpsLabel.setText("Limite de FPS: " + (value + 30))));
+                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:547: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        fps.setOnSeekBarChangeListener(simpleSeek(value -> fpsLabel.setText("Limite de FPS: " + (value + 30))));
+                                                                                                 ~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:547: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        fps.setOnSeekBarChangeListener(simpleSeek(value -> fpsLabel.setText("Limite de FPS: " + (value + 30))));
+                                                                            ~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:548: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        chat.setOnSeekBarChangeListener(simpleSeek(value -> chatLabel.setText("Linhas do chat: " + (value + 3))));
+                                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:548: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        chat.setOnSeekBarChangeListener(simpleSeek(value -> chatLabel.setText("Linhas do chat: " + (value + 3))));
+                                                                                                    ~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/gta/launcher/activity/MainActivity.java:548: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        chat.setOnSeekBarChangeListener(simpleSeek(value -> chatLabel.setText("Linhas do chat: " + (value + 3))));
+                                                                              ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:44: Warning: Hardcoded string "Position X", should use @string resource [HardcodedText]
+                android:text="Position X"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:78: Warning: Hardcoded string "Position Y", should use @string resource [HardcodedText]
+                android:text="Position Y"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:112: Warning: Hardcoded string "Position Z", should use @string resource [HardcodedText]
+                android:text="Position Z"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:146: Warning: Hardcoded string "Rotation X", should use @string resource [HardcodedText]
+                android:text="Rotation X"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:180: Warning: Hardcoded string "Rotation Y", should use @string resource [HardcodedText]
+                android:text="Rotation Y"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:214: Warning: Hardcoded string "Rotation Z", should use @string resource [HardcodedText]
+                android:text="Rotation Z"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:248: Warning: Hardcoded string "Scale", should use @string resource [HardcodedText]
+                android:text="Scale"
+                ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:286: Warning: Hardcoded string "<<", should use @string resource [HardcodedText]
+                android:text="&lt;&lt;"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:300: Warning: Hardcoded string ">>", should use @string resource [HardcodedText]
+                android:text="&gt;&gt;"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:318: Warning: Hardcoded string "EXIT", should use @string resource [HardcodedText]
+        android:text="EXIT"
+        ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:331: Warning: Hardcoded string "SAVE", should use @string resource [HardcodedText]
+        android:text="SAVE"
+        ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:42: Warning: Hardcoded string "test", should use @string resource [HardcodedText]
+    android:text="test"
+    ~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:72: Warning: Hardcoded string "TextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnTextnText", should use @string resource [HardcodedText]
+      android:text="Text\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText\nText"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:102: Warning: Hardcoded string "Нажмите для ввода", should use @string resource [HardcodedText]
+     android:hint="Нажмите для ввода"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:156: Warning: Hardcoded string "Field1", should use @string resource [HardcodedText]
+      android:text="Field1"
+      ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:171: Warning: Hardcoded string "Field2", should use @string resource [HardcodedText]
+      android:text="Field2"
+      ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:186: Warning: Hardcoded string "Field2", should use @string resource [HardcodedText]
+      android:text="Field2"
+      ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:201: Warning: Hardcoded string "Field4", should use @string resource [HardcodedText]
+      android:text="Field4"
+      ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:279: Warning: Hardcoded string "Войти", should use @string resource [HardcodedText]
+      android:text="Войти"
+      ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:313: Warning: Hardcoded string "Отмена", should use @string resource [HardcodedText]
+      android:text="Отмена"
+      ~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:28: Warning: Hardcoded string "Field1u0009", should use @string resource [HardcodedText]
+  android:text="Field1\u0009"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:46: Warning: Hardcoded string "Field2u0009", should use @string resource [HardcodedText]
+  android:text="Field2\u0009"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:63: Warning: Hardcoded string "Field3u0009", should use @string resource [HardcodedText]
+  android:text="Field3\u0009"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:80: Warning: Hardcoded string "Field4u0009", should use @string resource [HardcodedText]
+  android:text="Field4\u0009"
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:3: Warning: Hardcoded string "PERFIL E DESEMPENHO", should use @string resource [HardcodedText]
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PERFIL E DESEMPENHO" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:4: Warning: Hardcoded string "Digite seu usuário: Nome_Sobrenome", should use @string resource [HardcodedText]
+    <EditText android:id="@+id/settingsNickname" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:hint="Digite seu usuário: Nome_Sobrenome" android:singleLine="true" android:textColor="#FFFFFF" android:textColorHint="#8290A8" />
+                                                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:5: Warning: Hardcoded string "Limite de FPS: 60", should use @string resource [HardcodedText]
+    <TextView android:id="@+id/fpsLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Limite de FPS: 60" android:textColor="#FFFFFF" android:textSize="16sp" />
+                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:8: Warning: Hardcoded string "Teclado do jogo", should use @string resource [HardcodedText]
+        <RadioButton android:id="@+id/gameKeyboard" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:checked="true" android:text="Teclado do jogo" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+                                                                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:9: Warning: Hardcoded string "Teclado Android", should use @string resource [HardcodedText]
+        <RadioButton android:id="@+id/androidKeyboard" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Teclado Android" android:textColor="#FFFFFF" android:buttonTint="#28B9DA" />
+                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:11: Warning: Hardcoded string "Chat de voz", should use @string resource [HardcodedText]
+    <CheckBox android:id="@+id/voiceCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chat de voz" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:12: Warning: Hardcoded string "Manter tela ligada", should use @string resource [HardcodedText]
+    <CheckBox android:id="@+id/wakeCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Manter tela ligada" android:textColor="#FFFFFF" android:buttonTint="#60A5FA" />
+                                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/launcher_settings.xml:13: Warning: Hardcoded string "Linhas do chat: 6", should use @string resource [HardcodedText]
+    <TextView android:id="@+id/chatLinesLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Linhas do chat: 6" android:textColor="#FFFFFF" android:textSize="16sp" />
+                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/loadingscreen.xml:6: Warning: Hardcoded string "BRASILnCIDADE GRANDE", should use @string resource [HardcodedText]
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat_black" android:gravity="center" android:text="BRASIL\nCIDADE GRANDE" android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold" />
+                                                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/loadingscreen.xml:7: Warning: Hardcoded string "PREPARANDO O JOGO", should use @string resource [HardcodedText]
+        <TextView android:id="@+id/bcgLoadingStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:layout_marginTop="14dp" android:text="PREPARANDO O JOGO" android:textColor="#FFFFFF" android:textSize="12sp" />
+                                                                                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/loadingscreen.xml:11: Warning: Hardcoded string "FECHAR JOGO", should use @string resource [HardcodedText]
+    <TextView android:id="@+id/bcgLoadingExit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="16dp" android:padding="12dp" android:text="FECHAR JOGO" android:textColor="#FFFFFF" android:textSize="11sp" android:background="#80202630" />
+                                                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:6: Warning: Hardcoded string "BRASIL CIDADE GRANDE", should use @string resource [HardcodedText]
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BRASIL CIDADE GRANDE" android:textColor="#28B9DA" android:letterSpacing="0.15" android:textSize="10sp" android:textStyle="bold"/>
+                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:7: Warning: Hardcoded string "Sua historia comeca aqui", should use @string resource [HardcodedText]
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sua historia comeca aqui" android:textColor="#F4F7FA" android:textSize="26sp" android:textStyle="bold" android:layout_marginTop="7dp"/>
+                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:8: Warning: Hardcoded string "Preparando cliente", should use @string resource [HardcodedText]
+<TextView android:id="@+id/statusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Preparando cliente" android:textColor="#B4C6D7" android:textSize="12sp" android:layout_marginTop="10dp"/>
+                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:12: Warning: Hardcoded string "Escolher cidade", should use @string resource [HardcodedText]
+<LinearLayout android:id="@+id/serverCard" android:layout_width="185dp" android:layout_height="60dp" android:background="@drawable/launcher_server_card" android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:contentDescription="Escolher cidade">
+                                                                                                                                                                                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:13: Warning: Hardcoded string "Cidade Grande", should use @string resource [HardcodedText]
+<TextView android:id="@+id/serverName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cidade Grande" android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:14: Warning: Hardcoded string "VERIFICANDO", should use @string resource [HardcodedText]
+<TextView android:id="@+id/serverStatusText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VERIFICANDO" android:textColor="#75D9CF" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:16: Warning: Hardcoded string "JOGAR", should use @string resource [HardcodedText]
+<Button android:id="@+id/startButton" android:layout_width="180dp" android:layout_height="60dp" android:layout_marginStart="12dp" android:background="@drawable/launcher_play_button" android:text="JOGAR" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                                                                                                                                                                                      ~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:19: Warning: Hardcoded string "CONFIGURACOES", should use @string resource [HardcodedText]
+<Button android:id="@+id/settingsButton" android:layout_width="180dp" android:layout_height="40dp" android:background="@drawable/launcher_outline_button" android:text="CONFIGURACOES" android:textColor="#C4D6E6" android:textSize="10sp"/>
+                                                                                                                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:20: Warning: Hardcoded string "ARQUIVOS E SUPORTE", should use @string resource [HardcodedText]
+<Button android:id="@+id/toolsButton" android:layout_width="185dp" android:layout_height="40dp" android:layout_marginStart="12dp" android:background="@drawable/launcher_outline_button" android:text="ARQUIVOS E SUPORTE" android:textColor="#C4D6E6" android:textSize="10sp"/>
+                                                                                                                                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/main_activity.xml:22: Warning: Hardcoded string "REPARAR INSTALACAO", should use @string resource [HardcodedText]
+<Button android:id="@+id/retryButton" android:layout_width="200dp" android:layout_height="38dp" android:text="REPARAR INSTALACAO" android:textColor="#FFFFFF" android:visibility="gone"/>
+                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/splash.xml:36: Warning: Hardcoded string "Use of this software is subject to license in game and at rockstargames.com/eula; online account terms at www.rockstargames.com/socialclub. Violation of EULA, Code of Conduct, or other policies may result in restriction or termination of access to game or online account. Non-transferable access to special features such as exclusive, unlockable, downloadable or online content, services, or functions may require single-use serial code, additional fee and/or online account registration (13+). Access to special features may require internet connection, may not be available to all users, and may, upon 30 days notice, be terminated, modified, or offered under different terms.  Your gameplay information may be displayed on web pages and leaderboards, including those located at http://www.rockstargames.com/socialclub.   Playing the game may make you eligible to claim some prizes. Check out http://www.rockstargames.com/socialclub/events.  For details, official rules, or to opt-out of certain Social Club features visit http://www.rockstargames.com/socialclub/privacy.  Contests void where prohibited. No purchase necessary. Sponsored by Rockstar Games, 622 Broadway, New York, NY, USA.  ", should use @string resource [HardcodedText]
+        android:text="Use of this software is subject to license in game and at rockstargames.com/eula; online account terms at www.rockstargames.com/socialclub. Violation of EULA, Code of Conduct, or other policies may result in restriction or termination of access to game or online account. Non-transferable access to special features such as exclusive, unlockable, downloadable or online content, services, or functions may require single-use serial code, additional fee and/or online account registration (13+). Access to special features may require internet connection, may not be available to all users, and may, upon 30 days notice, be terminated, modified, or offered under different terms.  Your gameplay information may be displayed on web pages and leaderboards, including those located at http://www.rockstargames.com/socialclub.   Playing the game may make you eligible to claim some prizes. Check out http://www.rockstargames.com/socialclub/events.  For details, official rules, or to opt-out of certain Social Club features visit http://www.rockstargames.com/socialclub/privacy.  Contests void where prohibited. No purchase necessary. Sponsored by Rockstar Games, 622 Broadway, New York, NY, USA.  "
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:154: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:169: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:184: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog.xml:199: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+      android:paddingEnd="20.0px"
+      ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:5: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+ android:paddingEnd="48.0px"
+ ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:33: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+  android:paddingEnd="@dimen/_5sdp"
+  ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:51: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+  android:paddingEnd="@dimen/_5sdp"
+  ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:68: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+  android:paddingEnd="@dimen/_5sdp"
+  ~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/dialog_item.xml:85: Warning: When you define paddingEnd you should probably also define paddingStart for right-to-left symmetry [RtlSymmetry]
+  android:paddingEnd="@dimen/_5sdp"
+  ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlSymmetry":
+   If you specify padding or margin on the left side of a layout, you should
+   probably also specify padding on the right side (and vice versa) for
+   right-to-left layout symmetry.
+
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/java/com/rockstargames/gtasa/MainActivity.java:127: Warning: Use "Gravity.START" instead of "Gravity.LEFT" to ensure correct behavior in right-to-left locales [RtlHardcoded]
+        params.gravity = Gravity.LEFT | Gravity.TOP;        // 调整悬浮窗显示的停靠位置为左侧置顶
+                                 ~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:317: Warning: Consider replacing android:layout_marginRight with android:layout_marginEnd="@dimen/_50sdp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginRight="@dimen/_50sdp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/5c362a7a3726/work/BCG_V037_SOURCE_INTERFACE/app/src/main/res/layout/attachedit.xml:332: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="@dimen/_100sdp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginLeft="@dimen/_100sdp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+0 errors, 444 warnings

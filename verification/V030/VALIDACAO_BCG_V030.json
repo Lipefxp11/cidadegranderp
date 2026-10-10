@@ -1,0 +1,112 @@
+{
+  "version": "0.0.30",
+  "versionCode": 30,
+  "package": "com.cidadegranderp",
+  "abi": "arm64-v8a",
+  "minSdk": 28,
+  "targetSdk": 36,
+  "same_signer_as_v029": true,
+  "signature_sha256": "9143bd23931f6bf3c7cbeb5ff7e5d499ad263e94bff8c7784ffdf1437ddb5b50",
+  "apk_has_duplicate_entries": false,
+  "dex_count": 9,
+  "dex_identical_to_v029": true,
+  "ui_assets_identical_to_source": true,
+  "native_library_rebuilt_from_v030_source": true,
+  "elf_load_alignments": {
+    "lib/arm64-v8a/libopenal.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libc++_shared.so": [
+      16384,
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libbass.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libbass_ssl.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libsamp.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libVendor_mpg123.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libbass_fx.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libz.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libshadowhook.so": [
+      16384,
+      16384,
+      16384
+    ],
+    "lib/arm64-v8a/libGame.so": [
+      16384,
+      16384,
+      16384
+    ]
+  },
+  "tests": {
+    "native_transport": {
+      "passed": 20,
+      "failed": 0,
+      "environment": "C++ host harness; real extracted functions and RakNet bitstream; mocked peer"
+    },
+    "chat_ui": {
+      "passed": 28,
+      "failed": 0,
+      "environment": "Chromium headless shell; mocked Android bridge"
+    },
+    "ui_regression": {
+      "passed": 28,
+      "failed": 0,
+      "environment": "Chromium headless shell; mocked Android bridge"
+    }
+  },
+  "gamemode_and_voip_compiled": true,
+  "device_tested": false,
+  "live_server_updated": false,
+  "pure_cef_integrated": false,
+  "new_3d_models_integrated": false,
+  "artifacts": [
+    {
+      "name": "BCG_V030_CHAT_CORRIDA.apk",
+      "bytes": 23112338,
+      "sha256": "d0bcab0f620cd9686aa4d3080a13492d3fd41755abb12564df174128ecd92f31"
+    },
+    {
+      "name": "libsamp.so",
+      "bytes": 3420200,
+      "sha256": "01a282e36b7727915d8d6406fa100f4f85ed57e1a3ac2867afcb32cc2b193dfd"
+    },
+    {
+      "name": "BCG.amx",
+      "bytes": 73310499,
+      "sha256": "9940aeed6d7ddda021d8b0849f765ebbe7ef6a2ec8c29c4dfb5b39a12357ad54"
+    },
+    {
+      "name": "VOIP.amx",
+      "bytes": 11671,
+      "sha256": "f59f9c8c096683c594f70ca15c1d93a5c36f2c1a0f2aff8b823d47b99d4b6a2f"
+    }
+  ]
+}

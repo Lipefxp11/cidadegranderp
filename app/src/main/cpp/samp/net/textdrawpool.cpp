@@ -2,6 +2,9 @@
 #include "../game/game.h"
 #include "netgame.h"
 #include "textdrawpool.h"
+#include "../BCGBridge.h"
+#include "../vendor/encoding/encoding.h"
+#include <cmath>
 
 extern CGame* pGame;
 extern CNetGame* pNetGame;
@@ -31,6 +34,7 @@ CTextDrawPool::~CTextDrawPool()
 // 0.3.7
 void CTextDrawPool::New(uint16_t wTextDrawID, TEXT_DRAW_TRANSMIT* pTextDrawTransmit, const char* szText)
 {
+    if(wTextDrawID>=MAX_TEXT_DRAWS)return;
     if (m_pTextDraw[wTextDrawID]) {
         Delete(wTextDrawID);
     }
@@ -44,6 +48,7 @@ void CTextDrawPool::New(uint16_t wTextDrawID, TEXT_DRAW_TRANSMIT* pTextDrawTrans
 // 0.3.7
 void CTextDrawPool::Delete(uint16_t wTextDrawID)
 {
+    if(wTextDrawID>=MAX_TEXT_DRAWS)return;
     if (m_pTextDraw[wTextDrawID]) {
         delete m_pTextDraw[wTextDrawID];
         m_pTextDraw[wTextDrawID] = nullptr;
@@ -53,12 +58,30 @@ void CTextDrawPool::Delete(uint16_t wTextDrawID)
 // 0.3.7
 void CTextDrawPool::Draw()
 {
-    for (int i = 0; i < MAX_TEXT_DRAWS; i++)
-    {
-        if (m_bSlotState[i]) {
-            m_pTextDraw[i]->Draw();
-        }
+    const bool chromium=false;
+    for(int i=0;i<MAX_TEXT_DRAWS;i++)if(m_bSlotState[i]&&m_pTextDraw[i]){
+        // Game texture sprites and 3D previews retain the engine renderer.
+        if(!chromium||m_pTextDraw[i]->GetBCGData().dwStyle>=4)m_pTextDraw[i]->Draw();
     }
+    if(!chromium){m_bcgSnapshot.clear();return;}
+    if(GetTickCount()-m_bcgTick<150)return;
+    m_bcgTick=GetTickCount();
+    std::string snapshot="{\"type\":\"textdraws\",\"select\":"+std::string(m_bSelectState?"true":"false")+",\"items\":[";
+    bool first=true;
+    for(int i=0;i<MAX_TEXT_DRAWS;i++)if(m_bSlotState[i]&&m_pTextDraw[i]){
+        const auto& d=m_pTextDraw[i]->GetBCGData();
+        if(!std::isfinite(d.fX)||!std::isfinite(d.fY)||!std::isfinite(d.fLetterHeight))continue;
+        if(d.dwStyle>=4&&(!m_bSelectState||!d.byteSelectable))continue;
+        float width=d.byteCentered?d.fLineHeight:d.fLineWidth-d.fX;
+        if(d.dwStyle>=4)width=d.fLineWidth;
+        if(!std::isfinite(width)||width<0)width=0;
+        char properties[500];
+        std::snprintf(properties,sizeof properties,"{\"id\":%d,\"x\":%.3f,\"y\":%.3f,\"h\":%.3f,\"height\":%.3f,\"width\":%.3f,\"style\":%u,\"align\":%d,\"selectable\":%s,\"color\":\"#%08x\",\"box\":\"#%08x\",\"text\":",i,d.fX,d.fY,d.fLetterHeight,d.fLineHeight,width,d.dwStyle,d.byteCentered?2:d.byteAlignRight?3:1,d.byteSelectable?"true":"false",__builtin_bswap32(d.dwLetterColor),d.byteBox?__builtin_bswap32(d.dwBoxColor):0);
+        if(!first)snapshot+=',';first=false;snapshot+=properties;
+        snapshot+=BCGBridge::Quote(d.dwStyle>=4?"":Encoding::cp2utf(m_pTextDraw[i]->GetBCGText()));snapshot+='}';
+    }
+    snapshot+="]}";
+    if(snapshot!=m_bcgSnapshot){BCGBridge::Emit(snapshot);m_bcgSnapshot=std::move(snapshot);}
 }
 
 void CTextDrawPool::DrawImage()
@@ -177,3 +200,4 @@ void CTextDrawPool::SnapshotProcess()
         }
     }
 }
+void CTextDrawPool::SubmitBCGClick(int id){if(!m_bSelectState||!pNetGame)return;if(id==65535){m_wClickedTextDrawID=65535;SendClick();return;}if(id<0||id>=MAX_TEXT_DRAWS||!m_bSlotState[id]||!m_pTextDraw[id]||!m_pTextDraw[id]->GetBCGData().byteSelectable)return;m_wClickedTextDrawID=id;SendClick();}

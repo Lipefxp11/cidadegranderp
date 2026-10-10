@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://sdk.scdn.co; connect-src https://*.spotify.com https://*.scdn.co https://*.spotifycdn.com wss://*.spotify.com; frame-src https://sdk.scdn.co; media-src https://*.scdn.co https://*.spotifycdn.com blob:; img-src https://*.scdn.co data:; style-src 'unsafe-inline';"><title>BCG Spotify Player</title></head><body><script>
+'use strict';
+(()=>{
+let player=null,waiting=null,volume=.7;
+const emit=(event,data={})=>console.log('BCGSP42:'+JSON.stringify({event,...data}));
+window.BCGSpotifyPlayer={token(value){const callback=waiting;waiting=null;if(callback)callback(value);},control(action,value){if(!player)return;const fail=()=>emit('error',{message:'Spotify não concluiu o controle de reprodução.'});if(action==='volume'){volume=Math.min(1,Math.max(0,value/100));player.setVolume(volume).then(()=>emit('volume',{volume:Math.round(volume*100)})).catch(fail);}else if(action==='pause')player.pause().catch(fail);else if(action==='resume')player.resume().catch(fail);else if(action==='seek')player.seek(value).catch(fail);else if(action==='next')player.nextTrack().catch(fail);else if(action==='prev')player.previousTrack().catch(fail);}};
+window.onSpotifyWebPlaybackSDKReady=()=>{
+player=new Spotify.Player({name:'Cidade Grande RP · APK',getOAuthToken:callback=>{waiting=callback;emit('tokenRequest');},volume:.7});
+player.addListener('ready',({device_id})=>emit('ready',{device:device_id}));
+player.addListener('not_ready',()=>emit('offline'));
+player.addListener('player_state_changed',state=>{if(!state)return;const t=state.track_window.current_track;emit('playback',{data:{is_playing:!state.paused,progress_ms:state.position,item:{uri:t.uri,name:t.name,duration_ms:state.duration,artists:t.artists,album:t.album}}});});
+for(const event of ['initialization_error','authentication_error','account_error','playback_error'])player.addListener(event,()=>emit('error',{message:event==='initialization_error'?'Este WebView não conseguiu iniciar mídia protegida do Spotify.':event==='authentication_error'?'Reconecte o Spotify para autorizar reprodução no APK.':event==='account_error'?'A reprodução exige Spotify Premium e acesso ao aplicativo.':'Não foi possível reproduzir esta faixa.'}));
+player.addListener('autoplay_failed',()=>emit('error',{message:'A reprodução foi bloqueada pelo aparelho. Toque em reproduzir novamente.'}));
+player.connect().then(ok=>{if(!ok)emit('error',{message:'Não foi possível conectar o player do APK.'});});
+};
+const script=document.createElement('script');script.src='https://sdk.scdn.co/spotify-player.js';script.onerror=()=>emit('error',{message:'Falha ao baixar o SDK oficial do Spotify. Confira a internet.'});document.head.append(script);
+})();
+</script></body></html>

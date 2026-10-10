@@ -1,0 +1,8 @@
+V033 APK compilado com Gradle 8.13, JDK 17, NDK 28.2.13676358.
+13 testes Java: passou. 33 testes transporte nativo: passou.
+Assinatura APK v2: verificada com a chave fornecida.
+Certificado SHA256: 9143bd23931f6bf3c7cbeb5ff7e5d499ad263e94bff8c7784ffdf1437ddb5b50
+Pacote com.cidadegranderp, versionCode 33, versionName 0.0.33.
+10 libs ARM64, sem nomes duplicados; segmentos ELF alinhados a 16 KB.
+APK SHA256: 33eb887ef0bf3ae6991006eccc201cd64fd53c0f92b95ac43d5f40849c697e78
+Nao testado em aparelho conectado ao servidor.

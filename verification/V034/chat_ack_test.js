@@ -1,0 +1,14 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const nodes={};const get=id=>nodes[id]??=( {value:'',hidden:false,disabled:false,textContent:'',blur(){},focus(){},replaceChildren(){}} );
+let clock=0,next=0;const timers=new Map(),sent=[];
+const c={window:{BCGUI:{receive(){}}},$:get,send:v=>sent.push(v),text:(n,v)=>n.textContent=v,regions(){},closeDialog(){},requestAnimationFrame:f=>f(),setTimeout:f=>{timers.set(++next,f);return next;},clearTimeout:id=>timers.delete(id),model:{},inventoryRows:[],gameReady:false,tdSelect:false,dialog:null};
+vm.createContext(c);const source=fs.readFileSync('app/src/main/assets/bcg_ui/ui.js','utf8');vm.runInContext(source.slice(source.indexOf('let chatSending='),source.indexOf('// V029 transport')),c);
+const receive=v=>c.window.BCGUI.receive(v),submit=()=>get('chatForm').onsubmit({preventDefault(){}});
+receive({type:'chatInput',open:true});get('chatInput').value='/testarchat';submit();assert.deepEqual(sent.at(-1),{op:'text',text:'/testarchat'});
+receive({type:'chatResult',ok:true,text:'Na fila'});receive({type:'chatInput',open:false});assert.equal(get('chatInput').value,'/testarchat');assert.equal(timers.size,1);
+for(const f of [...timers.values()])f();receive({type:'chatInput',open:true});assert.match(get('chatFeedback').textContent,/não confirmou/);assert.equal(get('chatInput').value,'/testarchat');
+receive({type:'chatAck'});assert.equal(get('chatInput').value,'');assert.equal(timers.size,0);
+get('chatInput').value='mensagem';submit();receive({type:'chatResult',ok:true,text:'Na fila'});get('chatInput').value='novo rascunho';receive({type:'chatAck'});assert.equal(get('chatInput').value,'novo rascunho');
+submit();receive({type:'chatResult',ok:false,text:'Falha'});assert.equal(get('chatInput').value,'novo rascunho');assert.equal(get('chatSend').disabled,false);
+receive({type:'chatResult',ok:true,text:'Na fila'});receive({type:'sessionReset'});assert.equal(timers.size,0);receive({type:'chatInput',open:true});assert.match(get('chatFeedback').textContent,/Enter ou ENVIAR/);
+console.log('PASS: fila local mantém texto; timeout informa falta de confirmação; ACK limpa apenas texto enviado; falha preserva rascunho; reconexão limpa confirmação pendente.');

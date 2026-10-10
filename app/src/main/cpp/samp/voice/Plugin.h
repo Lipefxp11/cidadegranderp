@@ -17,6 +17,9 @@ class Plugin {
 
 public:
     static bool OnPluginLoad() noexcept;
+    static void ProcessFrame();
+    static void SetPTT(int key,bool down);
+    static bool IsTransmitting() noexcept { return recordStatus; }
     static bool OnSampLoad() noexcept;
 
 private:

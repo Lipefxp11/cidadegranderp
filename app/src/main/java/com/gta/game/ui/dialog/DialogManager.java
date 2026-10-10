@@ -92,7 +92,7 @@ public class DialogManager {
         activity.addContentView(layout, new ConstraintLayout.LayoutParams(-1, -1));
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            layout.setZ(1);
+            layout.setZ(20);
         }
 
         this.DIALOG_STYLE_MSGBOX = 0;
@@ -159,13 +159,22 @@ public class DialogManager {
         this.mMainLayout.setLayoutParams(layoutParams2);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            this.mMainLayout.setZ(1);
+            this.mMainLayout.setZ(20);
         }
 
         loadDialog();
         Util.ShowLayout(this.mMainLayout, true);
     }
 
+    public void dismiss() {
+        isShow=false;
+        mCurrentInputtext="";
+        mDialogInput.setText("");
+        mDialogInput.clearFocus();
+        ((InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(mDialogInput.getWindowToken(),0);
+        mMainLayout.clearAnimation();
+        mMainLayout.setVisibility(View.GONE);
+    }
     public void hideWithoutReset() {
         this.mMainLayout.setVisibility(View.GONE);
     }
@@ -174,7 +183,7 @@ public class DialogManager {
         this.mMainLayout.setVisibility(View.VISIBLE);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            this.mMainLayout.setZ(1);
+            this.mMainLayout.setZ(20);
         }
     }
 
@@ -221,7 +230,7 @@ public class DialogManager {
         }
 
         try {
-            byte[] Str2 = str.getBytes("windows-1251");
+            byte[] Str2 = str.getBytes("UTF-8");
 
             Hide();
             sendDialogResponse(i, DialogManager.this.mCurrentDialogId, i2, Str2);

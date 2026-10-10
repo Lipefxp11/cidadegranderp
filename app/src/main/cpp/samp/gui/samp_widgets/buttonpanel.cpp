@@ -5,6 +5,7 @@
 #include "net/localplayer.h"
 #include "net/netgame.h"
 #include "playertablist.h"
+#include <algorithm>
 #include "net/localplayer.h"
 
 extern UI* pUI;
@@ -23,9 +24,9 @@ ButtonPanel::ButtonPanel()
 	m_bOpen = new OButton(">>", UISettings::fontSize() / 2);
 	CButton* m_bClose = new CButton("<<", UISettings::fontSize() / 2);
     m_bAlt = new Button("ALT", UISettings::fontSize() / 2);
-	CButton* m_bEsc = new CButton("ESC", UISettings::fontSize() / 2);
-    CButton* m_bSV = new CButton("SV", UISettings::fontSize() / 2);
-	m_bH = new CButton("H", UISettings::fontSize() / 2);
+	m_bEsc = new Button("ESC", UISettings::fontSize() / 2);
+    m_bSV = new CButton("SV", UISettings::fontSize() / 2);
+	m_bH = new Button("H", UISettings::fontSize() / 2);
 	CButton* m_bY = new CButton("Y", UISettings::fontSize() / 2);
 	CButton* m_bN = new CButton("N", UISettings::fontSize() / 2);
 	CButton* m_bF = new CButton("F", UISettings::fontSize() / 2);
@@ -38,7 +39,7 @@ ButtonPanel::ButtonPanel()
 	CButton* m_b2 = new CButton("2", UISettings::fontSize() / 2);
 
 
-    m_bSV->setCallback([]()
+    static_cast<CButton*>(m_bSV)->setCallback([]()
     {
         if (!pNetGame) return;
 
@@ -59,13 +60,13 @@ ButtonPanel::ButtonPanel()
 								Tab = 0;
 							}
 						});
-    m_bOpen->setCallback([]() { OpenButton = true; });
+    m_bOpen->setCallback([]() { OpenButton = !OpenButton; });
     m_bClose->setCallback([]() { OpenButton = false; });
     m_bAlt->setCallback([this]() {
         if(m_bAlt->visible())
             LocalPlayerKeys.bKeys[ePadKeys::KEY_WALK] = true;
     });
-    m_bEsc->setCallback([m_bEsc]() {
+    m_bEsc->setCallback([this]() {
         if (pNetGame && m_bEsc->visible()) {
             CTextDrawPool *pTextDrawPool = pNetGame->GetTextDrawPool();
             if (pTextDrawPool) {
@@ -111,18 +112,20 @@ ButtonPanel::ButtonPanel()
 
 void ButtonPanel::performLayout()
 {
-    Layout::performLayout();
-
-    if (m_bAlt) {
-        m_bAlt->setVisible(true);
+    Widget::performLayout();
+    const float gap = UISettings::padding() / 3.0f;
+    float x = 0.0f, rowHeight = 0.0f;
+    for (Widget* key : {static_cast<Widget*>(m_bEsc), static_cast<Widget*>(m_bTab),
+                       static_cast<Widget*>(m_bAlt), static_cast<Widget*>(m_bH),
+                       static_cast<Widget*>(m_bOpen)}) {
+        key->setPosition(ImVec2(x, 0.0f));
+        x += key->width() + gap;
+        rowHeight = std::max(rowHeight, key->height());
     }
-
-    if (m_bOpen && m_bTab)
-    {
-        m_bOpen->setPosition(ImVec2(15.0f, 15.0f));
-
-        ImVec2 openPos = m_bOpen->position();
-        ImVec2 openSize = m_bOpen->size();
-        m_bTab->setPosition(ImVec2(openPos.x + openSize.x + 10.0f, openPos.y));
+    x = 0.0f;
+    for (auto key : children()) {
+        if (key == m_bEsc || key == m_bTab || key == m_bAlt || key == m_bH || key == m_bOpen) continue;
+        key->setPosition(ImVec2(x, rowHeight + gap));
+        x += key->width() + gap;
     }
 }

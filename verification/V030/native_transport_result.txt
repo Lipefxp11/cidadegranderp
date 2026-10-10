@@ -1,0 +1,22 @@
+PASS native chat tap opens exactly one composer and blocks gameplay
+PASS repeated chat taps do not open a second editor
+PASS composer command crosses queue to server-command RPC
+PASS command uses exact int32 byte count
+PASS queued send closes editor and releases controls
+PASS UTF-8 composer text reaches chat RPC in CP1252 without double conversion
+PASS failed queue keeps the editor open with a visible error
+PASS retry succeeds and releases controls
+PASS overlength input is rejected without losing the editor
+PASS newline and embedded NUL never reach the server
+PASS cancel never sends an empty RPC and releases controls
+PASS typing prevents microphone transmission
+PASS disconnect closes the editor without trapping input
+PASS server dialog cancels chat before displaying authentication
+PASS 144-byte message fits the SA-MP protocol
+PASS real server clear-animation RPC clears local tasks
+PASS clear-animation RPC clears remote tasks and animation state
+PASS invalid or truncated animation RPC is safe
+PASS releasing carried object clears the pose instead of replaying partial carry
+PASS legitimate carry action still works
+V030 native transport checks=20 failures=0
+

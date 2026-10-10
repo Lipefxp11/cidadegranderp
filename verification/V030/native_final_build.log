@@ -1,0 +1,180 @@
+[ 32%] Built target opus
+[ 32%] Building CXX object samp/CMakeFiles/samp.dir/net/scriptrpc.cpp.o
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:1:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../main.h:13:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/common.h:4:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+   79 |     CVector& operator=(const CVector& right) {
+      |              ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+  257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+      |                                                              ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:1:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../main.h:13:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+  571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+      |        ^~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:6:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Camera.h:12:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+   11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+      |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+      |                                                                 w(w)  x(x)  y(y)  z(z)
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:6:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Camera.h:14:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+   39 |             bottom{ bottom },
+      |             ^~~~~~~~~~~~~~~~
+      |             top{ top }
+   40 |             right{ right },
+   41 |             top{ top }
+      |             ~~~~~~~~~~
+      |             bottom{ bottom }
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+   39 |             bottom{ bottom },
+      |             ^~~~~~~~~~~~~~~~
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+   40 |             right{ right },
+      |             ^~~~~~~~~~~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:6:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Camera.h:14:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   35 | class CTimeInfo;
+      | ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+    8 | struct CTimeInfo {
+      |        ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+   35 | class CTimeInfo;
+      | ^~~~~
+      | struct
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:6:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Camera.h:14:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   16 | struct CEntityGTA : public CPlaceable{
+      | ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+   14 |     class CEntityGTA**      m_ppEntity;
+      |     ^~~~~
+      |     struct
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:6:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   16 | struct CPedGTA;
+      | ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+   14 | class CPedGTA;
+      |       ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:7:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/playerped.h:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/vehicle.h:4:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Entity/CVehicleGTA.h:7:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+    8 | struct CPhysical : public CEntityGTA {
+      | ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+   10 | class CPhysical;
+      | ^~~~~
+      | struct
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:7:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/playerped.h:5:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   17 |     class CPedGTA* m_pPed;
+      |     ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+   16 | struct CPedGTA;
+      |        ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:7:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/playerped.h:5:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   73 | struct CPedGTA : public CPhysical {
+      | ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+   14 | class CPedGTA;
+      | ^~~~~
+      | struct
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:23:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+  463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+      |                                          ^~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+   70 |         PlayerID& operator = ( const PlayerID& input )
+      |                   ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+  772 |                         Write(var.playerId);
+      |                               ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+   96 |         NetworkID& operator = ( const NetworkID& input );
+      |                    ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+  895 |                 Write(var);
+      |                       ^
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+ 1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+      |                            ~~~~~~~~~~                                ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:3:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+  382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+      |                                          ^~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:6:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/StringCompressor.h:22:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/DS_Map.h:21:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+   93 |                 unsigned index;
+      |                          ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/netgame.h:55:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/textlabelpool.h:3:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../gui/gui.h:26:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../gui/samp_widgets/voicebutton.h:6:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+   30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+      |                 ^
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:1:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../main.h:13:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/common.h:4:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+  257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+      |                ^~~~~~~~~~
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+  258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+      |                ^~~~~~~~~~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:1:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../main.h:13:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+  577 |         static void VerifyMacroImpl(bool result) {
+      |                     ^~~~~~~~~~~~~~~
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/scriptrpc.cpp:2:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/game.h:7:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/net/../game/playerped.h:5:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+In file included from /workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+/workspace/scratch/29fc79da83b4/client/BCG_V030_SOURCE_APK/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+  579 | static const char* GetTaskTypeName(eTaskType taskType) {
+      |                    ^~~~~~~~~~~~~~~
+21 warnings generated.
+[ 33%] Linking CXX shared library libsamp.so
+[100%] Built target samp

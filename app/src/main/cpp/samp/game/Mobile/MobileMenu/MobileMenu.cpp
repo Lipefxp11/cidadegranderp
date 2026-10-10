@@ -3,6 +3,7 @@
 //
 
 #include "MobileMenu.h"
+#include "BCGBridge.h"
 #include "patch.h"
 #include "game/game.h"
 #include "../../net/netgame.h"
@@ -22,6 +23,7 @@ void InitForPause_hook(uintptr* thiz)
 {
     if(!bAFKInitialized) {
         MobileMenuBool = true;
+        BCGBridge::GameMenu(true);
         bAFKInitialized = true;
     }
     InitForPause(thiz);
@@ -29,18 +31,21 @@ void InitForPause_hook(uintptr* thiz)
 
 void CMobileMenu__Unload_hook(uintptr* thiz) {
     MobileMenuBool = false;
+    BCGBridge::GameMenu(false);
     bAFKInitialized = false;
     CMobileMenu__Unload(thiz);
 }
 
 void CMobileMenu__Initiliaze_hook(uintptr* thiz) {
     MobileMenuBool = false;
+    BCGBridge::GameMenu(false);
     bAFKInitialized = false;
     CMobileMenu__Initiliaze(thiz);
 }
 
 void CMobileMenu__0CMobileMenu_hook(uintptr* thiz) {
     MobileMenuBool = false;
+    BCGBridge::GameMenu(false);
     bAFKInitialized = false;
     CMobileMenu__0CMobileMenu(thiz);
 }

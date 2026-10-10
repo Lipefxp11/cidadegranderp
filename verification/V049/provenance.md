@@ -1,0 +1,1 @@
+Base: PLAYER.IMG e banco DXT da DATA fornecida pelo usuário. Malha/rig derivada de CJ/GTA SA. Rosto gerado com o atlas wedge_face de referência, identidade adulta distinta, iluminação uniforme; convertido para atlas 128x128 da base. Escultura procedural preserva ossos, pesos, UV e topologia. Nenhuma validação no motor Android realizada.

@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(NOT ANDROID_ABI STREQUAL "arm64-v8a")
-    message(FATAL_ERROR "BCG V019 supports only arm64-v8a; received ${ANDROID_ABI}")
+    message(FATAL_ERROR "BCG V025 supports only arm64-v8a; received ${ANDROID_ABI}")
 endif()
 add_compile_definitions(VER_x32=false)
 

@@ -1,0 +1,15 @@
+BCG LOGIN GOOGLE — DISCLOUD V050
+
+1. Crie/reserve um subdomínio livre no painel Discloud, exclusivo para este login.
+2. Extraia este ZIP. No discloud.config, troque SEU_SUBDOMINIO pelo subdomínio registrado, sem https e sem o domínio final.
+3. Recompacte os arquivos diretamente na raiz do ZIP: discloud.config e package.json não podem ficar dentro de uma pasta.
+4. Envie como uma NOVA aplicação tipo SITE/API. Não substitua o bot, site ou serviço WL existente.
+5. O serviço usa Node, porta 8080 e host 0.0.0.0. A hospedagem instala as dependências do package.json.
+6. Copie o endereço HTTPS que o painel realmente mostrar. Abra esse endereço seguido de /health. Deve retornar status ok e service BCG Google50.
+7. Envie o endereço HTTPS ao responsável pelo APK para configurar google_auth50_url e compilar.
+
+Plano: a documentação Discloud exige Platinum ou superior e 512 MB para SITE/API; Diamond é superior. Confira a disponibilidade no seu painel.
+
+Mantenha backup de data/accounts.json. As sessões são temporárias em memória: reiniciar o serviço pede novo login. Este pacote valida contas Google do launcher; não migra nem libera personagens antigos por nick. Ainda falta vincular a identidade Google à gamemode.
+
+Validação local: quatro testes de lógica aprovados com verificador Google simulado. Hospedagem e login real ainda não testados.

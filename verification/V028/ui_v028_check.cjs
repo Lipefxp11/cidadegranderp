@@ -1,0 +1,45 @@
+const { chromium } = require(process.env.BCG_PLAYWRIGHT_PATH || 'playwright');
+const fs=require('fs'),path=require('path');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.BCG_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:1536,height:691}});let failures=[];page.on('pageerror',e=>failures.push(e.message));
+ await page.addInitScript(()=>{window.__events=[];window.BCG={send:s=>window.__events.push(JSON.parse(s))};});
+ await page.goto('file://'+path.resolve(__dirname,'../../app/src/main/assets/bcg_ui/index.html'));
+ await page.waitForFunction(()=>window.BCGUI&&window.__events.some(e=>e.op==='ready'));
+ let count=0;function check(v,name){count++;if(!v)throw new Error(name);console.log('PASS: '+name);}
+ check(await page.evaluate(()=>document.querySelector('#hud').hidden),'HUD waits for authenticated ready');
+ const show=async d=>page.evaluate(d=>BCGUI.receive({type:'dialog',...d}),d);
+ await show({id:100,style:5,title:'Menu',text:'Nome\tValor\nPrimeiro\t1\nSegundo\t2',left:'Abrir',right:'Voltar'});
+ await page.locator('#list button').nth(1).click();await page.locator('#positive').click();
+ check(await page.evaluate(()=>{const d=__events.filter(e=>e.op==='dialog').pop();return d.id===100&&d.item===1&&d.text==='Segundo';}),'tablist header is excluded from RPC item index');
+ await show({id:29002,style:3,title:'CELULAR BCG',text:'PIN',left:'Entrar',right:'Fechar'});
+ check(await page.locator('#dialogInput').getAttribute('type')==='password','PIN field masks input');
+ await page.locator('#dialogInput').fill('123456');await page.locator('#positive').click();
+ check(await page.evaluate(()=>__events.filter(e=>e.op==='dialog').pop().text==='123456'),'PIN passes typed value to native bridge');
+ await show({id:100,style:1,title:'Entrada',text:'Mensagem',left:'Enviar',right:'Voltar'});await page.locator('#negative').click();
+ check(await page.evaluate(()=>__events.filter(e=>e.op==='dialog').pop().button===0),'cancel sends response zero');
+ await page.evaluate(()=>BCGUI.receive({type:'connection',phase:5,text:'Entrou no servidor'}));
+ check(await page.evaluate(()=>!document.querySelector('#hud').hidden),'ready shows compact HUD');
+ check(await page.evaluate(()=>!document.querySelector('#chatInput')&&!document.querySelector('#chatButton')&&!document.querySelector('#phoneButton')&&!document.querySelector('#localPTT')&&!document.querySelector('#radioPTT')),'no second chat, HTML H or radio/local switches');
+ check(await page.evaluate(()=>!document.querySelector('canvas')&&!document.querySelector('#map')),'no HTML minimap covers native radar');
+ await page.waitForTimeout(50);
+ check(await page.evaluate(()=>__events.filter(e=>e.op==='regions').pop().list.length===0),'decorative HUD does not consume gameplay touches');
+ await page.evaluate(()=>BCGUI.receive({type:'textdraws',select:true,items:[{id:24,x:320,y:200,h:1,height:25,width:150,color:'#ffffffff',box:'#111111ff',selectable:true,text:'Comprar',align:1,style:2}]}));await page.locator('#textdraws button').click();
+ check(await page.evaluate(()=>__events.some(e=>e.op==='textdraw'&&e.id===24)),'textdraw click retains real server ID');
+ await page.evaluate(()=>BCGUI.receive({type:'nativeHud',health:95,armour:40,cash:3000,hour:19,minute:36,voiceReady:true,talking:false}));
+ check(await page.evaluate(()=>document.querySelector('#life').textContent==='95'&&document.querySelector('#armour').textContent==='40'),'HUD displays supplied game state');
+ check(await page.evaluate(()=>document.querySelector('#clock').textContent==='19:36'&&document.querySelector('#money').textContent==='R$ 3.000'),'native clock and money remain visible without server HUD');
+ await page.evaluate(()=>BCGUI.receive({type:'serverHud',text:'5000|2000|70|80|San Fierro'}));
+ check(await page.evaluate(()=>document.querySelector('#location').textContent==='San Fierro'&&document.querySelector('#food').textContent==='70'&&document.querySelector('#water').textContent==='80'),'server city and needs populate compact icons');
+ await page.evaluate(()=>BCGUI.receive({type:'nativeHud',health:94,armour:39,cash:3000,hour:19,minute:37,voiceReady:true,talking:true}));
+ check(await page.evaluate(()=>document.querySelector('#voiceStatus').textContent.includes('transmitindo')),'voice indicator follows actual recording state');
+ for(const viewport of [{width:1536,height:691},{width:854,height:480}]){await page.setViewportSize(viewport);check(await page.evaluate(()=>{for(const id of ['brand','needs','voiceStatus']){const r=document.getElementById(id).getBoundingClientRect();if(r.left<0||r.top<0||r.right>innerWidth||r.bottom>innerHeight)return false;}return true;}),'compact HUD stays in landscape viewport '+viewport.width);}
+ await page.setViewportSize({width:1536,height:691});await page.screenshot({path:'BCG_V028_HUD_PREVIEW.png'});
+ await show({id:29003,style:2,title:'CELULAR BCG | 100000001',text:'Contatos\nMensagens\nLigar\nBanco\nGPS\nInventario\nLoja\nAjustes\nFechar',left:'Abrir',right:'Fechar'});
+ check(await page.locator('#list button').count()===9,'phone home has nine real game actions');
+ check(await page.evaluate(()=>{const r=document.querySelector('#list button').getBoundingClientRect();return document.elementFromPoint(r.left+r.width/2,r.top+r.height/2).closest('#dialogOverlay')!==null;}),'phone modal stays above legacy textdraws');await page.screenshot({path:'BCG_V028_DIALOG_PREVIEW.png'});
+ await page.evaluate(()=>BCGUI.receive({type:'connection',phase:6,text:'Conexão perdida'}));
+ check(await page.evaluate(()=>document.querySelector('#hud').hidden&&document.querySelector('#dialogOverlay').hidden),'disconnect clears HUD and modal');
+ check(failures.length===0,'no JavaScript runtime errors');
+ fs.writeFileSync('ui_v028_result.txt',`Chromium UI checks=${count} failures=${failures.length}\n`);await browser.close();
+})().catch(e=>{console.error(e.stack);process.exit(1);});

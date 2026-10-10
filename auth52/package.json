@@ -1,0 +1,16 @@
+{
+  "name": "cidade-grande-auth",
+  "version": "0.0.53",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file=.env server.mjs",
+    "test": "node --test test.mjs access52.test.mjs"
+  },
+  "dependencies": {
+    "google-auth-library": "9.15.1"
+  }
+}

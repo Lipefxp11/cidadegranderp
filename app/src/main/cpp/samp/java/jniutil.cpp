@@ -1,4 +1,5 @@
 #include "jniutil.h"
+#include "BCGBridge.h"
 #include "game/game.h"
 extern CGame *pGame;
 
@@ -42,8 +43,11 @@ CJavaWrapper::CJavaWrapper(JNIEnv *env, jobject activity)
         return;
     }
 
+    s_uiEvent = env->GetMethodID(clas, "onUiEvent", "([B)V");
     s_showLoadingScreen = env->GetMethodID(clas, "showLoadingScreen", "()V");
     s_hideLoadingScreen = env->GetMethodID(clas, "hideLoadingScreen", "()V");
+    s_connectionStatus = env->GetMethodID(clas, "onConnectionStatus", "(ILjava/lang/String;)V");
+    s_connectionNotice = env->GetMethodID(clas, "onConnectionNotice", "(Ljava/lang/String;)V");
 
     s_setPauseState = env->GetMethodID(clas, "setPauseState", "(Z)V");
     
@@ -59,20 +63,40 @@ CJavaWrapper::CJavaWrapper(JNIEnv *env, jobject activity)
 
 void CJavaWrapper::ShowLoadingScreen()
 {
-    JNIEnv* p;
-    javaVM->GetEnv((void**)&p, JNI_VERSION_1_6);
+    JNIEnv* p=GetEnv();
+    if(!p || !activity)return;
     p->CallVoidMethod(activity, s_showLoadingScreen);
     EXCEPTION_CHECK(p);
 }
 
 void CJavaWrapper::HideLoadingScreen()
 {
-    JNIEnv* p;
-    javaVM->GetEnv((void**)&p, JNI_VERSION_1_6);
+    JNIEnv* p=GetEnv();
+    if(!p || !activity)return;
     p->CallVoidMethod(activity, s_hideLoadingScreen);
     EXCEPTION_CHECK(p);
 }
 
+void CJavaWrapper::ConnectionStatus(int phase, const char* message)
+{
+    JNIEnv* env=GetEnv();
+    if(!env || !activity || !s_connectionStatus)return;
+    jstring text=env->NewStringUTF(message ? message : "");
+    if(!text)return;
+    env->CallVoidMethod(activity,s_connectionStatus,phase,text);
+    env->DeleteLocalRef(text);
+    EXCEPTION_CHECK(env);
+}
+void CJavaWrapper::ConnectionNotice(const char* message)
+{
+    JNIEnv* env=GetEnv();
+    if(!env || !activity || !s_connectionNotice)return;
+    jstring text=env->NewStringUTF(message ? message : "");
+    if(!text)return;
+    env->CallVoidMethod(activity,s_connectionNotice,text);
+    env->DeleteLocalRef(text);
+    EXCEPTION_CHECK(env);
+}
 void CJavaWrapper::SetPauseState(bool pause)
 {
     JNIEnv* p;
@@ -83,8 +107,8 @@ void CJavaWrapper::SetPauseState(bool pause)
 
 void CJavaWrapper::ShowDialog(int dialogStyle, int dialogID, char* title, char* text, char* button1, char* button2)
 {
-    JNIEnv* env;
-    javaVM->GetEnv((void**)&env, JNI_VERSION_1_6);
+    BCGBridge::Dialog(dialogID);
+    JNIEnv* env = GetEnv();
 
     if (!env)
     {
@@ -103,6 +127,11 @@ void CJavaWrapper::ShowDialog(int dialogStyle, int dialogID, char* title, char* 
     jbyteArray jstrButton2 = as_byte_array((unsigned char*)sButton2.c_str(), sButton2.length());
 
     env->CallVoidMethod(activity, s_ShowDialog, dialogID, dialogStyle, jstrTitle, jstrText, jstrButton1, jstrButton2);
+
+    env->DeleteLocalRef(jstrTitle);
+    env->DeleteLocalRef(jstrText);
+    env->DeleteLocalRef(jstrButton1);
+    env->DeleteLocalRef(jstrButton2);
 
     EXCEPTION_CHECK(env);
 }
@@ -148,3 +177,5 @@ void CJavaWrapper::HideEditObject() {
 
     env->CallVoidMethod(this->activity, this->s_hideEditObject);
 }
+
+void CJavaWrapper::UiEvent(const char* json){JNIEnv* env=GetEnv();if(!env||!activity||!s_uiEvent)return;jbyteArray bytes=as_byte_array((unsigned char*)json,strlen(json));if(!bytes)return;env->CallVoidMethod(activity,s_uiEvent,bytes);env->DeleteLocalRef(bytes);EXCEPTION_CHECK(env);}

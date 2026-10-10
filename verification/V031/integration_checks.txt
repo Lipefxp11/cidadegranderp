@@ -1,0 +1,5 @@
+PASS disconnect cleans account mapping after save
+PASS command permissions do not release the logged-in session
+PASS spawn owns a tracked HUD timer
+PASS readiness is not set while scheduling boot
+PASS all three animation source files identical to V030

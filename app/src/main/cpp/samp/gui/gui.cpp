@@ -1,4 +1,6 @@
 #include "../main.h"
+#include "../BCGBridge.h"
+#include "../Navigation46.h"
 #include "../game/game.h"
 #include "../net/netgame.h"
 #include "gui.h"
@@ -100,6 +102,7 @@ bool UI::initialize()
     d_label1 = new Label(cryptor::create("SA:MP 2.11 (arm64-v8a)").decrypt(), ImColor(1.0f, 1.0f, 1.0f), true, UISettings::fontSize() / 3);
     this->addChild(d_label1);
     d_label1->setPosition(ImVec2(3.0, 3.0));
+    d_label1->setVisible(pSettings && pSettings->GetReadOnly().bDebug);
 
     m_debugInfo = new CDebugInfo();
 
@@ -135,7 +138,9 @@ void UI::shutdown()
 
 void UI::drawList()
 {
-    if (!visible()) return;
+    if (!visible() || BCGBridge::ModalOpen() || BCGBridge::GameMenuOpen()) return;
+
+    Navigation46::Render();
 
     if (pPlayerTags) pPlayerTags->Render(renderer());
 

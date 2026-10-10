@@ -1,0 +1,15 @@
+PASS native slash command reaches RPC 50
+PASS command carries int32 byte length and unchanged text
+PASS native message reaches chat RPC 101
+PASS CP1252 accent is not double converted
+PASS long multiline and embedded NUL are rejected
+PASS 144-byte chat serializes within SA-MP limit
+PASS offline null and non-command requests do not send
+PASS microphone press starts local PTT
+PASS microphone uses only local key B
+PASS movement finger release does not stop microphone
+PASS holding microphone has no frame countdown cutoff and null textures are safe
+PASS microphone release outside button stops recording
+PASS release sends local PTT stop
+PASS disabled microphone does not start recording
+Native V028 checks=14 failures=0

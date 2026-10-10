@@ -73,6 +73,9 @@ public:
 	void ShutdownForGameModeRestart();
 	void UpdatePlayerScoresAndPings();
 	void InitGameLogic();
+    void NotifyConnection(int phase, const char* message);
+    bool HandleBCGControl(const char* message);
+    int GetBCGPhase() const {return m_bcgPhase;}
 
 	void SetMapIcon(uint8_t byteIconID, float fPosX, float fPosY, float fPosZ, uint8_t byteType, uint32_t dwColor, uint8_t byteStyle);
 	void DisableMapIcon(uint8_t byteIconID);
@@ -122,8 +125,8 @@ public:
 	CPlayerBubblePool* GetPlayerBubblePool() { return m_pPools->pPlayerBubblePool; }
 
 	void SendDialogResponse(uint16_t wDialogID, uint8_t byteButtonID, uint16_t wListBoxItem, const char* szInput);
-	void SendChatMessage(const char* szMsg);
-	void SendChatCommand(const char* szMsg);
+	bool SendChatMessage(const char* szMsg);
+	bool SendChatCommand(const char* szMsg);
 
 	void SendPrevClass();
 	void SendSpawn();
@@ -174,6 +177,9 @@ private:
 
 	bool		m_bNameTagStatus;
 	int			m_iGameState;
+    int m_bcgPhase = 0;
+    unsigned int m_bcgJoinTick = 0;
+    unsigned int m_bcgAttempts = 0;
 	int			m_dwLastConnectAttempt;
 	uint32_t	m_dwMapIcon[MAX_MAP_ICONS];
 

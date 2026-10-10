@@ -210,7 +210,7 @@ bool Record::Init(const uint32_t bitrate) noexcept
         PluginConfig::SetDeviceName(Record::deviceNamesList[Record::usedDeviceIndex]);
     }
 
-    Record::recordChannel = BASS_RecordStart(SV::kFrequency2, 1,
+    Record::recordChannel = BASS_RecordStart(SV::kFrequency, 1,
         BASS_RECORD_PAUSE, nullptr, nullptr);
 
     if(Record::recordChannel == NULL)
@@ -222,7 +222,7 @@ bool Record::Init(const uint32_t bitrate) noexcept
 
     Memory::ScopeExit channelResetScope { [] { BASS_ChannelStop(Record::recordChannel); } };
 
-    Record::checkChannel = BASS_StreamCreate(SV::kFrequency2, 1,
+    Record::checkChannel = BASS_StreamCreate(SV::kFrequency, 1,
         NULL, STREAMPROC_PUSH, nullptr);
 
     if(Record::checkChannel == NULL)
@@ -234,7 +234,7 @@ bool Record::Init(const uint32_t bitrate) noexcept
 
     BASS_ChannelSetAttribute(Record::checkChannel, BASS_ATTRIB_VOL, 4.f);
 
-    int iSamplingSize = 44100;
+    int iSamplingSize = SV::kFrequency;
 
     Record::speexEchoState = speex_echo_state_init(SV::kFrameSizeInSamples, SV::kFrameSizeInBytes);
     if (Record::speexEchoState)
@@ -630,7 +630,7 @@ void Record::SetMicroDevice(const int deviceIndex) noexcept
         BASS_RecordInit(Record::deviceNumbersList[Record::usedDeviceIndex = oldDevIndex]) == 0)
         return;
 
-    Record::recordChannel = BASS_RecordStart(SV::kFrequency2, 1, !Record::recordStatus &&
+    Record::recordChannel = BASS_RecordStart(SV::kFrequency, 1, !Record::recordStatus &&
         !Record::checkStatus ? BASS_RECORD_PAUSE : NULL, nullptr, nullptr);
 
     PluginConfig::SetDeviceName(Record::deviceNamesList[Record::usedDeviceIndex]);*/

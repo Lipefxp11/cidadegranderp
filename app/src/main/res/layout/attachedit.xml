@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="gone"
+    android:visibility="visible"
     android:id="@+id/attach_main_layot"
     android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <View
@@ -32,6 +33,8 @@
                 android:layout_height="@dimen/_17sdp"
                 android:background="@drawable/attach_black_round_rect"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -63,8 +66,10 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:background="@drawable/attach_black_round_rect"
-                app:layout_constraintBottom_toBottomOf="@+id/attach_topbott_icon"
-                app:layout_constraintTop_toTopOf="@+id/attach_topbott_icon" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,8 +100,10 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:background="@drawable/attach_black_round_rect"
-                app:layout_constraintBottom_toBottomOf="@+id/attach_pushpull_icon"
-                app:layout_constraintTop_toTopOf="@+id/attach_pushpull_icon" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +134,9 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:background="@drawable/attach_black_round_rect"
-                app:layout_constraintBottom_toBottomOf="@+id/attach_rot_iconX"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -159,8 +168,10 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:background="@drawable/attach_black_round_rect"
-                app:layout_constraintBottom_toBottomOf="@+id/attach_rot_iconY"
-                app:layout_constraintTop_toTopOf="@+id/attach_rot_iconY" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -190,7 +201,11 @@
                 android:id="@+id/attach_line7"
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:background="@drawable/attach_black_round_rect" />
+                android:background="@drawable/attach_black_round_rect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,13 +228,18 @@
             android:layout_marginTop="8dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="@id/attach_rotZ"
             app:layout_constraintTop_toBottomOf="@+id/attach_rotZ">
 
             <View
                 android:id="@+id/attach_line4"
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:background="@drawable/attach_black_round_rect" />
+                android:background="@drawable/attach_black_round_rect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -280,8 +300,10 @@
                 android:text="&gt;&gt;"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/_17sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/attach_left_butt" />
+                app:layout_constraintStart_toEndOf="@+id/attach_left_butt"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

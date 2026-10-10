@@ -1,0 +1,7 @@
+Build V034 assembleDebug testDebugUnitTest lintDebug: sucesso.
+35 testes nativos: sucesso; teste JS de confirmacao: sucesso.
+Assinatura APK v2 com a chave fornecida verificada.
+Pacote com.cidadegranderp, versao 0.0.34, versionCode 34.
+10 bibliotecas ARM64, sem entradas duplicadas; zipalign passou.
+Sem teste em aparelho/servidor real. Causa da falta de recebimento em producao ainda nao confirmada.
+APK SHA256: e2e987da98cf02a47e26083df7a1c322df3f46141413e8a3d1d37cda9eb64323

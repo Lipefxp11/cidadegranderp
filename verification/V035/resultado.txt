@@ -1,0 +1,6 @@
+Build assembleDebug/testDebugUnitTest/lintDebug: sucesso.
+12 testes de chat nativo: sucesso.
+Assinatura APK v2, pacote versao 35, ARM64 e zipalign: sucesso.
+GameMode mtpl original: nao modificada, nao compilada.
+Sem teste em aparelho/servidor real.
+APK SHA256: 8194bcb89e703a96e36c610dea7bf74a8f27edf4ec53a74cd387e4f88728fab5

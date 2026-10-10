@@ -1,12 +1,8 @@
 <resources>
-    <string name="app_name">News RP</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_name">Cidade Grande SA-MP</string>
+    <string name="play_bth">JOGAR</string>
+    <string name="samp_ver">SA:MP 0.3.7</string>
+    <string name="client_name">Cidade Grande SA-MP • Android</string>
+    <string name="bug_info">Encontrou um problema? Exporte o log pelo launcher.</string>
+    <string name="authors">Projeto de Ricardo Santos</string>
 </resources>

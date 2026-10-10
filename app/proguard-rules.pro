@@ -1,23 +1,13 @@
 #-dontshrink
 #-keepclasseswithmembernames class com.nvidia.devtech.*, com.wardrumstudios.utils.*
 
--keep public class com.nvidia.devtech.* { *; }
+-keep class com.nvidia.devtech.* { *; }
 
--keep public class com.wardrumstudios.utils.* { *; }
+-keep class com.wardrumstudios.utils.* { *; }
 
--keep public class com.xyron.game.main.* { *; }
+-keep class com.gta.game.* { *; }
 
--keep class com.startapp.** {
-      *;
-}
-
--keep class com.truenet.** {
-      *;
-}
-
--keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile,
-LineNumberTable, *Annotation*, EnclosingMethod
--dontwarn android.webkit.JavascriptInterface
--dontwarn com.startapp.**
-
--dontwarn org.jetbrains.annotations.**
+-dontwarn javax.servlet.**
+-dontwarn org.conscrypt.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.openjsse.**

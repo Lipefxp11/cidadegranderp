@@ -1,0 +1,27 @@
+PASS bridge ready event
+PASS HUD waits for completed server authentication
+PASS authoritative HUD visible after spawn
+PASS native life and armour
+PASS speed and bounded fuel
+PASS on-foot movement hidden in vehicle
+PASS one real character and five locked slots
+PASS character metadata arrives from server
+PASS spawn selects server-side character dialog
+PASS short registration password rejected
+PASS registration goes through native dialog RPC
+PASS account supplies initial character names
+PASS profile uses validated server schema
+PASS skin selection requests native preview
+PASS skin confirmation sends selected base index
+PASS phone grid has ten wired applications
+PASS phone app dispatches server action
+PASS phone stays framed across server SMS steps
+PASS calculator evaluates operations
+PASS phone display preferences
+PASS phone clear theme maintains readable controls
+PASS server strings stay text, never executable markup
+PASS reconnect clears stale UI
+PASS server playing state shows HUD before connection event
+PASS authentication phase does not hide authoritative gameplay HUD
+PASS reset clears cached HUD after reconnect
+V037 UI checks=26 failures=0 (DOM mock; no live Android render)

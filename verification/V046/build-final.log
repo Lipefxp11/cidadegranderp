@@ -1,0 +1,251 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:prepareBcgEngineLibs UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:configureCMakeDebug[arm64-v8a]
+
+> Task :app:buildCMakeDebug[arm64-v8a]
+C/C++: ninja: Entering directory `/workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/.cxx/Debug/54m3l545/arm64-v8a'
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:79:14: warning: definition of implicit copy constructor for 'CVector' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    79 |     CVector& operator=(const CVector& right) {
+C/C++:       |              ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:62: note: in implicit copy constructor for 'CVector' first required here
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                                                              ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:571:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   571 | inline const float invLerp(float fMin, float fMax, float fVal) {
+C/C++:       |        ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:12:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Matrix.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Quaternion.h:11:77: warning: field 'z' will be initialized after field 'w' [-Wreorder-ctor]
+C/C++:    11 |     constexpr CQuaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+C/C++:       |                                                                 ~~~~  ~~~~  ^~~~  ~~~~
+C/C++:       |                                                                 w(w)  x(x)  y(y)  z(z)
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:10:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++:       |             top{ top }
+C/C++:    40 |             right{ right },
+C/C++:    41 |             top{ top }
+C/C++:       |             ~~~~~~~~~~
+C/C++:       |             bottom{ bottom }
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:39:13: note: field 'bottom' will be initialized after field 'right'
+C/C++:    39 |             bottom{ bottom },
+C/C++:       |             ^~~~~~~~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Rect.h:40:13: note: field 'right' will be initialized after field 'top'
+C/C++:    40 |             right{ right },
+C/C++:       |             ^~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: warning: class 'CTimeInfo' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/TimeInfo.h:8:8: note: previous use is here
+C/C++:     8 | struct CTimeInfo {
+C/C++:       |        ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Models/BaseModelInfo.h:35:1: note: did you mean struct here?
+C/C++:    35 | class CTimeInfo;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:14:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:16:1: warning: 'CEntityGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CEntityGTA : public CPlaceable{
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Reference.h:14:5: note: did you mean struct here?
+C/C++:    14 |     class CEntityGTA**      m_ppEntity;
+C/C++:       |     ^~~~~
+C/C++:       |     struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Camera.h:16:1: warning: struct 'CPedGTA' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    16 | struct CPedGTA;
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:7: note: previous use is here
+C/C++:    14 | class CPedGTA;
+C/C++:       |       ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/vehicle.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CVehicleGTA.h:7:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPhysical.h:8:1: warning: 'CPhysical' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:     8 | struct CPhysical : public CEntityGTA {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/RealTimeShadow.h:10:1: note: did you mean struct here?
+C/C++:    10 | class CPhysical;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:17:5: warning: class 'CPedGTA' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    17 |     class CPedGTA* m_pPed;
+C/C++:       |     ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Events/EventGroup.h:16:8: note: previous use is here
+C/C++:    16 | struct CPedGTA;
+C/C++:       |        ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:73:1: warning: 'CPedGTA' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+C/C++:    73 | struct CPedGTA : public CPhysical {
+C/C++:       | ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CEntityGTA.h:14:1: note: did you mean struct here?
+C/C++:    14 | class CPedGTA;
+C/C++:       | ^~~~~
+C/C++:       | struct
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:23:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakPeerInterface.h:463:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   463 |         virtual RakNetStatisticsStruct * const GetStatistics( const PlayerID playerId )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:70:12: warning: definition of implicit copy constructor for 'PlayerID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    70 |         PlayerID& operator = ( const PlayerID& input )
+C/C++:       |                   ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:772:10: note: in implicit copy constructor for 'PlayerID' first required here
+C/C++:   772 |                         Write(var.playerId);
+C/C++:       |                               ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/NetworkTypes.h:96:13: warning: definition of implicit copy constructor for 'NetworkID' is deprecated because it has a user-provided copy assignment operator [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    96 |         NetworkID& operator = ( const NetworkID& input );
+C/C++:       |                    ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:895:9: note: in implicit copy constructor for 'NetworkID' first required here
+C/C++:   895 |                 Write(var);
+C/C++:       |                       ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/BitStream.h:1019:56: warning: unsequenced modification and access to 'readOffset' [-Wunsequenced]
+C/C++:  1019 |                 if ( data[ readOffset >> 3 ] & ( 0x80 >> ( readOffset++ % 8 ) ) )   // Is it faster to just write it out here?
+C/C++:       |                            ~~~~~~~~~~                                ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:3:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/RakClientInterface.h:382:35: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+C/C++:   382 |         virtual RakNetStatisticsStruct * const GetStatistics( void )=0;
+C/C++:       |                                          ^~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/StringCompressor.h:22:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_Map.h:21:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../vendor/raknet/DS_OrderedList.h:93:12: warning: variable 'index' set but not used [-Wunused-but-set-variable]
+C/C++:    93 |                 unsigned index;
+C/C++:       |                          ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:6:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/netgame.h:55:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/textlabelpool.h:3:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/gui.h:26:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/net/../gui/samp_widgets/voicebutton.h:6:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/util/CUtil.h:30:17: warning: '__fastcall' calling convention is not supported for this target [-Wignored-attributes]
+C/C++:    30 |     static void __fastcall TransformPoint(RwV3d &result, const CSimpleTransform &t, const RwV3d &v);
+C/C++:       |                 ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:4:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:11:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector2D.h:18:15: warning: definition of implicit copy assignment operator for 'CVector2D' is deprecated because it has a user-provided copy constructor [-Wdeprecated-copy-with-user-provided-copy]
+C/C++:    18 |     constexpr CVector2D(const CVector2D& vec2d) { x = vec2d.x; y = vec2d.y; }
+C/C++:       |               ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/NavigationGeometry46.h:16:6: note: in implicit copy assignment operator for 'CVector2D' first required here
+C/C++:    16 |     b={a.x+hi*dx,a.y+hi*dy}; a={a.x+lo*dx,a.y+lo*dy}; return true;
+C/C++:       |      ^
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:94:13: note: in instantiation of function template specialization 'Navigation46::ClipRadarSegment<CVector2D>' requested here
+C/C++:    94 |         if(!ClipRadarSegment(a,b)) continue;
+C/C++:       |             ^
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:4:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:257:16: warning: unused function 'Normalized' [-Wunused-function]
+C/C++:   257 | static CVector Normalized(CVector v) { v.Normalise(); return v; }
+C/C++:       |                ^~~~~~~~~~
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Core/Vector.h:258:16: warning: unused function 'ProjectVector' [-Wunused-function]
+C/C++:   258 | static CVector ProjectVector(const CVector& what, const CVector& onto) {
+C/C++:       |                ^~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:1:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/main.h:13:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/common.h:577:21: warning: unused function 'VerifyMacroImpl' [-Wunused-function]
+C/C++:   577 |         static void VerifyMacroImpl(bool result) {
+C/C++:       |                     ^~~~~~~~~~~~~~~
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/Navigation46.cpp:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/game.h:7:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/playerped.h:5:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Entity/CPedGTA.h:20:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/PedIntelligence.h:8:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/TaskManager.h:10:
+C/C++: In file included from /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/Task.h:9:
+C/C++: /workspace/scratch/5c362a7a3726/project/BCG_V044_SOURCE_OTIMIZADA/app/src/main/cpp/samp/game/Tasks/../Enums/eTaskType.h:579:20: warning: unused function 'GetTaskTypeName' [-Wunused-function]
+C/C++:   579 | static const char* GetTaskTypeName(eTaskType taskType) {
+C/C++:       |                    ^~~~~~~~~~~~~~~
+C/C++: 22 warnings generated.
+
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mergeDebugNativeLibs
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:stripDebugDebugSymbols
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:extractDebugNativeDebugMetadata
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugNativeDebugMetadata
+> Task :app:processDebugResources
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:bundleDebugClassesToRuntimeJar UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :app:compileDebugUnitTestJavaWithJavac UP-TO-DATE
+> Task :app:testDebugUnitTest UP-TO-DATE
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 27s
+46 actionable tasks: 13 executed, 33 up-to-date

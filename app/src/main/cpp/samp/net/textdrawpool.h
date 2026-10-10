@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <string>
 #include "game/textdraw.h"
 #include "netgame.h"
 
@@ -31,6 +32,7 @@ public:
     bool onTouchEvent(int type, bool multi, int x, int y);
 
     void SnapshotProcess();
+    void SubmitBCGClick(int id);
 
 private:
     void SendClick();
@@ -39,6 +41,8 @@ private:
     uint8_t m_bSlotState[MAX_TEXT_DRAWS];
     CTextDraw* m_pTextDraw[MAX_TEXT_DRAWS];
 
+    std::string m_bcgSnapshot;
+    uint32_t m_bcgTick=0;
     bool m_bSelectState;
     uint32_t m_dwHoverColor;
     uint16_t m_wClickedTextDrawID;

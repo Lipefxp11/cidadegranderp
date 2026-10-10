@@ -1,0 +1,1 @@
+Native encoding and voice CRC: 8 checks passed

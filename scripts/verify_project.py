@@ -28,14 +28,14 @@ def read(relative: str) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
-gradle = read("app/build.gradle")
+gradle = read("app/build.gradle.kts")
 manifest = read("app/src/main/AndroidManifest.xml")
 cmake = read("app/src/main/cpp/samp/CMakeLists.txt")
 
-if 'applicationId "com.xyron.game"' not in gradle:
-    fail("applicationId deve ser com.xyron.game nesta versao")
-if "namespace 'com.xyron.game'" not in gradle:
-    fail("namespace com.xyron.game ausente")
+if 'applicationId = "com.cidadegranderp"' not in gradle:
+    fail("applicationId deve ser com.cidadegranderp")
+if 'namespace = "com.gta.game"' not in gradle:
+    fail("namespace JNI compatível com.gta.game ausente")
 if "arm64-v8a" not in gradle:
     fail("filtro arm64-v8a ausente")
 if "bass_fx" not in cmake or "bass_ssl" not in cmake:
@@ -47,6 +47,9 @@ except ET.ParseError as exc:
     fail(f"AndroidManifest.xml inválido: {exc}")
 
 for forbidden in (
+    "firebase",
+    "crashlytics",
+    "google-services",
     "/storage/emulated/0/GTA",
     "/storage/emulated/0/VICE",
     "com.samp.mobile",
@@ -59,6 +62,8 @@ for forbidden in (
         if forbidden.lower() in path.read_text(encoding="utf-8", errors="ignore").lower():
             fail(f"referência proibida '{forbidden}' em {path.relative_to(ROOT)}")
 
+if (APP / "google-services.json").exists():
+    fail("google-services.json incompatível ainda está no projeto")
 
 if '#include "RGBA.h"' in read("app/src/main/cpp/samp/game/rgba.cpp"):
     fail("include RGBA.h quebra o build em Linux; use rgba.h")
@@ -75,6 +80,9 @@ expected = {
     "libbass_ssl.so",
     "libopenal.so",
     "libz.so",
+    "libsamp.so",
+    "libc++_shared.so",
+    "libshadowhook.so",
 }
 names = {path.name for path in so_files}
 if names != expected:
@@ -121,4 +129,4 @@ if ERRORS:
         print(f" - {error}")
     sys.exit(1)
 
-print(f"BCG preflight: OK ({len(so_files)} bibliotecas ARM64, pacote com.xyron.game)")
+print(f"BCG preflight: OK ({len(so_files)} bibliotecas ARM64, pacote com.cidadegranderp)")

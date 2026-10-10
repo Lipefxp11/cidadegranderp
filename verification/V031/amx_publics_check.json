@@ -1,0 +1,7 @@
+{
+  "expected_loader_count": 36,
+  "missing_loaders": [],
+  "required_callbacks_present": true,
+  "file_version": 8,
+  "vm_version": 8
+}

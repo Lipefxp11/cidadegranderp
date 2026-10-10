@@ -39,7 +39,7 @@ CSettings::CSettings() : m_Settings{}
 	m_Settings.szPassword[length] = '\0';
     length = reader.Get("client", "version", "0.3.7").copy(m_Settings.szVersion, MAX_SETTINGS_STRING);
     m_Settings.szVersion[length] = '\0';
-	m_Settings.iPort = reader.GetInteger("client", "port", 7825);
+	m_Settings.iPort = reader.GetInteger("client", "port", 7852);
     m_Settings.bAutoAim = reader.GetBoolean("client", "autoaim", false);
 
 	// debug
@@ -81,7 +81,7 @@ CSettings::CSettings() : m_Settings{}
 
 	m_Settings.iDialog = reader.GetBoolean("gui", "Dialog", true);
 
-	m_Settings.bVoiceChatEnable = reader.GetBoolean("gui", "VoiceChatEnable", false);
+	m_Settings.bVoiceChatEnable = reader.GetBoolean("gui", "VoiceChatEnable", true);
 	m_Settings.iVoiceChatKey = reader.GetInteger("gui", "VoiceChatKey", 66);
 	m_Settings.fVoiceChatSize = reader.GetReal("gui", "VoiceChatSize", 30.0f);
 	m_Settings.fVoiceChatPosX = reader.GetReal("gui", "VoiceChatPosX", 1520.0f);
@@ -92,6 +92,8 @@ CSettings::CSettings() : m_Settings{}
 	m_Settings.iCutout = reader.GetBoolean("gui", "cutout", false);
 	m_Settings.iFPSCounter = reader.GetBoolean("gui", "fps", false);
 	m_Settings.iFPSCount = reader.GetInteger("gui", "FPSLimit", 60);
+    m_Settings.fLightBoost52 = static_cast<float>(reader.GetReal("graphics", "LightBoost", 0.06));
+    if(!(m_Settings.fLightBoost52>=0.0f && m_Settings.fLightBoost52<=0.20f))m_Settings.fLightBoost52=0.06f;
 	m_Settings.iHPArmourText = reader.GetBoolean("gui", "hparmourtext", false);
 	m_Settings.iOutfitGuns = reader.GetBoolean("gui", "outfitguns", false);
 	m_Settings.iPCMoney = reader.GetBoolean("gui", "pcmoney", false);

@@ -1,0 +1,180 @@
+{
+  "libGame.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libandroid.so",
+      "liblog.so",
+      "libEGL.so",
+      "libGLESv2.so",
+      "libVendor_mpg123.so",
+      "libopenal.so",
+      "libm.so",
+      "libc++_shared.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "4c6a7445e30b27afdda781302e4db9bac89c28fc1181b68b1eef16f84d6a282e"
+  },
+  "libVendor_mpg123.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libandroid.so",
+      "liblog.so",
+      "libEGL.so",
+      "libGLESv2.so",
+      "libopenal.so",
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "932ed9c1fa1df1d68283c019b0ef1f411e8732d77c1dabde0e358f956b6c784e"
+  },
+  "libbass.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libOpenSLES.so",
+      "libandroid.so",
+      "libc.so",
+      "libm.so",
+      "libdl.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "9a761481e30d44a2a96df1f0986f2aab629be469a6b2fcfdf043923a1f18e365"
+  },
+  "libbass_fx.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libbass.so",
+      "libc.so",
+      "libm.so",
+      "libstdc++.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "dff251673965a8aa412aa6625fe640dd35fe1020d335d0884f4886cf8eaf8c3e"
+  },
+  "libbass_ssl.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libc.so",
+      "libdl.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "ccabe717236483b81898a42a38348462f3d6ee8009ee1a36c34a8a545bcfea3a"
+  },
+  "libc++_shared.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libc.so",
+      "libm.so",
+      "libdl.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c"
+  },
+  "libopenal.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libOpenSLES.so",
+      "libdl.so",
+      "liblog.so",
+      "libm.so",
+      "libc++_shared.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "d49804fa74d9c4d5e311251e1b8f2428ea25ea6c2dd98121a8aaf5b49533695c"
+  },
+  "libsamp.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "liblog.so",
+      "libandroid.so",
+      "libEGL.so",
+      "libGLESv3.so",
+      "libshadowhook.so",
+      "libbass.so",
+      "libbass_fx.so",
+      "libbass_ssl.so",
+      "libm.so",
+      "libc++_shared.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "0819af60d19bb9b265d61a56350a85d473b85d7daceab41770690dbab7c2815a"
+  },
+  "libshadowhook.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "liblog.so",
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "e222299e4110fad03c4612c369d15c94700549bf3dd637c6a1fcd37d00395980"
+  },
+  "libz.so": {
+    "machine": "AArch64",
+    "dependencies": [
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "missing_apk_dependencies": [],
+    "load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "sha256": "0b6cb59b4f41d735234a175302824416fe0146ec5b7c0f5873b25ef583f5cefc"
+  }
+}

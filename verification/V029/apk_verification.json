@@ -1,0 +1,41 @@
+{
+  "release": "BCG V029",
+  "package": "com.cidadegranderp",
+  "versionCode": 29,
+  "versionName": "0.0.29",
+  "apk_size": 22936534,
+  "apk_sha256": "026ca4813acb38ad70ac5d237de2e9813d7ca146b5c238b1f2cef1a886bc08ce",
+  "signature_matches_V028": true,
+  "native_libraries": [
+    "lib/arm64-v8a/libshadowhook.so",
+    "lib/arm64-v8a/libc++_shared.so",
+    "lib/arm64-v8a/libbass.so",
+    "lib/arm64-v8a/libz.so",
+    "lib/arm64-v8a/libbass_ssl.so",
+    "lib/arm64-v8a/libGame.so",
+    "lib/arm64-v8a/libsamp.so",
+    "lib/arm64-v8a/libbass_fx.so",
+    "lib/arm64-v8a/libopenal.so",
+    "lib/arm64-v8a/libVendor_mpg123.so"
+  ],
+  "native_libraries_unchanged": true,
+  "java_dex_unchanged": 9,
+  "ui_assets_match_source": true,
+  "duplicate_zip_entries": false,
+  "firebase_files": false,
+  "zipalign_16k": true,
+  "local_tests": {
+    "ui": 28,
+    "native_chat_and_microphone": 14,
+    "junit_boot_and_connection": 13,
+    "failures": 0
+  },
+  "gamemode_compilation_errors": 0,
+  "voip_compilation_errors": 0,
+  "android_runtime": "Chromium/WebView",
+  "pure_CEF_integrated": false,
+  "real_device_server_session_tested": false,
+  "new_3d_models_added": false,
+  "full_gradle_build_executed": false,
+  "build_method": "AAPT2 resources through APKTool; source UI assets inserted explicitly before alignment and signing; unchanged Java/native binaries from signed V028"
+}

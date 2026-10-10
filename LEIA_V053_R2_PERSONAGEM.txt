@@ -1,0 +1,35 @@
+CIDADE GRANDE SA-MP — V053 R2 — CORREÇÃO DO PERSONAGEM
+
+O log de 09/10/2026 indicou SIGSEGV em CClothesBuilder::BlendGeometry (libGame.so + 0x541c80), antes de renderizar o mapa. A inspeção da biblioteca confirma uma leitura através de um objeto nulo nesse ponto.
+
+Defeito identificado nos modelos BCG: o gerador V049 lia somente o primeiro bloco RenderWare de cada peça PLAYER. A DATA original contém três blocos consecutivos por peça, usados para as variantes normal/gordo/musculoso. Os modelos antigos perdiam dois desses blocos.
+
+Correção:
+- Todos os 152 modelos foram regenerados preservando os 456 blocos.
+- Triângulos, UVs, materiais, hierarquias, ossos e pesos de cada variante preservados.
+- O gerador rejeita fontes sem as três variantes ou com blocos truncados.
+- O instalador verifica as três variantes antes de substituir o PLAYER.
+- A identidade da instalação do personagem mudou, invalidando o recibo antigo e reconstruindo os arquivos a partir dos backups originais verificados.
+- A correção V053 das entradas negativas da tabela de texturas continua aplicada.
+- Animações, bibliotecas nativas, interfaces, login Google e configurações do servidor preservados.
+
+INSTALAÇÃO
+1. Instale CIDADE_GRANDE_SAMP_V053_R2_PERSONAGEM.apk como atualização sobre a V053.
+2. Não apague a DATA nem os dados do aplicativo antes de testar; os backups originais serão usados para reinstalar o personagem.
+3. Abra o launcher e toque em jogar. A primeira abertura após a atualização reconstrói o PLAYER e pode demorar um pouco mais.
+4. Não é necessário atualizar a gamemode ou o serviço Google para essa correção. A gamemode V054 do mapa continua compatível.
+5. Se aparecer a mensagem de backup inválido ou DATA incompatível, use a reparação/reinstalação de DATA do launcher. Não copie PLAYER de outra versão.
+6. Caso volte a fechar, exporte o novo diagnóstico após a falha. Verifique se InstalledVersion é 0.0.53-r2.
+
+IDENTIDADE
+Pacote: com.cidadegranderp
+versionCode: 53 — preservado para compatibilidade com o serviço de acesso atual.
+versionName: 0.0.53-r2
+Assinatura: a mesma chave privada do servidor usada na V053.
+Não precisa mudar clientes OAuth.
+
+VALIDAÇÃO E LIMITES
+Compilação, testes unitários, auditoria dos modelos, alinhamento e assinatura registrados no relatório junto do APK. Não houve execução em um telefone Android nem conexão ao servidor ao vivo. O defeito dos blocos ausentes foi corrigido; o funcionamento real ainda precisa ser confirmado no celular. Esta entrega não altera iluminação, animação de correr ou funcionalidades do mapa.
+
+SOURCE
+O ZIP contém o projeto atualizado; não inclui a DATA original, o keystore nem o SDK de compilação. Para regenerar modelos, scripts/create_avatar49.py requer o PLAYER original da DATA compatível. Preserve a assinatura original ao recompilar. O source inclui a integração do mapa V054 entregue anteriormente em server/.

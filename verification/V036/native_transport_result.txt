@@ -1,0 +1,23 @@
+PASS HUD negotiation starts during authentication phase
+PASS HUD negotiation does not flood commands
+PASS HUD negotiation retries without acknowledgement
+PASS server acknowledgement stops HUD negotiation retries
+PASS chat opens original client keyboard without Chromium readiness or WebView event
+PASS repeated tap while native keyboard is visible does not send
+PASS native command uses server-command RPC and RELIABLE
+PASS native command uses correct int32 length and original text
+PASS native text uses chat RPC and RELIABLE
+PASS native CP1252 text is preserved without double conversion
+PASS native 144-byte chat fits protocol
+PASS invalid native input never sends an RPC
+PASS native failed queue displays an error in original chat
+PASS offline native send displays an error
+PASS native chat gesture never opens GTA radar even when Chromium is disabled
+PASS normal gameplay touches remain available outside native chat
+PASS Chromium HUD readiness never replaces original chat keyboard
+PASS held sprint arrives through native bridge
+PASS lost control release expires after 600ms
+PASS dialog releases controls and freezes input
+PASS dialog close restores input
+PASS server character metadata converts CP1252 to UTF8 once
+V036 native chat checks=22 failures=0

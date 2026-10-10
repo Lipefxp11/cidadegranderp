@@ -7,13 +7,14 @@ public:
 
     void performLayout() override;
 
-    CButton* m_bH;
+    Button* m_bH;
     OButton* m_bOpen;
     Button* m_bTab;
     Button* m_bAlt;
-    Button* m_bSV;
+    Widget* m_bSV;
 
 private:
+    Button* m_bEsc;
     Button* m_bY;
     Button* m_bN;
 };

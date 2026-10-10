@@ -1,0 +1,1 @@
+Prévia visual aprovada anteriormente. Este HTML isolado usa dados locais de demonstração. A interface integrada ao servidor está em app/src/main/assets/bcg_ui/phone38 e é a que entra no APK V038.

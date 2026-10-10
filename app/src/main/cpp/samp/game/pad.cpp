@@ -1,3 +1,4 @@
+#include "../BCGBridge.h"
 #include "../main.h"
 #include "game.h"
 #include "../net/netgame.h"
@@ -67,7 +68,7 @@ uint32_t CPad__GetSprint_hook(uintptr_t thiz, uint32_t unk)
     }
     else
     {
-        LocalPlayerKeys.bKeys[ePadKeys::KEY_SPRINT] = CPad__GetSprint(thiz, unk);
+        LocalPlayerKeys.bKeys[ePadKeys::KEY_SPRINT] = CPad__GetSprint(thiz, unk) || BCGBridge::ControlDown(0);
         return LocalPlayerKeys.bKeys[ePadKeys::KEY_SPRINT];
     }
 }
@@ -89,7 +90,7 @@ uint32_t CPad__JumpJustDown_hook(uintptr_t thiz)
     }
     else
     {
-        LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP] = CPad__JumpJustDown(thiz);
+        LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP] = CPad__JumpJustDown(thiz) || BCGBridge::ControlDown(1);
         return LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP];
     }
 }
@@ -104,7 +105,7 @@ uint32_t CPad__GetJump_hook(uintptr_t thiz)
     }
     else
     {
-        LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP] = CPad__JumpJustDown(thiz);
+        LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP] = CPad__JumpJustDown(thiz) || BCGBridge::ControlDown(1);
         return LocalPlayerKeys.bKeys[ePadKeys::KEY_JUMP];
     }
 }
@@ -535,10 +536,7 @@ uint32_t CPad__GetLookBehindForPed_hook(uint32_t thiz)
 {
     uint32_t result = CPad__GetLookBehindForPed(thiz);
 
-    VoiceButton* vbutton = pUI->voicebutton();
-    if (vbutton->countdown > 50) return 0;
-
-    //return 0;
+    return result;
 }
 
 int (*CPad__GetNitroFired)(uintptr_t thiz);

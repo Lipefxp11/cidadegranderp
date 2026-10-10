@@ -1,0 +1,29 @@
+CIDADE GRANDE SA-MP — V053
+
+INSTALAÇÃO
+1. Guarde backup do APK anterior, da gamemode e das contas/arquivos do servidor.
+2. Atualize cidadegranderpgg.discloud.dev com DISCLOUD_AUTH_V053.zip. Preserve todo o diretório data do serviço, incluindo accounts.json e accounts.json.sessions.json. A chave privada é a mesma da ponte V052. Use Node.js 22+ e npm install quando a hospedagem não instalar dependências automaticamente. O serviço continua com npm start.
+3. Instale GAMEMODE_V053.zip no host SA-MP, preservando suas contas/scriptfiles/SQLite reais. Ele já tem BCG.amx compilado e a ponte local de autorização em bcg-auth-bridge52. Mantenha a ponte rodando no mesmo host com Node.js 22+ (iniciar-linux.sh ou iniciar-windows.bat). Endereço local: 127.0.0.1:18552. Não publique essa porta nem as configurações privadas. Se já está usando a ponte V052, não precisa instalar outra instância.
+4. Instale CIDADE_GRANDE_SAMP_V053.apk por cima da versão anterior. Mesma assinatura e pacote com.cidadegranderp. Android 9+, ARM64. Mantenha a DATA compatível já instalada; NÃO apague a DATA para corrigir este erro de offset. Ela continua sendo validada contra o motor compatível.
+5. Toque em Jogar. A primeira execução desta versão refaz a alteração do personagem usando o backup original; pode demorar mais enquanto reconstrói os arquivos. As próximas execuções reutilizam o resultado validado. O APK não inclui os arquivos do GTA/DATA.
+6. Servidor configurado: 190.102.40.7:7852. Se a hospedagem publica outra porta externa por NAT, ajuste o endpoint no código antes de compilar. A autenticação falha se backend ou ponte estiverem indisponíveis.
+
+CORREÇÕES
+DATA: a face do personagem aumenta um bloco em 384 bytes. O código anterior somava esse aumento a marcadores negativos da TOC (por exemplo -1/0xffffffff) como se fossem posições, causando overflow e erro de offset. Agora esses marcadores permanecem intactos; posições válidas e o tamanho total são recalculados. A tabela inteira é validada antes de escrever saída, aliases são preservados e leitura incompleta é detectada. A nova identificação de instalação força a reconstrução a partir do backup original, em vez de aceitar um recibo antigo.
+
+GOOGLE E CARREGAMENTO: sem conta salva, aparece a tela Entrar com Google. Com sessão salva, aparece a tela de carregamento e depois o launcher, sem passar pela tela de login. Falha de internet/serviço não apaga sua conta. Trocar conta nas configurações limpa a sessão e permite escolher outra. Se a sessão realmente expirou, a tela de carregamento oferece Continuar com Google para renová-la; a autenticação não é burlada. O backend mantém sessões persistentes usando somente hashes dos tokens no disco, com prazo renovável de 30 dias. Preserve seu diretório data em atualizações/reinícios. Sessões antigas V052 existiam apenas na memória, portanto pode ser necessário renovar uma vez na primeira atualização do serviço.
+
+GRÁFICOS: libsamp.so recompilada com iluminação ambiente que clareia mais as regiões escuras e preserva as áreas claras. Mantidos limites seguros e ajuste de 0 a 20%, padrão 6%. Filtragem trilinear da V052 permanece. Não foram adicionados shaders pesados ou modificadas as animações de corrida. Mudanças em configurações de iluminação são aplicadas ao iniciar o jogo.
+
+DESEMPENHO: validações pesadas e preparação de arquivos continuam em segundo plano, com recibos para evitar recalcular todos os hashes/reinstalar modelos em cada entrada. A voz local agora só anexa/remove ouvintes quando o estado deles muda, reduzindo operações repetidas no plugin. A thread antiga que forçava afinidade dos núcleos continua desativada. Limite de FPS configurável; o padrão de 60 é mais apropriado para estabilidade e consumo. Não existe garantia de 120 FPS em qualquer aparelho/DATA.
+
+ACESSO AO SERVIDOR
+O backend exige o protocolo V053 e o pacote Cidade Grande nas solicitações de autorização. O cliente verifica a assinatura instalada antes de usar Google e antes de solicitar entrada. Tickets continuam temporários, de uso único, vinculados ao nick e ao desafio da conexão. Clientes comuns sem autorização e versões antigas não são liberados no fluxo normal. A senha do personagem continua sendo verificada: apenas saber um nick não concede acesso à conta.
+Essa checagem LOCAL da assinatura e os campos versão/pacote não são atestação remota. Um atacante que modifique o cliente pode falsificar campos e contornar a verificação local. Portanto NÃO é garantia de que somente um APK genuíno/inalterado consegue entrar. Essa garantia ainda depende de integrar e configurar um serviço de atestação (como Play Integrity) com o projeto Google e a distribuição do APK; não foi ativado nesta versão.
+
+SEGREDOS E COMPILAÇÃO
+Os ZIPs da Discloud e da gamemode têm configuração privada pareada. Não publique .env nem bcg-auth-bridge52/config.private.json. O source não inclui essas chaves ou o keystore. Para recompilar mantendo Google e a verificação de assinatura, use a chave original do servidor com BCG_SIGNING_KEYSTORE. No GitHub Actions, configure BCG_KEYSTORE_BASE64; o workflow não gera uma chave diferente silenciosamente. Java 17, SDK 36, NDK 28.2.13676358, Gradle 8.13.
+Nomes internos Java/JNI e avisos de licença necessários à compatibilidade continuam presentes. Sessões no aparelho usam AES-GCM/Android Keystore e o transporte para a Discloud usa HTTPS; os arquivos que o motor lê não estão integralmente criptografados.
+
+VALIDAÇÃO
+Consulte VALIDACAO_V053.json para resultados finais de compilação e testes. Não houve teste no seu celular conectado ao servidor real. Atualize os dois serviços antes de testar entrada; depois confira Jogar, reconexão, Trocar conta, reiniciar backend e voz local entre dois jogadores. Mantenha as contas e a DATA existentes.

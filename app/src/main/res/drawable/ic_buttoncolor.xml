@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
   <item>
     <shape>
-      <gradient android:startColor="#0077DA" android:endColor="#0062B5"/>
+      <!-- رنگ سفید شیشه ای (نیمه شفاف) -->
+      <solid android:color="#AAFFFFFF" />
       <corners android:radius="@dimen/_8sdp" />
     </shape>
   </item>

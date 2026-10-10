@@ -1,0 +1,65 @@
+{
+  "version": "0.0.31",
+  "versionCode": 31,
+  "package": "com.cidadegranderp",
+  "abi": "arm64-v8a",
+  "minSdk": 28,
+  "targetSdk": 36,
+  "same_signer_as_v030": true,
+  "dex_identical_to_v030": true,
+  "animation_sources_identical_to_v030": true,
+  "other_native_libraries_unchanged": [
+    "lib/arm64-v8a/libopenal.so",
+    "lib/arm64-v8a/libc++_shared.so",
+    "lib/arm64-v8a/libbass.so",
+    "lib/arm64-v8a/libbass_ssl.so",
+    "lib/arm64-v8a/libVendor_mpg123.so",
+    "lib/arm64-v8a/libbass_fx.so",
+    "lib/arm64-v8a/libz.so",
+    "lib/arm64-v8a/libshadowhook.so",
+    "lib/arm64-v8a/libGame.so"
+  ],
+  "native_recompiled": true,
+  "apk_entries_duplicate": false,
+  "assets_identical_to_source": true,
+  "compiled_loader_callbacks_present": 36,
+  "tests": {
+    "native": 33,
+    "chat_ui": 31,
+    "ui_regression": 28,
+    "gamemode_runtime": 18,
+    "failures": 0
+  },
+  "test_environment": "Native functions with mocked game/network; Chromium with mocked Android bridge; Pawn AMX interpreter with mocked SA-MP services and loaders. No real device or hosted server session.",
+  "hosting_updated": false,
+  "device_tested": false,
+  "endpoint": "190.102.40.7:7825",
+  "live_query": {
+    "endpoint": "190.102.40.7:7825",
+    "queried": true,
+    "response_received": false,
+    "error": "OSError: [Errno 101] Network is unreachable"
+  },
+  "artifacts": [
+    {
+      "name": "BCG_V031_CHAT_RECONEXAO.apk",
+      "bytes": 23112338,
+      "sha256": "4134ff1fe592f0aaf3a9f0fee157151b240e5e2ba84542d775db1e445fca220c"
+    },
+    {
+      "name": "BCG.amx",
+      "bytes": 73313935,
+      "sha256": "87462e277fc7a3c07d0eb1bb3c87602d2179610b034735e956df8a8a7d01f22f"
+    },
+    {
+      "name": "VOIP.amx",
+      "bytes": 11671,
+      "sha256": "f59f9c8c096683c594f70ca15c1d93a5c36f2c1a0f2aff8b823d47b99d4b6a2f"
+    },
+    {
+      "name": "libsamp.so",
+      "bytes": 3426344,
+      "sha256": "2e009cac874f27c880dd788db21a5f954af62d9140550b5fc8f760d9e7bc86d3"
+    }
+  ]
+}

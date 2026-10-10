@@ -1,0 +1,781 @@
+{
+  "schema": 55,
+  "baseImg": "8283bef75a863a98198ad6b1e78b082efcbc46d4b5015a69e35c78f4500149df",
+  "models": [
+    {
+      "file": "afro.dff",
+      "size": 182502,
+      "sha256": "ca9b5ebc16ca8b93f52235111dd5285776d2c0974ed0ef128526bdfaa9b49296"
+    },
+    {
+      "file": "afrobeard.dff",
+      "size": 165658,
+      "sha256": "50989a3fb5118ff5997a2b180a825fc76e722ebc49739b92b94c596df1b483ae"
+    },
+    {
+      "file": "afrotash.dff",
+      "size": 162382,
+      "sha256": "1921224b2c60e03e8b34b41bdaf0a37372ab511d3b4b4c9f621a5cc117396944"
+    },
+    {
+      "file": "balaclava.dff",
+      "size": 141756,
+      "sha256": "b952a13e9425e26ae48dbb82da77c853157e42621a5b2262adbe0c4d0a3219dd"
+    },
+    {
+      "file": "bandana.dff",
+      "size": 70953,
+      "sha256": "11d40d9aee23ac8ac596949b37c96c03f138c287d4e59317214f89865845bf2d"
+    },
+    {
+      "file": "bandknots.dff",
+      "size": 63849,
+      "sha256": "d9b4ea98b88924b547240c0e51704033b8cb07e76c373f1d7ee21612a8738449"
+    },
+    {
+      "file": "bandmask.dff",
+      "size": 48810,
+      "sha256": "b44831ae08854a113561a49bd0093b091593f595c0fca8a67c40066f7117dee1"
+    },
+    {
+      "file": "barefeet.dff",
+      "size": 72378,
+      "sha256": "684aaf75fba21ea0d45593672fae5424800af81718ef98dcfb53dfbf6c317e6e"
+    },
+    {
+      "file": "baseball.dff",
+      "size": 135449,
+      "sha256": "46bbc1351b084f5a8f626fcebfa9dec71d20d80dc4976fc08c9ac29449ad94d1"
+    },
+    {
+      "file": "bask1.dff",
+      "size": 54687,
+      "sha256": "a19681bb69286aa59263ca6efab412e43d1015b6bf6b28ff5fa1c905573277da"
+    },
+    {
+      "file": "baskball.dff",
+      "size": 167658,
+      "sha256": "eb620ce72fcc2249263112ed9e46559713d598c7fe66768b052e89416577619d"
+    },
+    {
+      "file": "bbjack.dff",
+      "size": 114773,
+      "sha256": "756ccddf1c878fe7552a80e8cb9728505edacd7f746d0393815dbcb2bc8d6209"
+    },
+    {
+      "file": "beret.dff",
+      "size": 68544,
+      "sha256": "18a12d11334fe18a4c66eaffecea73024a6df7d67ee754ae679c49234afc9e6d"
+    },
+    {
+      "file": "biker.dff",
+      "size": 56508,
+      "sha256": "35420b8c2bd772462cb73a5c1874906c5c30d368e23311144e18764e8a6ea582"
+    },
+    {
+      "file": "bikerhelmet.dff",
+      "size": 82932,
+      "sha256": "c97a690d4e8adcc5f2023817964bad86ebfc166302c25d151bbdfe496b1150c9"
+    },
+    {
+      "file": "boater.dff",
+      "size": 73407,
+      "sha256": "22340f5bfeae92dfb6b62940584a113600dbdb5654c2a01a696c2d732c02d69e"
+    },
+    {
+      "file": "bowler.dff",
+      "size": 77148,
+      "sha256": "ced9d52542b28d3551121d33297623b5ba013e42d6b34001b8270ce156ef3aa7"
+    },
+    {
+      "file": "boxingcap.dff",
+      "size": 66180,
+      "sha256": "51d491d41bbdce1b9a1f0383656877f84b75349feb3b9b85f4adac47e52982a9"
+    },
+    {
+      "file": "boxingshoe.dff",
+      "size": 56509,
+      "sha256": "12770e3e3ccbdc5817dc4c84b9ab3d407bf2cb2a08869873861ea2b275ed1544"
+    },
+    {
+      "file": "boxingshort.dff",
+      "size": 93741,
+      "sha256": "43434cfb72b9c6af97eadedc8492429da673b81a7769203c9575ddf13407c4fb"
+    },
+    {
+      "file": "cap.dff",
+      "size": 79080,
+      "sha256": "cba59d17567f86c5232034b12bf6272ffbd3e949b77498e196f84023513e58f8"
+    },
+    {
+      "file": "capandband.dff",
+      "size": 87336,
+      "sha256": "bbf67bbcc723977b206c74158e6bd95cb4744fc0f3cc8741d41c69ea1e65f17a"
+    },
+    {
+      "file": "capback.dff",
+      "size": 63543,
+      "sha256": "4a9547a6c8563b1baa142dbe70e531f7736dd9701d8b2df3b60a6f783015866e"
+    },
+    {
+      "file": "capknit.dff",
+      "size": 78324,
+      "sha256": "88365152ced97552489a2d857eb4b6437f0572adcf2917e1a6ea576cb3015f77"
+    },
+    {
+      "file": "capover.dff",
+      "size": 79944,
+      "sha256": "61debcf4ded45f5c769d32e9dd3c1c33a6890af8f8c4483751424fa240dba2d2"
+    },
+    {
+      "file": "capovereye.dff",
+      "size": 62703,
+      "sha256": "b7a07b00b68f85b51203e6b0f0a483241e737750dfc6646de790d701cdeed40d"
+    },
+    {
+      "file": "cappolice.dff",
+      "size": 51789,
+      "sha256": "287c91d9a962391f276fd550aa0c5eb72c0b740d4e0af619932cd447e14ce39f"
+    },
+    {
+      "file": "caprimup.dff",
+      "size": 76272,
+      "sha256": "e4ff4ef58f0bc5bebfc2b1cdd3f8e401ff9af8854afc12e24a38eb87ea4ff59a"
+    },
+    {
+      "file": "capside.dff",
+      "size": 65979,
+      "sha256": "ff46983c2da8f9f88f0dc75d9347112c6f49cabf7ca5f003466b38dc1e0bdb28"
+    },
+    {
+      "file": "captruck.dff",
+      "size": 95508,
+      "sha256": "620d08dc27b593ae0ab0b0f750748e9c8d1824ea2946e3b63ea7c918f7635db4"
+    },
+    {
+      "file": "chinos.dff",
+      "size": 77871,
+      "sha256": "046bc1dcf668b1ea50d524880b1b56bb0382d4bd530b62f583e0111a5a967b12"
+    },
+    {
+      "file": "chinosb.dff",
+      "size": 92846,
+      "sha256": "6a97c1609ca6aa047db049979e0ccf0616e189aeb48f790f1740c218dc94b2cf"
+    },
+    {
+      "file": "chonger.dff",
+      "size": 85484,
+      "sha256": "6ff8046fce86eb3c1dd44542531c8c9c8246b76bc08298aa61f3291565484476"
+    },
+    {
+      "file": "chucks.dff",
+      "size": 45441,
+      "sha256": "9325f82584a6df376c386e83f73671585179f197c3cc2e250733a8214fa391d2"
+    },
+    {
+      "file": "coach.dff",
+      "size": 171441,
+      "sha256": "ca123f7e1c20f0a2f3bdc48cf04441ad03d68c1f7c6bd8df691b74c240382e00"
+    },
+    {
+      "file": "conv.dff",
+      "size": 51828,
+      "sha256": "38b9bfb132112e5dc88a82287587ef30a8ba437c56c3cbe687d2617e92abb900"
+    },
+    {
+      "file": "cornrows.dff",
+      "size": 188991,
+      "sha256": "e7f4880caecdbe6af0e0f32221a9c71847df104e7645c38df0e62218915fdc15"
+    },
+    {
+      "file": "country.dff",
+      "size": 132814,
+      "sha256": "4805685283b411d3504073c33777307118989be3374ee73fdcbedcbca83fcc5c"
+    },
+    {
+      "file": "countrytr.dff",
+      "size": 93991,
+      "sha256": "b6826ac864a548ffe54fbd3db78e34d00a1705f1e36e0b37fc7e6720d82eb105"
+    },
+    {
+      "file": "cowboy.dff",
+      "size": 80220,
+      "sha256": "7f4c0a066cc8209846d7951f9222c5beeebf29114d288b03f2045c6d13c62c12"
+    },
+    {
+      "file": "cs_afro.dff",
+      "size": 195921,
+      "sha256": "7cc5e021b5cd1f7993aff94b522ebec98b8b377ad23d341e858b5cc7fed5d140"
+    },
+    {
+      "file": "cs_afrobeard.dff",
+      "size": 181944,
+      "sha256": "8e3f4e1b0b5a7b5651658bafac48a24fd88a7cf340c514fb3e57a67c592d598b"
+    },
+    {
+      "file": "cs_afrotash.dff",
+      "size": 178666,
+      "sha256": "a7d53e43e6eae74c6eb26a8fc1584557fd8e66909c03f0381b6cf914862fcec5"
+    },
+    {
+      "file": "cs_bandana.dff",
+      "size": 84336,
+      "sha256": "e75c9ca7bb4fc1f9cd3691744e174ebc3dd6ec1ea476416612d2dd20763f8b04"
+    },
+    {
+      "file": "cs_bandknots.dff",
+      "size": 77230,
+      "sha256": "afe039b24bb65dabfc249e4ff8738c93902cbe908b1e6af512629dcfdc56c89b"
+    },
+    {
+      "file": "cs_bandmask.dff",
+      "size": 62193,
+      "sha256": "1edaedfeb9400882b6b621e4b8489da32dcc1ca39a52f6d1b2c16dc3d5dff1c7"
+    },
+    {
+      "file": "cs_bikerhelmet.dff",
+      "size": 82935,
+      "sha256": "0c2f6d5922a2c12e65e0c36787d0f57a764f3761dea913e75ce60b4f258a3a08"
+    },
+    {
+      "file": "cs_cornrows.dff",
+      "size": 200082,
+      "sha256": "c66cacf974119ef337c9366593c7904b08ff542a5d108b5fb2dddbc0bcb06f6a"
+    },
+    {
+      "file": "cs_elvishair.dff",
+      "size": 179958,
+      "sha256": "abebdc944a613ee183604b99ece757ba996e02d8bfc93c40b1bd8f19c2bbec28"
+    },
+    {
+      "file": "cs_flatears.dff",
+      "size": 172074,
+      "sha256": "e8937e45cd6400e16ec5c73b616e1064f20a492fd1eb4a92684575ad0903bbd1"
+    },
+    {
+      "file": "cs_flattop.dff",
+      "size": 181506,
+      "sha256": "e1850ba399398db123330c9238c7337171b2f4129856897c37654aa00059fb6a"
+    },
+    {
+      "file": "cs_gimpmask.dff",
+      "size": 153151,
+      "sha256": "303b8d2526d1c4cfaed0ff852fb02a2e5b861ba1f3daf0847345d1602c756d87"
+    },
+    {
+      "file": "cs_groovecut.dff",
+      "size": 173862,
+      "sha256": "c064bc13e08bb49010a9c521f1162ba8fd56b4d9237979c157ae4c0c2fb6bf7b"
+    },
+    {
+      "file": "cs_hands.dff",
+      "size": 208104,
+      "sha256": "f62268fcaf1f49def3919436e08e47338ab709b24dec118ce2c245a1c857d26f"
+    },
+    {
+      "file": "cs_head.dff",
+      "size": 172074,
+      "sha256": "3295bb957c45bb90bb13942cdb5be3248b85adafec546f27342b4104c76b5f21"
+    },
+    {
+      "file": "cs_highafro.dff",
+      "size": 182433,
+      "sha256": "a2529742edf80649599567f4c0399432a58419e30a1a9641673de64a8748b30f"
+    },
+    {
+      "file": "cs_jheri.dff",
+      "size": 190221,
+      "sha256": "6830ea1ce3dcaff0a8346f867ea19120202a4292b214120feba4a917a0d26806"
+    },
+    {
+      "file": "cs_mohawk.dff",
+      "size": 178230,
+      "sha256": "ef8c2afc743b6cbc6678b41e9f5b8e0606542d806865abf3be6930bd63d3a08c"
+    },
+    {
+      "file": "cs_slope.dff",
+      "size": 183222,
+      "sha256": "a5ab2dc3b32e0afae5b736fedb40ade66e96bb30cf4f478be5d6a3380701f630"
+    },
+    {
+      "file": "cs_tramline.dff",
+      "size": 186942,
+      "sha256": "6105302337b85d6f33d434e3af8dda06d3998526a258fec814493a6bc85b9438"
+    },
+    {
+      "file": "cs_wedge.dff",
+      "size": 183498,
+      "sha256": "c878efaa5afc7f0bd85bb3dc31749c360873fcd1eeec79bae8efc970dcf97fe5"
+    },
+    {
+      "file": "cs_zorro.dff",
+      "size": 70920,
+      "sha256": "fd17003ef54b31849283209ac24d35872fb504d539c2e142951da92efab5c2a0"
+    },
+    {
+      "file": "denim.dff",
+      "size": 127205,
+      "sha256": "c97b8b05ac445a240f858545bb756a5cf5abc02ffb9c2181aa6a61770752146e"
+    },
+    {
+      "file": "elvishair.dff",
+      "size": 166539,
+      "sha256": "8f8d723f6f4884c15cccee5ab3eccae36ffad3c299537d3001fcea9d26a43bd0"
+    },
+    {
+      "file": "eyepatch.dff",
+      "size": 51156,
+      "sha256": "93c47ea3cc0facee69572629bee43e018db96b0db04b7744298d273c9416a590"
+    },
+    {
+      "file": "feet.dff",
+      "size": 72377,
+      "sha256": "ef655b393efb200782335eaba125cbde9554225645a3345fc91b2976b3b5985e"
+    },
+    {
+      "file": "field.dff",
+      "size": 132366,
+      "sha256": "36fb67da4d954e864d24406cbd17d674ad24a4f312fa978d7caebb3510d7562b"
+    },
+    {
+      "file": "flatears.dff",
+      "size": 158656,
+      "sha256": "a734c289b4d784aa56a6b33c4de204633cbf2f8dd57db65de3921d4c3813e39b"
+    },
+    {
+      "file": "flattop.dff",
+      "size": 168087,
+      "sha256": "dbf8e0b5769346d540435e85f18e412a0eb4db523fb74be7939bb1c94c19ef0f"
+    },
+    {
+      "file": "flipflop.dff",
+      "size": 92586,
+      "sha256": "7f069fa682f20769cb52801bb756c2ac8fabf487a69d2aee3dd42377d7dc42bb"
+    },
+    {
+      "file": "garagetop.dff",
+      "size": 125390,
+      "sha256": "611cb85d51bf3a784116ed2f5543cc6eb0cc3c3199606928d000d7510e7a0028"
+    },
+    {
+      "file": "garagetr.dff",
+      "size": 93386,
+      "sha256": "152ff8cfb45dc90596f1e3fed5e3e3bb617057e57b83b24e14c50caff6652f46"
+    },
+    {
+      "file": "gimpfeet.dff",
+      "size": 50508,
+      "sha256": "e31583bdc9b79370539da5c11ca58dc2e4fb1904bf9de045ba9d40339a48f46a"
+    },
+    {
+      "file": "gimphands.dff",
+      "size": 72018,
+      "sha256": "8d52d9c4bcae8321f75ef0a9ad08583d7a4b1de5b114e84bbc169c245f52f38d"
+    },
+    {
+      "file": "gimpleg.dff",
+      "size": 82095,
+      "sha256": "f31581eb1ef02c2d3905ff376900f48fd4575e736275de2b8583ec3ed8796807"
+    },
+    {
+      "file": "gimpmask.dff",
+      "size": 141969,
+      "sha256": "45f03f635840377c09c51b237f6d13bb776208e6e9d4a519d6851de568da6a6c"
+    },
+    {
+      "file": "gimptorso.dff",
+      "size": 124977,
+      "sha256": "4b2f04c5def241c2d3cd48ee3285387a5ccce34cebf48787a9132e7e795355ed"
+    },
+    {
+      "file": "glasses01.dff",
+      "size": 41037,
+      "sha256": "7d30b12f12b3de838be25975f1c6df59d1038e29cbb0b6dc30df8665379a9a25"
+    },
+    {
+      "file": "glasses03.dff",
+      "size": 41037,
+      "sha256": "b2edc948d6cd902bc994fd41432f0f4985742a9b5f7438ebf52bb55539d97133"
+    },
+    {
+      "file": "glasses04.dff",
+      "size": 41445,
+      "sha256": "9943c5990f65dda4f2f38f6945834699461ce4bcf87efaafc54e03aca2673e81"
+    },
+    {
+      "file": "glassesx.dff",
+      "size": 45745,
+      "sha256": "5ce12f73335d6c04ffb477d9b90d15a1e0f0f068fd74fcf2c63b257d48d12e20"
+    },
+    {
+      "file": "groovecut.dff",
+      "size": 160443,
+      "sha256": "28a1f2f34c0ab4be7ebb7334a51c2a4febff588bc715fa90760f27a29e70ce04"
+    },
+    {
+      "file": "grouchos.dff",
+      "size": 65277,
+      "sha256": "ad162668003c9fcd99cbdb694aac2b83393105f0aaef2de6421dfb63e9b571e2"
+    },
+    {
+      "file": "hands.dff",
+      "size": 207072,
+      "sha256": "5005e0b8e20ef96a19f4a625a8776060662ca6411c1a905386cf0f112341351d"
+    },
+    {
+      "file": "hatmanc.dff",
+      "size": 69324,
+      "sha256": "c80702410c23299979dbfd917efafed853bc731283dfd56388766cd7d7b53341"
+    },
+    {
+      "file": "hattiger.dff",
+      "size": 62868,
+      "sha256": "890142ca596af5126ba0f0c94b9198184924ba449e4b03b74a9420bc08c95a77"
+    },
+    {
+      "file": "hawaii.dff",
+      "size": 146696,
+      "sha256": "8a38f89072ad353c29a2cdb996d5cee5aae4f8fba440ec6784e29b3bf9811c93"
+    },
+    {
+      "file": "head.dff",
+      "size": 158656,
+      "sha256": "eecbdc2ad25c17199749b77893038b40be2674b8483eeb6372a2f119259f4c59"
+    },
+    {
+      "file": "helmet.dff",
+      "size": 67176,
+      "sha256": "ff14213ca980fd712324d00822b05fb046b23c920f1c274a5889488712e30dfd"
+    },
+    {
+      "file": "highafro.dff",
+      "size": 169011,
+      "sha256": "768bea498a8d5a8029587b3ef8d8dfbb1a5f06c9661704c7e8693272fe67e6a3"
+    },
+    {
+      "file": "hitop.dff",
+      "size": 46920,
+      "sha256": "613eb6d48027bac8d531a241065f9b52ee03eee93d7cedef21fc3742552b6633"
+    },
+    {
+      "file": "hockeymask.dff",
+      "size": 77364,
+      "sha256": "34bc2a295277cb7be06c40557401c5a1d1f52c0c2c3800ce681c6e1efb7b2fed"
+    },
+    {
+      "file": "hoodjack.dff",
+      "size": 141654,
+      "sha256": "c35fb96f19a7991420f936ef849a1da16fe99eb7b950f76c189a20b806c28bfd"
+    },
+    {
+      "file": "hoodya.dff",
+      "size": 122765,
+      "sha256": "2437e91c2f7ad57366463eabc8adbd914ea22509e1a1b650bdcac26fb3f549fd"
+    },
+    {
+      "file": "hoodyb.dff",
+      "size": 153631,
+      "sha256": "733a5d46ebf309100219bd6c603155043dfe45090519443cd22c035dbded1070"
+    },
+    {
+      "file": "jeans.dff",
+      "size": 93991,
+      "sha256": "d90f2a35ff849c3f0a85634053867ba664ff984f7a8326c0eee31b52887a51bf"
+    },
+    {
+      "file": "jheri.dff",
+      "size": 176802,
+      "sha256": "2d307278d56fbf1b7b18f778efa72977bc256ab15c2e707d17f741119ef4d24c"
+    },
+    {
+      "file": "leather.dff",
+      "size": 130733,
+      "sha256": "9f77e388da5a4a238ee05bc1bcfd2f2d529345adb60d5bc1b2c9eac609777e73"
+    },
+    {
+      "file": "leathertr.dff",
+      "size": 93991,
+      "sha256": "4976f2fc88cd16eedb5aaed996e6097d0c342ad057ef3bad10ef244e3797dbc3"
+    },
+    {
+      "file": "legs.dff",
+      "size": 90488,
+      "sha256": "edbce095f3d52615e754a3acc4a440a3c4e9272581541380b8713795d4e893bb"
+    },
+    {
+      "file": "legspants.dff",
+      "size": 80856,
+      "sha256": "c44dae4007c45149f8eaef3f9e9e4c130137f2b3021dfd643b4e50b77cc1a5fc"
+    },
+    {
+      "file": "medictr.dff",
+      "size": 106352,
+      "sha256": "a7647e61425a94606d70fc45ec070ce451ed3450ba08e5e294da352f80ccbebd"
+    },
+    {
+      "file": "mohawk.dff",
+      "size": 164811,
+      "sha256": "78f7202ca4ea88d757a52b27549f032c18d17f98510870d60cf1dd12623a15bf"
+    },
+    {
+      "file": "moto.dff",
+      "size": 71643,
+      "sha256": "79b1e7ba258d211814bd30c26ea88a2ed29082849ffc046e76d5e1850cb666e1"
+    },
+    {
+      "file": "neck.dff",
+      "size": 48201,
+      "sha256": "d48776e6bdb4e151f1483d7bc41c84eddd2516a6383563cc5e1cdcf51b3d29d0"
+    },
+    {
+      "file": "neck2.dff",
+      "size": 46089,
+      "sha256": "62604de8e41cd74e6dfe58458e006adc13b8d1bb58828de55467e67d0b89e3f7"
+    },
+    {
+      "file": "neck2_bb.dff",
+      "size": 46089,
+      "sha256": "6d91cdbcb8b5b2b53b51e79523e80b9af4400134f180d31b61d3778c40475014"
+    },
+    {
+      "file": "neck2_field.dff",
+      "size": 46089,
+      "sha256": "5de70352d5efbb7adcaf1806e0b01b4a1dbcb51d58bc431b8e4dac18dd9f0e99"
+    },
+    {
+      "file": "neck2_hoodya.dff",
+      "size": 46089,
+      "sha256": "c1b75ebdca2bff15b801f04314eda726398d1e4f15570daaf5f5ae7b7a0cc224"
+    },
+    {
+      "file": "neck2_pimp.dff",
+      "size": 34257,
+      "sha256": "0cbc3d860204ce381c7d18677dee4e209acdbfbdcf7922725b0e141d54be4b51"
+    },
+    {
+      "file": "neck2_shirt.dff",
+      "size": 46089,
+      "sha256": "16c62b6bdc2e25d541d851403e98b61a02fd391ddba34956ea89addc6fb18250"
+    },
+    {
+      "file": "neck_bb.dff",
+      "size": 48201,
+      "sha256": "ec624452ddef5562221d63bd2d83693481fc7890a9073f64ee11fb4595dcba65"
+    },
+    {
+      "file": "neck_field.dff",
+      "size": 48201,
+      "sha256": "f13f2b34ef5a81d9e1585967012b68f54d0f97480cbbf0254ae33d0a3664ab89"
+    },
+    {
+      "file": "neck_hoodya.dff",
+      "size": 48201,
+      "sha256": "3a0cf2b93192de59eeb279185948651e5305383e1d06657de69d943b0dee82a4"
+    },
+    {
+      "file": "neck_pimp.dff",
+      "size": 48201,
+      "sha256": "6a0d11f8d356d884807a51373de867d738de5b810f09955e282cb5c4048278d7"
+    },
+    {
+      "file": "neck_shirt.dff",
+      "size": 48201,
+      "sha256": "da9ab78b8664f11c9ac9c3ba184b04ed75f0cb10d6f3fc6eac398555e7374b21"
+    },
+    {
+      "file": "neck_tracky.dff",
+      "size": 48201,
+      "sha256": "7292afc9b17770d1f777d197718f5846e1fa0fafcac835fffcf2128fc94be005"
+    },
+    {
+      "file": "painter.dff",
+      "size": 137624,
+      "sha256": "0dd17bee3b54fef07b1c82878706551bb9d55a51313ef7740b071225c0792853"
+    },
+    {
+      "file": "pimp.dff",
+      "size": 153847,
+      "sha256": "10b2bee56bbb1d0a9bdf9787546c857de54ba199ab3ba96b855eb5ec8bfcf574"
+    },
+    {
+      "file": "pimpshoe.dff",
+      "size": 49782,
+      "sha256": "8f497ac201b50eb4d6905ebaed2256ff7c297d827328a8b3f7858efa3bb27bdc"
+    },
+    {
+      "file": "pimptr.dff",
+      "size": 93992,
+      "sha256": "4cc0810f4cb71e917ebddeb91a86d25de221ad3899731997e24f910fe438c4c3"
+    },
+    {
+      "file": "policeshirt.dff",
+      "size": 129154,
+      "sha256": "8262de531e383b621f7ed90179e139375b4445b37a4be9abeaa746487bd47019"
+    },
+    {
+      "file": "policetr.dff",
+      "size": 105800,
+      "sha256": "b1298fefffdeafa459713135d3b64a0daf81c074c31bf9a1126bc478b3a8a5f8"
+    },
+    {
+      "file": "shirta.dff",
+      "size": 146046,
+      "sha256": "99dc81fbcddfbf277825d564ea41a3d13ff942460ff9cc75795fcb7d74083b5f"
+    },
+    {
+      "file": "shirtb.dff",
+      "size": 171356,
+      "sha256": "aa159e13b58b33e4152749489728e21b9c397625a18ba3cf619618ca6baa56af"
+    },
+    {
+      "file": "shoe.dff",
+      "size": 62943,
+      "sha256": "2d69327bbfc9cdc8fe61eb935328cab671d5e0a9b7d27b29e45b8a177759882e"
+    },
+    {
+      "file": "shorts.dff",
+      "size": 91414,
+      "sha256": "d5b92a798a428610d6a68597db7b6148f6fa9856df1a2363692bbe1b0d1b1613"
+    },
+    {
+      "file": "skullycap.dff",
+      "size": 71271,
+      "sha256": "fffac3f5540caee210a9c65e7269425f38211121b027cb405b75147dc3165803"
+    },
+    {
+      "file": "sleevt.dff",
+      "size": 169818,
+      "sha256": "e63e6fd4fe2074d5ebe2316f4714899f5845e76fcfa391d36d1d4ef3b1243aad"
+    },
+    {
+      "file": "slope.dff",
+      "size": 169803,
+      "sha256": "a641ec8a66392eced43bd633b3769dbcaf6d14f5aa7c74ba0c17ba4fbbc80d6c"
+    },
+    {
+      "file": "sneaker.dff",
+      "size": 63099,
+      "sha256": "a313c3471112450d9e2ab314886bbfa8d1c5f98eda4a30af10d47ffe4c3b4885"
+    },
+    {
+      "file": "suit1.dff",
+      "size": 126857,
+      "sha256": "9cab2a268564939fe9377dca8778bdf7fce09f9a05ac6c3e4ca7a3f3dbedbe38"
+    },
+    {
+      "file": "suit1tr.dff",
+      "size": 93992,
+      "sha256": "a45da53c30b8d33bef14d541658d69e6bf586bdcaedd09f03d35612cd22b7bf5"
+    },
+    {
+      "file": "suit2.dff",
+      "size": 128585,
+      "sha256": "4921caeedba151f22521b905076f52ac44bae83f4027dbd5749e98b1225b132d"
+    },
+    {
+      "file": "sweat.dff",
+      "size": 117474,
+      "sha256": "8fd71b6f97346d2588c3933069d924fe9925f7a7e1f4b19f48ffcb09f476fefe"
+    },
+    {
+      "file": "timber.dff",
+      "size": 46920,
+      "sha256": "2deb910a582c46fd9d77408c6038bb7e74ce85e0317de0d9cf94c365d5fa5522"
+    },
+    {
+      "file": "torso.dff",
+      "size": 123782,
+      "sha256": "68b0ffd051662b25bc3cec2d18217f62d926914da1ac6826f4b69640fecd6f85"
+    },
+    {
+      "file": "tracktr.dff",
+      "size": 93386,
+      "sha256": "4652a446e10b892d5c1b8b3aa3c2704c9fbcfacc4a20f4b677634d92ef8d70f6"
+    },
+    {
+      "file": "trackytop1.dff",
+      "size": 127313,
+      "sha256": "899813d719504214584dbf41ab6292caf061f0a435c86a19f2776672dd521ccb"
+    },
+    {
+      "file": "tramline.dff",
+      "size": 173523,
+      "sha256": "628c373eedf107329c36d342b9f04e9985e834f61364a9231d816421bea2ed36"
+    },
+    {
+      "file": "trilby.dff",
+      "size": 77892,
+      "sha256": "e073aa9854ebbb6cfbb1124f0ef5995e35ad2b28060235dc4f42756fca18d21a"
+    },
+    {
+      "file": "tshirt.dff",
+      "size": 136000,
+      "sha256": "5a27fe181bd448ee455d42f5e9e2ab7263ca51650be7b612d2649b9c902e4080"
+    },
+    {
+      "file": "tshirt2.dff",
+      "size": 131579,
+      "sha256": "cbe1fe824d3060257e3d99c421d3d59858d6dd9a5d89f704cf027c03642c244f"
+    },
+    {
+      "file": "valet.dff",
+      "size": 151564,
+      "sha256": "d2ee7ada81593958744cf9b2dac00baa5907cb374bc6c506aa7c5944955960be"
+    },
+    {
+      "file": "vest.dff",
+      "size": 123781,
+      "sha256": "b50160cdc4df5c8223a818a268c43d6b4ea1eba4ed1a2dcc63d6b11d1f8b26de"
+    },
+    {
+      "file": "watch.dff",
+      "size": 47853,
+      "sha256": "1d6e119874502f9ca5fcb015c582df94795d8a3878ec8c30f4aeca840f895d8f"
+    },
+    {
+      "file": "watch_hoody.dff",
+      "size": 47853,
+      "sha256": "e5ab516fb882081ac1a515c953b01d93985c7a4807becacf7450081e2e084f4f"
+    },
+    {
+      "file": "wcoat.dff",
+      "size": 166135,
+      "sha256": "bfcc3ccb23fc4649da7052eefbe8556d669d8be98d5b97037c393738c53b46fe"
+    },
+    {
+      "file": "wedge.dff",
+      "size": 170079,
+      "sha256": "37d7541e40d08c1b1a8b40178ce96ee984913a7d1210164f0f58e029cbbd6507"
+    },
+    {
+      "file": "worktr.dff",
+      "size": 93386,
+      "sha256": "272cce8ef97ee53e97dc3b637e1e99ca285b4adc1a34ad888513dbec3da3756d"
+    },
+    {
+      "file": "worktrboot.dff",
+      "size": 93530,
+      "sha256": "aa91a082013b0588cb7869e40519bf093c72642b962dc9bc51e6c4a6b1729f4e"
+    },
+    {
+      "file": "zorromask.dff",
+      "size": 70908,
+      "sha256": "1791309dafcb33714fe26724fcc75202f3f51fd0470635797fcffca303e57da9"
+    }
+  ],
+  "face": {
+    "file": "face49.native",
+    "size": 10952,
+    "sha256": "54e7dce0d33fb365b855ed45bf6e28e2d2058cc01c28a7dbb4a05949e4d86582",
+    "offset": 6643786,
+    "oldSize": 10568,
+    "baseDat": "345d9f23e2139d278782ac341ff7b7cf4c76813ddb23dd386ce2169cd4d8ed23",
+    "baseToc": "479159cb1362ce9987fbab7e74e07935b087e7ce87c7f2a549d1979ec116a56b"
+  },
+  "audit": {
+    "vertices": 163122,
+    "triangles": 195621,
+    "models": 152
+  },
+  "description": "BCG CJ derivative preserving all consecutive normal/fat/ripped clumps, skeletons, skin weights, UV and topology."
+}

@@ -1,0 +1,47 @@
+const {chromium}=require('playwright');
+const path=require('path');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.BCG_CHROMIUM_PATH,args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:1536,height:691},hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{window.__events=[];window.BCG={send:s=>__events.push(JSON.parse(s))};});
+ await page.goto('file://'+path.resolve(__dirname,'../../app/src/main/assets/bcg_ui/index.html'));
+ await page.waitForFunction(()=>window.BCGUI);let checks=0;
+ const check=(ok,name)=>{checks++;if(!ok)throw Error(name);console.log('PASS '+name);};
+ const receive=async d=>page.evaluate(d=>BCGUI.receive(d),d);
+ const textEvents=async()=>page.evaluate(()=>__events.filter(e=>e.op==='text'&&e.text));
+ await receive({type:'connection',phase:5});await receive({type:'chatInput',open:true});
+ check(await page.locator('#chatInput').isVisible()&&await page.locator('#chatInput').count()===1,'native open event exposes one message input');
+ check(await page.locator('#chatInput').getAttribute('type')===null,'chat editor is ordinary unmasked text');
+ await page.locator('#chatInput').fill('/testarchat');await page.locator('#chatSend').tap();
+ check((await textEvents()).at(-1).text==='/testarchat','touch send preserves slash command and uses native op text');
+ await page.locator('#chatSend').tap({force:true});check((await textEvents()).length===1,'double touch does not queue the same command twice');
+ await receive({type:'chatResult',ok:false,text:'Falha ao enviar. Tente novamente.'});
+ check(await page.locator('#chatInput').inputValue()==='/testarchat'&&await page.locator('#chatSend').isEnabled(),'failed native send retains text and permits retry');
+ check((await page.locator('#chatFeedback').textContent()).includes('Falha'),'send failure is visible');
+ await page.locator('#chatSend').tap();await receive({type:'chatResult',ok:true,text:'Enviado ao servidor.'});
+ check(await page.locator('#chatOverlay').isHidden()&&await page.locator('#chatInput').inputValue()==='','successful queue closes and clears input');
+ await receive({type:'chatInput',open:true});await page.locator('#chatInput').fill('Olá, ação e café');await page.locator('#chatInput').press('Enter');
+ check((await textEvents()).at(-1).text==='Olá, ação e café','Enter sends normal Portuguese text with accents');
+ await receive({type:'chatResult',ok:true});await receive({type:'chatInput',open:true});
+ await page.locator('#chatInput').fill('🙂');const before=(await textEvents()).length;await page.locator('#chatSend').tap();
+ check((await textEvents()).length===before&&(await page.locator('#chatFeedback').textContent()).includes('emojis'),'unsupported emoji is rejected before SA-MP conversion');
+ await page.locator('#chatInput').fill('   ');await page.locator('#chatSend').tap();check((await textEvents()).length===before,'blank input never sends a message');
+ await page.locator('#chatInput').fill('rascunho');await page.locator('#chatCancel').tap();
+ check(await page.locator('#chatOverlay').isHidden()&&await page.evaluate(()=>__events.filter(e=>e.op==='text').at(-1).text===''),'cancel releases native chat with explicit empty signal');
+ await receive({type:'chatInput',open:true});check(await page.locator('#chatInput').inputValue()==='rascunho','cancel preserves draft for reopening');
+ await receive({type:'back'});check(await page.locator('#chatOverlay').isHidden(),'Android back closes input instead of opening a second chat');
+ await receive({type:'chatInput',open:true});await receive({type:'dialog',id:42,style:1,title:'Servidor',text:'Texto',left:'Enviar',right:'Voltar'});
+ check(await page.locator('#chatOverlay').isHidden()&&await page.locator('#dialogOverlay').isVisible(),'server dialog takes focus without an overlapping chat');
+ await receive({type:'dialog',id:-1});
+ for(const size of [{width:1536,height:691},{width:1280,height:720},{width:960,height:540},{width:854,height:300}]){
+  await page.setViewportSize(size);await receive({type:'chatInput',open:true});await page.waitForTimeout(60);
+  const r=await page.locator('#chatForm').boundingBox();check(r.x>=0&&r.y>=0&&r.x+r.width<=size.width&&r.y+r.height<=size.height,'composer fits '+size.width+'x'+size.height);
+  const hit=await page.evaluate(()=>__events.filter(e=>e.op==='regions').at(-1).list);check(hit.some(r=>r[0]===0&&r[1]===0&&r[2]===1&&r[3]===1),'active editor protects gameplay touches '+size.width+'x'+size.height);
+  await receive({type:'chatInput',open:false});await page.waitForTimeout(60);check((await page.evaluate(()=>__events.filter(e=>e.op==='regions').at(-1).list)).length===0,'closed composer releases all touch regions '+size.width+'x'+size.height);
+ }
+ await page.setViewportSize({width:1536,height:691});await receive({type:'chatInput',open:true});await page.locator('#chatInput').fill('/testarvoip');
+ await page.screenshot({path:path.join(__dirname,'chat_v031.png')});
+ await receive({type:'connection',phase:6});check(await page.locator('#chatOverlay').isHidden(),'connection loss closes the composer');
+ await receive({type:'connection',phase:5});await receive({type:'chatInput',open:true});await page.locator('#chatInput').fill('rascunho da sessao');await receive({type:'sessionReset'});check(await page.locator('#chatOverlay').isHidden()&&await page.locator('#hud').isHidden(),'session reset closes chat and old HUD');check(await page.locator('#chatInput').inputValue()==='rascunho da sessao','session reset preserves unsent draft');await receive({type:'connection',phase:5});await receive({type:'chatInput',open:true});check(await page.locator('#chatInput').isVisible(),'second connected session opens composer');check(errors.length===0,'no JavaScript exceptions in chat flow');
+ console.log(`V031 chat UI checks=${checks} failures=0`);await browser.close();
+})().catch(e=>{console.error(e);process.exit(1);});

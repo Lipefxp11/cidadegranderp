@@ -115,12 +115,6 @@ void OButton::performLayout()
 
 void OButton::draw(ImGuiRenderer* renderer)
 {
-    if (OpenButton)
-    {
-        // گرتنی پۆزیشنی لادراو
-        this->setPosition(ImVec2(-150.0f, -150.0f));
-        return;
-    }
 
     // راوندید و بێ outline
     renderer->drawRect(
@@ -134,7 +128,7 @@ void OButton::draw(ImGuiRenderer* renderer)
     Widget::draw(renderer);
 
     // دووبارە پۆزیشنی ئاسایی
-    this->setPosition(ImVec2(15.0f, 15.0f));
+
 }
 
 void OButton::touchPopEvent()

@@ -23,9 +23,9 @@ float UISettings::m_outlineSize = 2.0f;
 float UISettings::m_padding = 15.0f;
 
 /* keyboard */
-ImVec2 UISettings::m_keyboardPos = ImVec2(0.0f, 220.0f/*180.0f*/);
+ImVec2 UISettings::m_keyboardPos = ImVec2(0.0f, 180.0f);
 ImVec2 UISettings::m_keyboardSize = ImVec2(640.0f, 300.0f);//ImVec2(640.0f, 300.0f);
-float UISettings::m_keyboardRowHeight = 52.0f;//52.0f;
+float UISettings::m_keyboardRowHeight = 50.0f;//52.0f;
 
 /* splashscreen */
 ImVec2 UISettings::m_splashscreenLogoPos;
@@ -36,9 +36,9 @@ ImVec2 UISettings::m_splashScreenPBarSize = ImVec2(440.0f, 10.0f);
 /* chat */
 int UISettings::m_chatDispMesssages = 9;
 int UISettings::m_chatMaxMessages = 30;
-ImVec2 UISettings::m_chatPos = ImVec2(98.0f, 45.0f);
-ImVec2 UISettings::m_chatSize = ImVec2(299.0f, 0.0f);
-ImVec2 UISettings::m_chatItemSize = ImVec2(400.0f, 13.0f);
+ImVec2 UISettings::m_chatPos = ImVec2(170.0f, 16.0f);
+ImVec2 UISettings::m_chatSize = ImVec2(300.0f, 0.0f);
+ImVec2 UISettings::m_chatItemSize = ImVec2(300.0f, 16.0f);
 
 /* spawn */
 ImVec2 UISettings::m_spawnPos = ImVec2(200.0f, 420.0f);
@@ -55,12 +55,12 @@ float UISettings::m_dialogTitleHeight = 20.0f;
 float UISettings::m_dialogListItemHeight = 30.0f;
 
 /* buttonpanel */
-ImVec2 UISettings::m_buttonPanelPos = ImVec2(5.0f, 150.0f/*150.0f*/);
+ImVec2 UISettings::m_buttonPanelPos = ImVec2(9.0f, 145.0f);
 ImVec2 UISettings::m_buttonPanelSize = ImVec2(380.0f/*250.0f*//*180.0f*//*250.0f*/, 50.0f); //ImVec2(120.0f, 45.0f);
 
 /* voice button */
 ImVec2 UISettings::m_buttonVoicePos = ImVec2(500.0f, 180.0f/*170.0f*/);
-ImVec2 UISettings::m_buttonVoiceSize = ImVec2(55.0f, 80.0f);
+ImVec2 UISettings::m_buttonVoiceSize = ImVec2(44.0f, 62.0f);
 
 /* ////////////////// colors ////////////////// */
 
@@ -120,6 +120,7 @@ void UISettings::Initialize(const ImVec2& display_size)
 
 	/* buttonpanel */
 	m_buttonPanelPos = m_buttonPanelPos * m_scaleFactor;
+
 	m_buttonPanelSize = m_buttonPanelSize * m_scaleFactor;
 
 	/* button voice */
