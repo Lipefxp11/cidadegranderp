@@ -13,6 +13,6 @@ public final class ClientIdentity53 {
   android.content.pm.Signature[] signatures=info.signingInfo.getApkContentsSigners();
   if(signatures.length!=1)throw new IOException("Assinatura do cliente inválida");
   byte[] digest=MessageDigest.getInstance("SHA-256").digest(signatures[0].toByteArray());StringBuilder hash=new StringBuilder();for(byte b:digest)hash.append(String.format(java.util.Locale.ROOT,"%02x",b&255));
-  if(!"d770eeaf7cb99349a52f107704c77c509ceabf149546ba9484722e79916d3cbf".equals(hash.toString()))throw new IOException("Instale o APK assinado Cidade Grande SA-MP");
+  if(!"9143bd23931f6bf3c7cbeb5ff7e5d499ad263e94bff8c7784ffdf1437ddb5b50".equals(hash.toString()))throw new IOException("Instale o APK assinado Cidade Grande SA-MP");
  }
 }
