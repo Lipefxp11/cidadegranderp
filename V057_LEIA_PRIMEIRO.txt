@@ -1,0 +1,10 @@
+BCG V057 - Marco 1 de 64 bits
+
+BASE: APK BCG 64-bit funcional (arm64-v8a), NAO a engine Xyron de 32-bit.
+REALIZADO: HUD com visual inspirado na source Xyron, radial existente reestilizado, botões duplicados ocultados, inventário reestilizado.
+PRESERVADO: Google Login, assinatura, conexão, Java/JNI, GameMode, animações.
+NAO REALIZADO: port da libSAMP/libGTASA/libSAMPMobileCef 32->64; CEF nativo; celular e inventário da source doadora.
+VALIDACAO: arquivos conferidos; compilação Android e teste no aparelho NÃO executados.
+IMPORTANTE: Esta V057 não equivale a converter a source antiga para 64-bit. Ela é uma adaptação de HUD sobre a base 64-bit existente.
+
+Compile no GitHub Actions antes de instalar. Não remova as bibliotecas de 64 bits da base atual.
