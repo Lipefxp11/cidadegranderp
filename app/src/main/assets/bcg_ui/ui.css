@@ -56,3 +56,37 @@ body.gameMenu45 #hud,body.gameMenu45 #actions,body.gameMenu45 #movement,body.gam
 #bodyText,#localApp,#profileForm{min-height:0;overflow:auto;touch-action:pan-y;overscroll-behavior:contain}
 #dialogCard:not(.phone) #bodyText{flex-shrink:1}
 #wardrobe47 article,#wardrobe47Form label{touch-action:pan-y}
+
+/* BCG MASTER HUD RED V055 */
+
+/* BCG MASTER HUD RED V055: theme-only adaptation. Existing events and controls stay intact. */
+:root{--accent:#ed283c;--panel:#111217f2;--muted:#a9aeb9}
+button{background:#1b1b22e8;border-color:#ffffff24}
+button:active,button.selected{background:#9e1d2c;border-color:var(--accent)}
+.primary{background:#c51f33;border-color:#f24454}
+input,select{background:#202127;border-color:#44454f}
+#brand strong{color:#fff;letter-spacing:2.4px}
+#brand>div{background:#0e1019b8;border:1px solid #ed283c66;border-left:3px solid var(--accent);border-radius:8px}
+#weapon{background:#0c0f17a0;border:1px solid #ffffff20;border-radius:10px;padding:9px}
+.stat{background:#14151ddf;border:1px solid #ffffff1b;border-radius:9px;min-width:40px;padding:8px}
+.stat.health{border-bottom:2px solid #ed283c}.stat.armour{border-bottom:2px solid #e2e5ec}.stat.water{border-bottom:2px solid #409fcf}.stat.food{border-bottom:2px solid #dca84e}.stat.energy{border-bottom:2px solid #a977d8}
+#voiceStatus.live{color:#56d78c}
+#speedometer{background:linear-gradient(100deg,#0c0d14ed,#1b1d26c0);border:1px solid #ffffff2c;border-left:3px solid var(--accent);border-radius:12px;transform:none;box-shadow:0 6px 22px #0007}
+.speedTrack{height:5px;border-radius:9px;overflow:hidden}.speedTrack i{background:linear-gradient(90deg,#a7162a,#f13a4e)}
+.speedReading b{color:#fff;letter-spacing:-1px}
+#actions button{background:#12131bd9;border:1px solid #ffffff50;border-radius:10px;box-shadow:0 3px 10px #0005}
+#actions button:active{background:#8c1a2a;border-color:var(--accent)}
+#movement button{background:#11131bc7;border-color:#ffffff70}
+.notice{background:#11121aef;border-left-color:var(--accent)}
+#dialogOverlay{background:#08090db8}
+#dialogCard{border:1px solid #ffffff27;border-top:3px solid var(--accent);box-shadow:0 20px 80px #000a}
+#selector{background:linear-gradient(90deg,#08090dcc,transparent 55%,#08090d8c)}
+
+/* BCG V056 - menu radial e HUD */
+#hud{display:block!important}#hud[hidden]{display:none!important}
+#radialToggle56{position:fixed;left:2vw;bottom:17vh;z-index:28;min-width:6.5vh;min-height:6.5vh;border:1px solid #ff5b65;background:#141015e8;color:#fff;border-radius:50%;font-weight:900;font-size:2.4vh;box-shadow:0 0 18px #ed273d55}#radialToggle56 span{display:block;font-size:1vh;letter-spacing:.12em}
+#radialToggle56[hidden],#radialOverlay56[hidden]{display:none!important}#radialOverlay56{position:fixed;inset:0;z-index:55;background:#030407b8;display:grid;place-items:center}
+.radialWheel56{position:relative;width:min(76vh,70vw);height:min(76vh,70vw);border:2px solid #f0445560;border-radius:50%;background:radial-gradient(circle,#15141ce8 0%,#08090edc 75%);box-shadow:0 0 55px #000c,inset 0 0 35px #ed28392c}
+.radialWheel56 button{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4vh;width:15vh;height:12vh;min-height:0;transform:translate(-50%,-50%);border:1px solid #f34b5e8a;background:#181820ed;border-radius:14px;padding:.7vh;color:white;font-size:1.65vh}.radialWheel56 button svg{width:4vh;height:4vh;stroke:#f35b69}
+.radialWheel56 button:nth-child(1){left:50%;top:12%}.radialWheel56 button:nth-child(2){left:77%;top:23%}.radialWheel56 button:nth-child(3){left:88%;top:50%}.radialWheel56 button:nth-child(4){left:77%;top:77%}.radialWheel56 button:nth-child(5){left:50%;top:88%}.radialWheel56 button:nth-child(6){left:23%;top:77%}.radialWheel56 button:nth-child(7){left:12%;top:50%}.radialWheel56 button:nth-child(8){left:23%;top:23%;background:#9e2030}
+body.gameMenu45 #radialToggle56,body.gameMenu45 #radialOverlay56{display:none!important}
